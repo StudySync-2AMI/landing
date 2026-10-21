@@ -15,7 +15,7 @@
     --border-paper: #1A1A1A;
     --border-stone: #1A1A1A;
     --border-stone-strong: #1A1A1A;
-    --border-subtle: rgba(26, 26, 26, 0.14);
+    --border-subtle: rgba(26, 26, 26, 0.16);
     --ink-primary: #1A1A1A;
     --ink-secondary: #4A4E54;
     --ink-muted: #737A84;
@@ -37,31 +37,35 @@
     --bg-paper: #11151C;
     --surface-card: #181E27;
     --surface-subtle: #1F2733;
-    --border-paper: rgba(255, 255, 255, 0.12);
-    --border-stone: rgba(255, 255, 255, 0.12);
-    --border-stone-strong: rgba(255, 255, 255, 0.22);
-    --border-subtle: rgba(255, 255, 255, 0.08);
+    /* Crisp, solid 2px borders with high contrast so dark mode never looks faint or pixelated */
+    --border-paper: #3A4556;
+    --border-stone: #3A4556;
+    --border-stone-strong: #526078;
+    --border-subtle: rgba(255, 255, 255, 0.18);
     --ink-primary: #F9F7F1;
-    --ink-secondary: #B0B7C3;
-    --ink-muted: #727D8F;
+    --ink-secondary: #C2C9D6;
+    --ink-muted: #8E99AA;
     --accent-mint: #69A384;
     --accent-yellow: #E5BE54;
     --accent-peach: #E29373;
     --accent-terracotta: #E86A46;
-    --accent-purple: #8B7BA8;
+    --accent-purple: #A695C4;
     --accent-oxford: #7AA2C7;
     --accent-sage: #7BB882;
     --accent-amber: #E2A03F;
-    --shadow-offset: 0 4px 20px rgba(0, 0, 0, 0.5);
-    --shadow-offset-lg: 0 10px 30px rgba(0, 0, 0, 0.65);
-    --ruled-line: rgba(249, 247, 241, 0.03);
-    --margin-line: rgba(232, 106, 70, 0.22);
+    --shadow-offset: 3px 3px 0px #090B0F;
+    --shadow-offset-lg: 5px 5px 0px #090B0F;
+    --ruled-line: rgba(249, 247, 241, 0.035);
+    --margin-line: rgba(232, 106, 70, 0.25);
   }
 
+  html,
   body {
     background-color: var(--bg-paper);
     color: var(--ink-primary);
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    overflow-x: hidden;
+    width: 100%;
   }
 }
 
@@ -75,7 +79,7 @@
 
 /* Subtle physical paper noise overlay */
 .paper-grain-overlay {
-  background-image: radial-gradient(rgba(0, 0, 0, 0.06) 1px, transparent 0);
+  background-image: radial-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 0);
   background-size: 24px 24px;
 }
 .dark .paper-grain-overlay {
@@ -109,7 +113,7 @@
   border-left: 2px solid var(--margin-line);
 }
 
-/* Physical Scrapbook Card styling */
+/* Physical Scrapbook Card styling (Solid 2px borders in both light and dark mode) */
 .scrapbook-card {
   background: var(--surface-card);
   border: 2px solid var(--border-paper);
@@ -117,7 +121,8 @@
   transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .dark .scrapbook-card {
-  border: 1px solid var(--border-paper);
+  border: 2px solid #3A4556;
+  box-shadow: 3px 3px 0px #080A0E, 0 0 0 1px rgba(255, 255, 255, 0.1);
 }
 
 /* Physical Scrapbook Button */
@@ -135,7 +140,8 @@
   cursor: pointer;
 }
 .dark .scrapbook-btn {
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 2px solid #4A566A;
+  box-shadow: 3px 3px 0px #080A0E;
 }
 .scrapbook-btn:hover {
   transform: translate(-1px, -2px);
@@ -148,7 +154,7 @@
 
 /* Editorial stationery stamp */
 .archival-stamp {
-  border: 1.5px dashed currentColor;
+  border: 2px dashed currentColor;
   border-radius: 4px;
   padding: 2px 8px;
   display: inline-flex;

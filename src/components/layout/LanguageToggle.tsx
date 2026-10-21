@@ -1,22 +1,28 @@
 "use client";
 
 import { useLanguage } from "@/context/LanguageContext";
-import { Languages } from "lucide-react";
+import { cn } from "@/lib/utils";
 
-export function LanguageToggle() {
-  const { language, toggleLanguage, t } = useLanguage();
+export function LanguageToggle({ className }: { className?: string }) {
+  const { language, toggleLanguage } = useLanguage();
+  const isArabic = language === "ar";
 
   return (
     <button
       onClick={toggleLanguage}
-      className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-[var(--paper-card-border)] bg-[var(--paper-card)] hover:bg-[var(--paper-bg)] text-xs md:text-sm font-medium text-[var(--ink-primary)] transition-all duration-200 hover:scale-105 active:scale-95 shadow-sm"
+      className={cn(
+        "flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border-2 border-dashed border-[var(--border-paper)]",
+        "bg-[var(--surface-card)] text-[var(--ink-primary)]",
+        "shadow-[2px_2px_0px_#1A1A1A] dark:shadow-md",
+        "font-mono text-xs font-black tracking-wider uppercase",
+        "hover:-translate-y-0.5 active:translate-y-0.5 transition-all cursor-pointer select-none",
+        className
+      )}
       aria-label="Switch Language"
-      title={t("nav.switchLang")}
+      title={isArabic ? "Switch to English" : "التبديل إلى العربية"}
     >
-      <Languages className="w-4 h-4 text-amber-600 dark:text-amber-400" />
-      <span className="font-semibold">
-        {language === "ar" ? "English" : "العربية"}
-      </span>
+      <span className="text-sm">🌐</span>
+      <span>{isArabic ? "EN" : "عربي"}</span>
     </button>
   );
 }

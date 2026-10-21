@@ -4,11 +4,13 @@ import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 import { Sun, Moon } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
+import { cn } from "@/lib/utils";
 
-export function ThemeToggle() {
-  const { theme, setTheme, resolvedTheme } = useTheme();
+export function ThemeToggle({ className }: { className?: string }) {
+  const { setTheme, resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+  const isArabic = language === "ar";
 
   useEffect(() => {
     setMounted(true);
@@ -16,12 +18,7 @@ export function ThemeToggle() {
 
   if (!mounted) {
     return (
-      <button
-        aria-label="Toggle theme"
-        className="w-9 h-9 rounded-lg border border-[var(--paper-card-border)] bg-[var(--paper-card)] flex items-center justify-center opacity-70"
-      >
-        <span className="w-4 h-4 rounded-full bg-amber-400" />
-      </button>
+      <div className="w-9 h-9 rounded-lg border-2 border-[var(--border-paper)] bg-[var(--surface-card)] opacity-60" />
     );
   }
 
@@ -30,14 +27,20 @@ export function ThemeToggle() {
   return (
     <button
       onClick={() => setTheme(isDark ? "light" : "dark")}
-      className="relative p-2 rounded-lg border border-[var(--paper-card-border)] bg-[var(--paper-card)] hover:bg-[var(--paper-bg)] text-[var(--ink-primary)] transition-all duration-200 hover:scale-105 active:scale-95 shadow-sm"
-      title={isDark ? t("nav.themeLight") : t("nav.themeDark")}
-      aria-label="Toggle theme"
+      className={cn(
+        "relative flex items-center justify-center gap-1.5 p-2 rounded-lg border-2 border-[var(--border-paper)]",
+        "bg-[var(--surface-card)] text-[var(--ink-primary)]",
+        "shadow-[2px_2px_0px_#1A1A1A] dark:shadow-md",
+        "hover:-translate-y-0.5 active:translate-y-0.5 transition-all cursor-pointer select-none",
+        className
+      )}
+      title={isDark ? (isArabic ? "إضاءة نهارية" : "Day Study Mode") : (isArabic ? "مصباح مكتبي ليلي" : "Night Desk Mode")}
+      aria-label="Toggle Desk Lighting"
     >
       {isDark ? (
-        <Sun className="w-4 h-4 text-amber-400 transition-transform rotate-0 hover:rotate-45" />
+        <Sun className="w-4 h-4 text-amber-400 rotate-0 hover:rotate-45 transition-transform" />
       ) : (
-        <Moon className="w-4 h-4 text-indigo-600 transition-transform -rotate-12 hover:rotate-0" />
+        <Moon className="w-4 h-4 text-indigo-700 dark:text-indigo-400 -rotate-12 hover:rotate-0 transition-transform" />
       )}
     </button>
   );
