@@ -1,0 +1,208 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: var(--font-serif), "Playfair Display", Georgia, serif;
+  --font-sans: var(--font-outfit), var(--font-cairo), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-handwriting: var(--font-handwritten), "Caveat", cursive;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+@layer base {
+  :root {
+    --bg-paper: #F9F7F1;
+    --surface-card: #FFFFFF;
+    --surface-subtle: #F3EFE6;
+    --border-paper: #1A1A1A;
+    --border-stone: #1A1A1A;
+    --border-stone-strong: #1A1A1A;
+    --border-subtle: rgba(26, 26, 26, 0.14);
+    --ink-primary: #1A1A1A;
+    --ink-secondary: #4A4E54;
+    --ink-muted: #737A84;
+    --accent-mint: #D1E8D1;
+    --accent-yellow: #FDF1CC;
+    --accent-peach: #FAD4C0;
+    --accent-terracotta: #E86A46;
+    --accent-purple: #8B7BA8;
+    --accent-oxford: #2B3A4A;
+    --accent-sage: #3D5A40;
+    --accent-amber: #D9822B;
+    --shadow-offset: 3px 3px 0px #1A1A1A;
+    --shadow-offset-lg: 5px 5px 0px #1A1A1A;
+    --ruled-line: rgba(26, 26, 26, 0.04);
+    --margin-line: rgba(232, 106, 70, 0.28);
+  }
+
+  .dark {
+    --bg-paper: #11151C;
+    --surface-card: #181E27;
+    --surface-subtle: #1F2733;
+    --border-paper: rgba(255, 255, 255, 0.12);
+    --border-stone: rgba(255, 255, 255, 0.12);
+    --border-stone-strong: rgba(255, 255, 255, 0.22);
+    --border-subtle: rgba(255, 255, 255, 0.08);
+    --ink-primary: #F9F7F1;
+    --ink-secondary: #B0B7C3;
+    --ink-muted: #727D8F;
+    --accent-mint: #69A384;
+    --accent-yellow: #E5BE54;
+    --accent-peach: #E29373;
+    --accent-terracotta: #E86A46;
+    --accent-purple: #8B7BA8;
+    --accent-oxford: #7AA2C7;
+    --accent-sage: #7BB882;
+    --accent-amber: #E2A03F;
+    --shadow-offset: 0 4px 20px rgba(0, 0, 0, 0.5);
+    --shadow-offset-lg: 0 10px 30px rgba(0, 0, 0, 0.65);
+    --ruled-line: rgba(249, 247, 241, 0.03);
+    --margin-line: rgba(232, 106, 70, 0.22);
+  }
+
+  body {
+    background-color: var(--bg-paper);
+    color: var(--ink-primary);
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+}
+
+.font-serif {
+  font-family: var(--font-serif), "Playfair Display", Georgia, serif;
+}
+
+.font-handwriting {
+  font-family: var(--font-handwritten), "Caveat", cursive;
+}
+
+/* Subtle physical paper noise overlay */
+.paper-grain-overlay {
+  background-image: radial-gradient(rgba(0, 0, 0, 0.06) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+.dark .paper-grain-overlay {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 0);
+}
+
+/* Subtle stationery ruled paper */
+.paper-ruled {
+  background-image: repeating-linear-gradient(
+    transparent,
+    transparent 29px,
+    var(--ruled-line) 29px,
+    var(--ruled-line) 30px
+  );
+  background-size: 100% 30px;
+}
+
+/* Archival grid */
+.paper-grid {
+  background-size: 20px 20px;
+  background-image:
+    linear-gradient(to right, var(--ruled-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--ruled-line) 1px, transparent 1px);
+}
+
+/* Subtle margin border line */
+.paper-margin-ar {
+  border-right: 2px solid var(--margin-line);
+}
+.paper-margin-en {
+  border-left: 2px solid var(--margin-line);
+}
+
+/* Physical Scrapbook Card styling */
+.scrapbook-card {
+  background: var(--surface-card);
+  border: 2px solid var(--border-paper);
+  box-shadow: var(--shadow-offset);
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.dark .scrapbook-card {
+  border: 1px solid var(--border-paper);
+}
+
+/* Physical Scrapbook Button */
+.scrapbook-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1.25rem;
+  font-weight: 700;
+  border-radius: 0.5rem;
+  border: 2px solid var(--border-paper);
+  box-shadow: var(--shadow-offset);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  cursor: pointer;
+}
+.dark .scrapbook-btn {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.scrapbook-btn:hover {
+  transform: translate(-1px, -2px);
+  box-shadow: var(--shadow-offset-lg);
+}
+.scrapbook-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0px var(--border-paper);
+}
+
+/* Editorial stationery stamp */
+.archival-stamp {
+  border: 1.5px dashed currentColor;
+  border-radius: 4px;
+  padding: 2px 8px;
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-mono), monospace;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* Clean scholarly scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-paper);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-stone-strong);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--ink-muted);
+}
+
+@keyframes orbitFloat {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(1deg);
+  }
+}
+
+.animate-orbit-float {
+  animation: orbitFloat 5s ease-in-out infinite;
+}
+
+.animate-orbit-float-delayed {
+  animation: orbitFloat 6s ease-in-out infinite 1.5s;
+}
+
+.animate-orbit-float-slow {
+  animation: orbitFloat 7s ease-in-out infinite 3s;
+}
+
+@media print {
+  header, footer, nav, button, .no-print {
+    display: none !important;
+  }
+  body {
+    background: #fff !important;
+    color: #000 !important;
+  }
+}

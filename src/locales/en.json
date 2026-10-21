@@ -1,0 +1,563 @@
+{
+  "nav": {
+    "brand": "StudySync",
+    "version": "Version 1.0",
+    "overview": "Overview",
+    "objectives": "Objectives",
+    "roles": "Users & Roles",
+    "courses": "Courses & Modules",
+    "attendance": "Smart Attendance",
+    "grades": "Grades & Risk Matrix",
+    "calendar": "Calendar & Focus",
+    "ai": "AI & ML Engine",
+    "tools": "Smart Study Tools",
+    "workflows": "System Workflows",
+    "scope": "Project Scope",
+    "value": "Value Proposition",
+    "searchPlaceholder": "Search project specs & system details...",
+    "searchButton": "Search",
+    "quickNav": "Notebook Index",
+    "print": "Print Specification",
+    "themeLight": "Day Study Notebook",
+    "themeDark": "Night Desk Notebook",
+    "switchLang": "العربية"
+  },
+  "hero": {
+    "badge": "Comprehensive Smart University System • Version 1.0",
+    "title": "StudySync",
+    "tagline": "Intelligent Integrated Academic Platform for University Journey Management",
+    "description": "A unified academic platform integrating courses, attendance, academic calendar, early risk warnings, and AI-powered career track guidance.",
+    "pitchLabel": "One-Sentence Pitch:",
+    "pitchText": "A unified platform that guides the student on what they can study, what best matches their career track, what urgent tasks require action, and alerts them before any academic risk, all within one centralized hub.",
+    "exploreBtn": "Explore System Details",
+    "scopeBtn": "Implementation Scope",
+    "stats": {
+      "roles": { "value": "4 Roles", "label": "Key Ecosystem Roles" },
+      "modules": { "value": "10+ Modules", "label": "Integrated Modules" },
+      "ai": { "value": "Dual (ML + AI)", "label": "Guidance & Study Engine" },
+      "qr": { "value": "Dynamic QR", "label": "Tamper-proof Attendance" }
+    }
+  },
+  "s1_overview": {
+    "number": "01",
+    "title": "Project Overview",
+    "subtitle": "What is StudySync and why was it built?",
+    "p1": "StudySync is an all-in-one academic ecosystem designed to help university students manage their educational journey, tracking courses, lectures, attendance, grades, and academic milestones via a single centralized platform.",
+    "p2": "The platform bridges students, professors, teaching assistants, and academic administrators, empowering each user with role-specific capabilities. Furthermore, it incorporates AI-driven tools to assist students with career-aligned course selection, lecture summarization, practice question generation, and personalized study schedules.",
+    "problemTitle": "The Problem Addressed by the System:",
+    "problemText": "The project solves the pervasive fragmentation of academic services across disparate apps, social groups, and isolated systems. Lecture slides reside in one place, official announcements in another, while attendance and grades are tracked on separate spreadsheets. StudySync consolidates all these workflows into a cohesive, intuitive platform."
+  },
+  "s2_objectives": {
+    "number": "02",
+    "title": "Project Objectives",
+    "subtitle": "The 10 Strategic Objectives of the Platform",
+    "items": [
+      { "id": "1", "title": "Unify Academic Resources", "desc": "Centralize courses, lecture slides, and official announcements in a single hub to eliminate fragmentation." },
+      { "id": "2", "title": "Smart Digital Attendance", "desc": "Streamline attendance logging and combat proxy attendance using rotating dynamic QR codes." },
+      { "id": "3", "title": "Real-time Direct Monitoring", "desc": "Provide transparent, instant visibility into attendance records, scores, and academic warning notices." },
+      { "id": "4", "title": "Unified Academic Calendar", "desc": "Synchronize lectures, lab sections, exams, and project submissions in an interactive smart calendar." },
+      { "id": "5", "title": "Proactive Notifications", "desc": "Dispatch instant notifications and timely reminders for vital deadlines and critical updates." },
+      { "id": "6", "title": "Tailored Career Guidance", "desc": "Help students choose elective courses that best align with their desired target professional paths." },
+      { "id": "7", "title": "AI Learning Assistant", "desc": "Leverage artificial intelligence to summarize lectures and generate diagnostic practice quizzes." },
+      { "id": "8", "title": "Personalized Study Plans", "desc": "Generate adaptive study schedules calculated from individual workload, course difficulty, and exam dates." },
+      { "id": "9", "title": "External Opportunities Bridge", "desc": "Recommend verified internships, certified courses, and hackathons tailored to student capabilities." },
+      { "id": "10", "title": "Early Academic Warning", "desc": "Identify academic risks proactively before reaching course deprivation thresholds or failure." }
+    ]
+  },
+  "s3_roles": {
+    "number": "03",
+    "title": "System Users & Roles",
+    "subtitle": "Dedicated permissions tailored for every stakeholder in the academic ecosystem",
+    "roles": [
+      {
+        "id": "student",
+        "name": "Student",
+        "enName": "Student",
+        "badge": "Primary User",
+        "summary": "The center of the educational experience, equipped with a comprehensive cockpit for academics and career planning.",
+        "permissions": [
+          "View enrolled courses with instant access to lectures, lab notes, and resources.",
+          "Track announcements per course and receive real-time updates upon publishing.",
+          "Check in via dynamic rotating QR code scanning during lectures and lab sections.",
+          "Monitor personal attendance rates and remaining allowed absences before deprivation.",
+          "Inspect grades and assessment breakdowns immediately after professor accreditation.",
+          "Receive proactive early academic warnings when attendance or scores dip.",
+          "Track milestones, quiz dates, midterm schedules, and assignment deadlines.",
+          "Create private tasks, rich notes, and attachments in their secure personal workspace.",
+          "Select desired career tracks and receive tailored course recommendations.",
+          "Generate concise summaries and flashcard practice questions directly from lecture files using AI.",
+          "Obtain an automated, adaptive study schedule aligned with academic deadlines.",
+          "Receive curated notifications for external internships, hackathons, and certified workshops."
+        ]
+      },
+      {
+        "id": "professor",
+        "name": "Professor / Faculty Member",
+        "enName": "Professor",
+        "badge": "Academic Leadership",
+        "summary": "Full authority to manage courses, upload scientific materials, publish evaluations, and initiate attendance sessions.",
+        "permissions": [
+          "Manage and configure academic course syllabus and learning outcomes.",
+          "Publish lecture slides, reference materials, and urgent course announcements.",
+          "Initiate secure attendance sessions with auto-refreshing dynamic QR codes.",
+          "Input, review, and finalize grades for quizzes, midterms, and project coursework.",
+          "Propose makeup lecture times with automatic student schedule conflict resolution.",
+          "Monitor cohort academic health and identify students at academic risk."
+        ]
+      },
+      {
+        "id": "ta",
+        "name": "Teaching Assistant (TA)",
+        "enName": "Teaching Assistant (TA)",
+        "badge": "Practical Support",
+        "summary": "Oversees lab sections, manages programming/practical assignments, and audits section attendance.",
+        "permissions": [
+          "Upload lab section sheets, code templates, and hands-on assignment briefs.",
+          "Run lab attendance check-ins and review validated excused absences.",
+          "Grade student assignments with contextual feedback and rubric notes.",
+          "Provide direct technical mentorship and answer section inquiries.",
+          "Deliver weekly section progress summaries to course professors."
+        ]
+      },
+      {
+        "id": "admin",
+        "name": "Academic Administrator",
+        "enName": "Academic Administrator",
+        "badge": "Governance & Oversight",
+        "summary": "Administers degree plans, reviews machine-learning track classifications (HITL), and accredits opportunities.",
+        "permissions": [
+          "Configure degree requirements, credit hour limits, and prerequisite/corequisite rules.",
+          "Audit and approve ML-generated course-to-career-track mappings (Human-In-The-Loop).",
+          "Verify and publish external internship and hackathon opportunities.",
+          "Issue formal academic warning letters and deprivation notices for critical attendance deficits.",
+          "Import/export student grade books and synchronize with university SIS infrastructure."
+        ]
+      }
+    ]
+  },
+  "s4_courses": {
+    "number": "04",
+    "title": "Academic Course Management",
+    "subtitle": "Comprehensive specifications, prerequisite enforcement, and interactive dependency graphs",
+    "attributesTitle": "Core Course Attributes Specification",
+    "attributes": [
+      { "key": "Course Code", "desc": "Official course identifier (e.g., CS201)" },
+      { "key": "Course Name", "desc": "Full bilingual course title in Arabic and English" },
+      { "key": "Course Description", "desc": "Detailed syllabus breakdown, methodologies, and technologies" },
+      { "key": "Academic Level", "desc": "Year of study (Freshman, Sophomore, Junior, Senior)" },
+      { "key": "Suggested Semester", "desc": "Recommended semester (Fall, Spring, Summer)" },
+      { "key": "Credit Hours", "desc": "Accredited course credit units (e.g., 3 Credit Hours)" },
+      { "key": "Course Type", "desc": "Course classification: Required (Core) or Elective" },
+      { "key": "Estimated Workload", "desc": "Expected study effort: Low | Medium | High (more objective than easy/hard)" },
+      { "key": "Availability Status", "desc": "Current term offering status (Offered / Not Offered)" },
+      { "key": "Learning Outcomes", "desc": "Target competencies, theoretical knowledge, and practical skills gained" }
+    ],
+    "structureTitle": "Academic Course Content Hierarchy:",
+    "structureDesc": "Course ➔ Academic Week ➔ [ Lecture | Section | Assignment | Quiz ]",
+    "prereqTitle": "Prerequisites & Corequisites Enforcement",
+    "prereqDesc": "The system strictly prevents enrollment in advanced subjects before passing prerequisites, displaying explicit guidance (e.g., 'You cannot enroll in Algorithms because you have not completed Data Structures'). Concurrent corequisites (e.g., Physics 1 with Physics Lab 1) are also verified.",
+    "graphTitle": "Course Dependency Graph",
+    "graphDesc": "Visualizes completed courses, currently eligible courses, and locked future courses with prerequisite paths.",
+    "graphNote": "* Green courses are completed, blue is unlocked and eligible for immediate enrollment."
+  },
+  "s5_attendance": {
+    "number": "05",
+    "title": "Smart Attendance & Absence System",
+    "subtitle": "Instant dynamic QR check-in with anti-proxy protection and deprivation countdown",
+    "features": [
+      {
+        "title": "Fast & Secure Attendance Sessions",
+        "desc": "The instructor starts a timed session displaying a dynamic QR code that refreshes every few seconds to prevent photo forwarding."
+      },
+      {
+        "title": "Tamper-Proof QR Characteristics",
+        "desc": "Encoded with a time-limited cryptographic token tied to the specific session, permitting only one scan per authenticated student account."
+      },
+      {
+        "title": "Dual Verification & Manual Fallback",
+        "desc": "Server checks session validity and duplicate prevention, with a manual override option (Present / Absent / Late / Excused) with audit log."
+      },
+      {
+        "title": "Geofencing Verification (Optional)",
+        "desc": "Optional radius validation ensuring student presence within lecture hall vicinity during the scan moment only, preserving full privacy."
+      },
+      {
+        "title": "Deprivation Counter & Live Ratios",
+        "desc": "Real-time calculation of presence, absences, and tardiness, showing exact remaining missed lectures before reaching the critical 75% threshold."
+      }
+    ],
+    "interactive": {
+      "liveSession": "Live Attendance Session: CS301 (Auditorium D)",
+      "timeRemaining": "Session Time Remaining",
+      "tokenRefresh": "Token Refreshes In",
+      "scanBtn": "Simulate Live QR Check-in",
+      "scannedSuccess": "Attendance confirmed! Cryptographic token and classroom geofence validated.",
+      "remainingAbsences": "Remaining Absences Before Deprivation:",
+      "absenceCount": "Only 1 lecture remaining (Warning)"
+    }
+  },
+  "s6_grades": {
+    "number": "06",
+    "title": "Grading, Assessments & Academic Risk Detection",
+    "subtitle": "Transparent grade recording with a proactive rules-based early warning matrix",
+    "intro": "Supports all assessment archetypes: Assignments, Quizzes, Midterms, Final Exams, Projects, Practical Labs, and Participation. Saved as draft prior to official publication with instantaneous push alerts to students.",
+    "matrixTitle": "Rules-Based Academic Risk Matrix:",
+    "levels": [
+      {
+        "id": "safe",
+        "name": "Safe",
+        "condition": "Attendance > 85%, all assignments submitted, and scores above passing threshold",
+        "message": "Your academic standing is stable and excellent.",
+        "badgeClass": "bg-emerald-500/20 text-emerald-700 dark:text-emerald-300 border-emerald-500"
+      },
+      {
+        "id": "attention",
+        "name": "Attention Required",
+        "condition": "Attendance between 76% and 84%, or 1 missing assignment",
+        "message": "Regular attendance is advised to prevent escalation.",
+        "badgeClass": "bg-amber-500/20 text-amber-700 dark:text-amber-300 border-amber-500"
+      },
+      {
+        "id": "risk",
+        "name": "At Risk",
+        "condition": "Attendance nearing 75% (deprivation limit), or 2+ missing assignments",
+        "message": "Your attendance is 77% (threshold: 75%). An additional absence will trigger deprivation!",
+        "badgeClass": "bg-orange-500/20 text-orange-700 dark:text-orange-300 border-orange-500"
+      },
+      {
+        "id": "critical",
+        "name": "Critical Risk",
+        "condition": "Attendance ≤ 75% (exceeded deprivation limit) or failing initial exam scores",
+        "message": "Permissible absence limit exceeded. Contact your academic advisor immediately.",
+        "badgeClass": "bg-rose-500/20 text-rose-700 dark:text-rose-300 border-rose-500"
+      }
+    ],
+    "simulator": {
+      "title": "Try Interactive Risk Detection Simulator:",
+      "attendanceLabel": "Attendance Rate:",
+      "missingTasksLabel": "Missing Assignments:",
+      "gradesLabel": "Current Grade Average:"
+    }
+  },
+  "s7_workspace": {
+    "number": "07",
+    "title": "Student Personal Academic Workspace",
+    "subtitle": "Private cloud vault to organize notes, recordings, and references with complete confidentiality",
+    "features": [
+      {
+        "title": "Comprehensive Organization & Vault",
+        "desc": "Store lecture notes, handwritten sketches, voice recordings, external links, and reference articles in structured notebooks."
+      },
+      {
+        "title": "Smart Academic Linking",
+        "desc": "Tag and associate any note or file with a specific course, lecture, lab section, assignment, or calendar milestone."
+      },
+      {
+        "title": "Absolute Privacy Protection",
+        "desc": "The workspace is strictly visible only to the individual student. Faculty, TAs, and peers have zero access."
+      }
+    ]
+  },
+  "s8_calendar": {
+    "number": "08",
+    "title": "Unified Academic Calendar & Focus Priority",
+    "subtitle": "All deadlines, exams, and deliverables in one interactive board with auto-calculated priorities",
+    "formulaTitle": "Smart Priority Score Formula:",
+    "formula": "Priority Score = Deadline Urgency + Assessment Weight + Student Priority + Academic Risk Modifier",
+    "focusTitle": "Immediate Focus List: What should I do next?",
+    "focusSubtitle": "Live auto-prioritized feed of high-urgency tasks calculated for the student:",
+    "tasks": [
+      {
+        "title": "Submit Database Assignment",
+        "time": "Today - Before 11:59 PM",
+        "badge": "Imminent Deadline",
+        "score": "98/100",
+        "status": "urgent"
+      },
+      {
+        "title": "Review Software Engineering Slides",
+        "time": "Exam in 3 Days",
+        "badge": "Upcoming Exam",
+        "score": "91/100",
+        "status": "warning"
+      },
+      {
+        "title": "Attend Algorithms Lab Section",
+        "time": "2:00 PM - Building C",
+        "badge": "Mandatory Section",
+        "score": "84/100",
+        "status": "info"
+      },
+      {
+        "title": "Take Mobile Development Interactive Quiz",
+        "time": "Tomorrow - Available 24h",
+        "badge": "Practice Quiz",
+        "score": "76/100",
+        "status": "success"
+      }
+    ]
+  },
+  "s9_timetable": {
+    "number": "09",
+    "title": "Free-time Calculator & Timetable Rescheduling",
+    "subtitle": "Coordinate alternative class schedules without student timetable clashes",
+    "steps": [
+      { "step": "01", "text": "The professor selects a proposed replacement or makeup lecture timeslot." },
+      { "step": "02", "text": "The engine automatically audits schedules of all registered students in the course." },
+      { "step": "03", "text": "An availability dashboard displays available students vs. conflicting students." },
+      { "step": "04", "text": "The change is accredited, synchronizing calendars and dispatching instant notifications." }
+    ],
+    "hallsTitle": "Campus Study Halls Availability:",
+    "hallsDesc": "Optional feature mapping empty university study halls, capacities, and locations for productive gaps between classes."
+  },
+  "s10_notifications": {
+    "number": "10",
+    "title": "Smart Targeted Notification Engine",
+    "subtitle": "Multi-channel alerting ensuring no critical academic event is ever missed",
+    "channels": "Multi-channel support: In-App Notifications • Push Notifications • Optional Email Alerts",
+    "ruleNotice": "Strict Governance Rule: Students cannot mute critical alerts (e.g., Exam time changes, Deprivation warnings, Official notices).",
+    "categories": [
+      { "title": "Course & Content Alerts", "desc": "New lecture uploaded, lab files published, urgent instructor announcements." },
+      { "title": "Exams & Quizzes Alerts", "desc": "Exam scheduled, timing updated, reminders at 1 week / 3 days / 1 day / 1 hour." },
+      { "title": "Assignments & Deliverables", "desc": "New assignment published, 48h/6h countdown reminders, submission closed notice." },
+      { "title": "Attendance & Early Warnings", "desc": "Scan confirmed, absence approaching deprivation threshold, official academic warnings." },
+      { "title": "Grades & Assessment Results", "desc": "Instant notice when quiz, midterm, or final marks are posted to the grade book." }
+    ]
+  },
+  "s11_ai_track": {
+    "number": "11",
+    "title": "AI Model: Course-to-Career Track Mapping",
+    "subtitle": "Machine Learning (Multi-label Text Classification) for Career Guidance",
+    "intro": "Maps academic courses to real-world career tracks (e.g., Mobile Dev, Backend, Data Engineering) by extracting syllabus context and learning outcomes.",
+    "modelType": "Model Type: Multi-label Text Classification (a single course can serve multiple professional career tracks concurrently).",
+    "featuresTitle": "Model Features (Input Vectors):",
+    "features": [
+      "Course Name",
+      "Course Description",
+      "Topics & Weekly Syllabus",
+      "Target Learning Outcomes",
+      "Tools & Tech Stacks (Flutter, SQL, Dart, etc.)"
+    ],
+    "hitlTitle": "Human-in-the-Loop (HITL) Continuous Learning:",
+    "hitlDesc": "The model proposes tracks with confidence scores (e.g., Mobile Dev 95%, Software Eng 72%). They are not auto-approved; the Academic Admin audits them, and adjustments continuously retrain the model.",
+    "demoTitle": "Admin HITL Interactive Review Simulation",
+    "demoCourse": "Course: Mobile Application Development (CS402)",
+    "tracks": [
+      { "name": "Mobile Development", "confidence": "95%", "type": "strong", "status": "approved" },
+      { "name": "Software Engineering", "confidence": "72%", "type": "strong", "status": "approved" },
+      { "name": "Frontend Development", "confidence": "44%", "type": "weak", "status": "rejected" },
+      { "name": "Data Science", "confidence": "5%", "type": "weak", "status": "rejected" }
+    ],
+    "legend": [
+      { "label": "Strong Correlation", "range": "Confidence ≥ 70%" },
+      { "label": "Possible Correlation", "range": "Confidence 50% - 69%" },
+      { "label": "Weak Correlation", "range": "Confidence < 50%" }
+    ],
+    "algorithms": "Recommended Architecture: TF-IDF + One-vs-Rest Logistic Regression (ultra-fast baseline with no GPU overhead) • Linear SVM • Sentence Embeddings + Neural Networks."
+  },
+  "s12_recommendation": {
+    "number": "12",
+    "title": "Student Subject Recommendation Engine",
+    "subtitle": "Staged filtering ensuring strict regulatory compliance before individual preferences",
+    "stage1Title": "Stage 1: Strict Academic Regulatory Constraints",
+    "stage1Items": [
+      "Exclude subjects previously passed by the student.",
+      "Exclude courses not offered in the current semester.",
+      "Verify completion of all mandatory Prerequisites.",
+      "Ensure registration of required concurrent Corequisites.",
+      "Enforce maximum allowed credit hour registration ceilings.",
+      "Verify course suitability for the student's actual academic year."
+    ],
+    "stage2Title": "Stage 2: Adaptive Weighted Ranking of Eligible Subjects",
+    "formula": "Recommendation Score = (Track Relevance × 45%) + (Skill Match × 30%) + (Workload Preference × 15%) + (Student Interest × 10%)",
+    "explainable": "Complete Explainable AI transparency: reasons for every recommendation are explicitly detailed, granting full freedom of enrollment without coercion."
+  },
+  "s13_ai_tools": {
+    "number": "13",
+    "title": "AI-Powered Educational Tools",
+    "subtitle": "Integrated study assistants strictly grounded exclusively in official lecture materials",
+    "tools": [
+      {
+        "title": "Intelligent Lecture Summaries",
+        "desc": "Extracts core concepts, definitions, mathematical theorems, and must-review highlights with exact slide number citations."
+      },
+      {
+        "title": "Practice Questions Generator",
+        "desc": "Generates multiple-choice (MCQs), true/false, and conceptual problem-solving drills with selectable difficulty levels."
+      },
+      {
+        "title": "Grounded Academic Q&A Assistant",
+        "desc": "Answers student questions strictly using course slides and files, providing exact citations and refusing to hallucinate or solve graded homework."
+      },
+      {
+        "title": "Smart Adaptive Study Planner",
+        "desc": "Calculates daily study blocks factoring in upcoming exam proximity, assessment weights, quiz diagnostic scores, and student free time."
+      }
+    ],
+    "quizDemo": {
+      "title": "Try Instant AI Practice Question Generator (Interactive Demo):",
+      "question": "What is the primary architectural difference between a Stack and a Queue in Data Structures?",
+      "options": [
+        "Stack operates via LIFO while Queue operates via FIFO",
+        "Stack has infinite size while Queue has fixed capacity",
+        "Queue operates via LIFO while Stack operates via FIFO"
+      ],
+      "correct": 0,
+      "feedback": "Correct! A Stack operates on Last-In-First-Out, whereas a Queue operates on First-In-First-Out principle."
+    }
+  },
+  "s14_opportunities": {
+    "number": "14",
+    "title": "External Opportunity Hub",
+    "subtitle": "Unified portal for summer internships, scholarships, and hackathons tailored to student skills",
+    "typesTitle": "Supported Opportunity Types:",
+    "types": "Summer Internships • Hackathons & Competitions • Certified Training • Scholarships • Graduate Roles • Tech Events",
+    "pipelineTitle": "Opportunity Pipeline & Accreditation:",
+    "pipeline": [
+      "Opportunity discovery via official institutions (e.g., ITI / Creativa) or manual entry.",
+      "Data extraction and automated deduplication check.",
+      "Automated skill classification and career track tag suggestion.",
+      "Academic Administrator audit and formal approval prior to broadcast.",
+      "Targeted dispatch exclusively to students matching the specific track and skill prerequisites."
+    ]
+  },
+  "s15_workflows": {
+    "number": "15",
+    "title": "System Integration & Workflows",
+    "subtitle": "System modules operate as a single synchronized organism rather than disconnected silos",
+    "tabs": [
+      {
+        "id": "w1",
+        "title": "Lecture Upload & Smart Study Pipeline",
+        "steps": [
+          "Professor uploads new lecture slides",
+          "Lecture appears instantly in course workspace",
+          "Students receive immediate push notification",
+          "System generates optional AI smart summary",
+          "Student generates self-check practice questions"
+        ]
+      },
+      {
+        "id": "w2",
+        "title": "Attendance Drop & Early Warning Pipeline",
+        "steps": [
+          "Student misses lecture session",
+          "Attendance percentage updates in real time",
+          "Threshold approaches critical 75% limit",
+          "Proactive alert dispatched to student and advisor",
+          "Opportunity provided to submit excuse before deprivation"
+        ]
+      },
+      {
+        "id": "w3",
+        "title": "Exam Scheduling & Global Sync Pipeline",
+        "steps": [
+          "Professor schedules semester exam date",
+          "Event automatically synchronizes with student calendar",
+          "Priority score escalates in 'What should I do next?'",
+          "Scheduled alert cadence triggers (1 week, 3 days, 1 day)",
+          "Personal study plan increases review allocation"
+        ]
+      },
+      {
+        "id": "w4",
+        "title": "Career Track & Course Recommendation Pipeline",
+        "steps": [
+          "Student specifies desired track (e.g., Mobile Development)",
+          "ML model evaluates course syllabus vectors",
+          "Stage 1 filters prerequisites and regulatory rules",
+          "Stage 2 computes adaptive recommendation ranking",
+          "Recommended subjects presented with transparent rationales"
+        ]
+      },
+      {
+        "id": "w5",
+        "title": "Opportunity Hub & Student Matching Pipeline",
+        "steps": [
+          "Internship opportunity ingested from Creativa or ITI",
+          "AI tags relevant skill requirements and tracks",
+          "Academic Administrator verifies and accredits posting",
+          "Matching engine identifies qualified students",
+          "Customized alert dispatched to eligible candidates"
+        ]
+      }
+    ]
+  },
+  "s16_scope": {
+    "number": "16",
+    "title": "Project Implementation Scope",
+    "subtitle": "Realistic phased delivery roadmap ensuring launch stability and modular growth",
+    "filters": {
+      "all": "View All (All)",
+      "must": "Must Have (MVP Essentials)",
+      "should": "Should Have (Phase 2)",
+      "could": "Could Have (Phase 3)",
+      "future": "Future Work (Long-term Vision)"
+    },
+    "items": [
+      { "title": "Authentication & 4 User Roles", "tier": "must", "phase": "Phase 1 MVP" },
+      { "title": "Academic Course Management", "tier": "must", "phase": "Phase 1 MVP" },
+      { "title": "Lecture Materials & Course Announcements", "tier": "must", "phase": "Phase 1 MVP" },
+      { "title": "Prerequisites & Corequisites Enforcement", "tier": "must", "phase": "Phase 1 MVP" },
+      { "title": "Dynamic QR & Manual Attendance Check-in", "tier": "must", "phase": "Phase 1 MVP" },
+      { "title": "Attendance Reports & Absence Ratios", "tier": "must", "phase": "Phase 1 MVP" },
+      { "title": "Grade Recording, Publishing & Warnings", "tier": "must", "phase": "Phase 1 MVP" },
+      { "title": "Unified Academic Calendar", "tier": "must", "phase": "Phase 1 MVP" },
+      { "title": "Instant Multi-channel Push Notifications", "tier": "must", "phase": "Phase 1 MVP" },
+      { "title": "Rules-Based Academic Risk Matrix", "tier": "must", "phase": "Phase 1 MVP" },
+      { "title": "ML Model for Course-to-Track Mapping", "tier": "must", "phase": "Phase 1 MVP" },
+      { "title": "Staged Student Subject Recommendation Engine", "tier": "must", "phase": "Phase 1 MVP" },
+      { "title": "Student Personal Academic Workspace", "tier": "should", "phase": "Phase 2" },
+      { "title": "Verified Opportunity Hub", "tier": "should", "phase": "Phase 2" },
+      { "title": "AI Lecture Summarization", "tier": "should", "phase": "Phase 2" },
+      { "title": "Interactive Practice Questions Generator", "tier": "should", "phase": "Phase 2" },
+      { "title": "Grounded Lecture-Based Academic Q&A", "tier": "should", "phase": "Phase 2" },
+      { "title": "Customizable Notification Preferences", "tier": "should", "phase": "Phase 2" },
+      { "title": "Adaptive Personalized Study Planner", "tier": "could", "phase": "Phase 3" },
+      { "title": "Automated External Opportunity Discovery Adapters", "tier": "could", "phase": "Phase 3" },
+      { "title": "Timetable Free-Time Conflict Calculator", "tier": "could", "phase": "Phase 3" },
+      { "title": "Bulk Grade Import via Excel/CSV", "tier": "could", "phase": "Phase 3" },
+      { "title": "Offline Attendance Sync & Retry Queue", "tier": "could", "phase": "Phase 3" },
+      { "title": "GPS Location-Based Attendance Geofencing", "tier": "future", "phase": "Future Vision" },
+      { "title": "Campus Study Hall Real-Time Occupancy", "tier": "future", "phase": "Future Vision" },
+      { "title": "Social Media Opportunity Monitoring Agent", "tier": "future", "phase": "Future Vision" },
+      { "title": "Direct Central Student Information System (SIS) Integration", "tier": "future", "phase": "Future Vision" },
+      { "title": "Predictive Deep-Learning Academic Failure Model", "tier": "future", "phase": "Future Vision" },
+      { "title": "AI Automated Timetable Conflict Rescheduling", "tier": "future", "phase": "Future Vision" }
+    ]
+  },
+  "s17_value": {
+    "number": "17",
+    "title": "Unique Value Proposition",
+    "subtitle": "Why StudySync is far beyond a conventional LMS or simple chatbot",
+    "intro": "The core value lies in connecting every facet of the student journey into a coherent focal point:",
+    "chain": "Courses ➔ Lectures ➔ Attendance ➔ Grades ➔ Risk Warning ➔ Calendar ➔ Alerts ➔ Career Tracks ➔ Opportunities ➔ AI",
+    "questionsTitle": "The platform answers the 8 vital daily questions every university student faces:",
+    "questions": [
+      { "q": "01. What subjects am I eligible to enroll in this semester?", "a": "Instant automated filtering of unlocked courses meeting prerequisite and credit hour rules." },
+      { "q": "02. Why is the system preventing me from registering for a specific course?", "a": "Clear, explicit explanations such as missing prerequisite or course not being scheduled." },
+      { "q": "03. Which subject is most beneficial for my future career track?", "a": "ML-powered recommendations analyzing syllabus vectors mapped to your chosen profession." },
+      { "q": "04. What specifically should I study and focus on right now?", "a": "A dynamic 'What should I do next?' list ranked by an algorithmic priority formula." },
+      { "q": "05. When is my nearest impending assignment or examination deadline?", "a": "A synchronized calendar with live countdown clocks warning you ahead of time." },
+      { "q": "06. Is my absence rate approaching the critical deprivation threshold?", "a": "A transparent absence counter displaying exact remaining allowed misses before the 75% limit." },
+      { "q": "07. What external training opportunities match my skills and major?", "a": "A verified opportunity portal linking you with summer internships and hackathons tailored to your level." },
+      { "q": "08. What new lecture content or urgent announcements were posted?", "a": "Direct targeted alerts with zero noise or reliance on informal chat groups." }
+    ]
+  },
+  "s18_summary": {
+    "number": "18",
+    "title": "Short Summary",
+    "arText": "StudySync هي منصة موحدة لإدارة ومتابعة الرحلة الأكاديمية للطالب، تجمع المواد والمحاضرات والحضور والدرجات والمواعيد والتنبيهات والفرص الخارجية، كما تستخدم نموذج تعلم آلي لربط المواد بالمسارات المهنية واقتراح المواد المناسبة، وتقدم أدوات ذكاء اصطناعي لتلخيص المحاضرات وإنشاء الأسئلة وخطط المذاكرة.",
+    "enText": "StudySync is a unified academic management and student-support platform that integrates course materials, attendance, grades, academic constraints, calendars, notifications, career-oriented subject recommendations, external opportunities, and AI-assisted learning tools."
+  },
+  "s19_pitch": {
+    "number": "19",
+    "title": "One-Sentence Pitch",
+    "arPitch": "منصة تخبر الطالب بما يستطيع دراسته، وما الأنسب لمساره المهني، وما المطلوب منه حاليًا، وما إذا كان معرضًا لمشكلة أكاديمية، مع جمع كل مواده ومواعيده وتنبيهاته في مكان واحد.",
+    "enPitch": "A unified platform that guides the student on what they can study, what best matches their career track, what urgent tasks require action, and alerts them before any academic risk, all within one centralized hub."
+  },
+  "footer": {
+    "copyright": "All Rights Reserved © StudySync - Academic Project Specification",
+    "subtext": "This interactive document was designed to present system specifications with a seamless, bilingual digital notebook experience."
+  }
+}
