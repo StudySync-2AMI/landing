@@ -19,8 +19,8 @@ export function Header() {
       {/* Mobile Side-Spine Bookmark Dock (Sticks out of the screen edge on small screens) */}
       <MobileBookmarkSidebar />
 
-      {/* Main Academic Desk Header */}
-      <header className="sticky top-0 z-40 w-full backdrop-blur-md bg-[var(--bg-paper)]/95 border-b-2 border-dashed border-[var(--border-paper)]/25 transition-colors">
+      {/* Main Academic Desk Header - Sticky only on desktop/lg screens */}
+      <header className="relative lg:sticky lg:top-0 z-50 w-full bg-[var(--bg-paper)] border-b-2 border-dashed border-[var(--border-paper)]/25 shadow-xs transition-colors">
         {/* Subtle top edge binding line */}
         <div className="h-1 w-full bg-[var(--border-paper)]" />
 

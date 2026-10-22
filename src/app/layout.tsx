@@ -6,28 +6,24 @@ import { Providers } from "@/components/layout/Providers";
 const playfair = Playfair_Display({
   subsets: ["latin"],
   variable: "--font-serif",
-  weight: ["400", "500", "600", "700", "800", "900"],
   display: "swap",
 });
 
 const cairo = Cairo({
   subsets: ["arabic", "latin"],
   variable: "--font-cairo",
-  weight: ["400", "500", "600", "700", "800", "900"],
   display: "swap",
 });
 
 const outfit = Outfit({
   subsets: ["latin"],
   variable: "--font-outfit",
-  weight: ["400", "500", "600", "700", "800", "900"],
   display: "swap",
 });
 
 const caveat = Caveat({
   subsets: ["latin"],
   variable: "--font-handwritten",
-  weight: ["500", "700"],
   display: "swap",
 });
 

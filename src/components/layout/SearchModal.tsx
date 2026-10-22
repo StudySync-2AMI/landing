@@ -67,7 +67,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-start justify-center pt-20 p-4 bg-black/40 backdrop-blur-xs animate-in fade-in duration-150">
+    <div className="fixed inset-0 z-[60] flex items-start justify-center pt-20 p-4 bg-black/40 backdrop-blur-xs animate-in fade-in duration-150">
       <div className="relative w-full max-w-xl rounded-xl border border-[var(--border-stone)] bg-[var(--surface-card)] shadow-xl overflow-hidden">
         {/* Search Bar */}
         <div className="flex items-center gap-3 px-4 py-3 border-b border-[var(--border-stone)]">
