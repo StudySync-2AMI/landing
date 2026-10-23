@@ -5,7 +5,6 @@ import { useLanguage } from "@/context/LanguageContext";
 import { SectionHeader } from "@/ui/SectionHeader";
 import { NotebookCard } from "@/ui/NotebookCard";
 import { StampBadge } from "@/ui/StampBadge";
-import confetti from "canvas-confetti";
 import {
   QrCode,
   ShieldCheck,
@@ -17,7 +16,7 @@ import {
 } from "lucide-react";
 
 export function AttendanceSection() {
-  const { dict, language } = useLanguage();
+  const { dict } = useLanguage();
   const s = dict.s5_attendance;
 
   const [timeLeft, setTimeLeft] = useState(10);
@@ -38,13 +37,18 @@ export function AttendanceSection() {
     return () => clearInterval(timer);
   }, []);
 
-  const handleSimulateScan = () => {
+  const handleSimulateScan = async () => {
     setIsScanned(true);
-    confetti({
-      particleCount: 40,
-      spread: 60,
-      origin: { y: 0.7 },
-    });
+    try {
+      const confetti = (await import("canvas-confetti")).default;
+      confetti({
+        particleCount: 40,
+        spread: 60,
+        origin: { y: 0.7 },
+      });
+    } catch {
+      // Graceful fallback if confetti module fails
+    }
     setTimeout(() => {
       setIsScanned(false);
     }, 4000);
@@ -110,7 +114,7 @@ export function AttendanceSection() {
             <div className="mt-4 text-xs text-[var(--ink-secondary)] flex items-center justify-center gap-1">
               <span>{s.interactive.tokenRefresh}</span>
               <span className="font-mono font-bold text-amber-600 dark:text-amber-400">
-                {timeLeft} {language === "ar" ? "ثوانٍ" : "seconds"}
+                {timeLeft} {s.interactive.seconds}
               </span>
             </div>
 
@@ -151,7 +155,7 @@ export function AttendanceSection() {
               </div>
               <div className="flex justify-between text-[10px] text-[var(--ink-muted)] mt-1 font-mono">
                 <span>0%</span>
-                <span className="text-rose-500 font-bold">75% {language === "ar" ? "حد الحرمان" : "Threshold"}</span>
+                <span className="text-rose-500 font-bold">75% {s.interactive.threshold}</span>
                 <span>100%</span>
               </div>
             </div>

@@ -23,6 +23,12 @@
     "switchLang": "العربية"
   },
   "hero": {
+    "greeting": "hello, we are",
+    "subheadline1": "We make learning",
+    "subheadlineSmart": "smart",
+    "subheadlineAnd": "&",
+    "subheadlineUnified": "unified.",
+    "welcomeAnnotation": "welcome in – stay a while, flip through the live system",
     "badge": "Comprehensive Smart University System • Version 1.0",
     "title": "StudySync",
     "tagline": "Intelligent Integrated Academic Platform for University Journey Management",
@@ -30,7 +36,11 @@
     "pitchLabel": "One-Sentence Pitch:",
     "pitchText": "A unified platform that guides the student on what they can study, what best matches their career track, what urgent tasks require action, and alerts them before any academic risk, all within one centralized hub.",
     "exploreBtn": "Explore System Details",
+    "browseBtn": "Browse the scrapbook",
+    "printBtn": "Download Spec PDF",
     "scopeBtn": "Implementation Scope",
+    "quickCatalog": "Quick Catalog Slips",
+    "orbitCaption": "a few systems in our orbit 🪐",
     "stats": {
       "roles": { "value": "4 Roles", "label": "Key Ecosystem Roles" },
       "modules": { "value": "10+ Modules", "label": "Integrated Modules" },
@@ -193,7 +203,9 @@
       "scanBtn": "Simulate Live QR Check-in",
       "scannedSuccess": "Attendance confirmed! Cryptographic token and classroom geofence validated.",
       "remainingAbsences": "Remaining Absences Before Deprivation:",
-      "absenceCount": "Only 1 lecture remaining (Warning)"
+      "absenceCount": "Only 1 lecture remaining (Warning)",
+      "seconds": "seconds",
+      "threshold": "Threshold"
     }
   },
   "s6_grades": {
@@ -201,6 +213,7 @@
     "title": "Grading, Assessments & Academic Risk Detection",
     "subtitle": "Transparent grade recording with a proactive rules-based early warning matrix",
     "intro": "Supports all assessment archetypes: Assignments, Quizzes, Midterms, Final Exams, Projects, Practical Labs, and Participation. Saved as draft prior to official publication with instantaneous push alerts to students.",
+    "conditionPrefix": "Condition: ",
     "matrixTitle": "Rules-Based Academic Risk Matrix:",
     "levels": [
       {
@@ -236,7 +249,8 @@
       "title": "Try Interactive Risk Detection Simulator:",
       "attendanceLabel": "Attendance Rate:",
       "missingTasksLabel": "Missing Assignments:",
-      "gradesLabel": "Current Grade Average:"
+      "gradesLabel": "Current Grade Average:",
+      "diagnosisTitle": "Live Automatic System Diagnosis:"
     }
   },
   "s7_workspace": {
@@ -555,6 +569,209 @@
     "title": "One-Sentence Pitch",
     "arPitch": "منصة تخبر الطالب بما يستطيع دراسته، وما الأنسب لمساره المهني، وما المطلوب منه حاليًا، وما إذا كان معرضًا لمشكلة أكاديمية، مع جمع كل مواده ومواعيده وتنبيهاته في مكان واحد.",
     "enPitch": "A unified platform that guides the student on what they can study, what best matches their career track, what urgent tasks require action, and alerts them before any academic risk, all within one centralized hub."
+  },
+  "homeDesk": {
+    "title": "Interactive Academic Scrapbook Desk",
+    "subtitle": "Tilted sticky notes, checklist tasks, and registrar stamp dispenser",
+    "stamp": "SCRAPBOOK TOOLKIT"
+  },
+  "homeObjectives": {
+    "annotation": "10 strategic pillars for student success"
+  },
+  "homeChapters": {
+    "title": "Academic Chapters Directory",
+    "subtitle": "Navigate to any chapter for detailed architecture & live tools:",
+    "stamp": "CHAPTER INDEX",
+    "items": [
+      {
+        "id": "academics",
+        "chapter": "CHAPTER II",
+        "title": "Courses & Prerequisites",
+        "desc": "DAG Syllabus Graph & Labs",
+        "href": "/academics",
+        "accent": "oxford"
+      },
+      {
+        "id": "attendance",
+        "chapter": "CHAPTER III",
+        "title": "Attendance & Risk Matrix",
+        "desc": "Dynamic QR & 3-Tier Alert",
+        "href": "/attendance-safety",
+        "accent": "terracotta"
+      },
+      {
+        "id": "intelligence",
+        "chapter": "CHAPTER IV",
+        "title": "AI & Career Engine",
+        "desc": "k-NN Tracks & Quiz Generator",
+        "href": "/intelligence",
+        "accent": "sage"
+      },
+      {
+        "id": "ecosystem",
+        "chapter": "CHAPTER V",
+        "title": "Opportunity & Scope",
+        "desc": "Internships & FAQ Dossier",
+        "href": "/ecosystem",
+        "accent": "amber"
+      }
+    ]
+  },
+  "pageHeaders": {
+    "academics": {
+      "code": "ACAD-04-09",
+      "stamp": "CURRICULUM SPEC",
+      "title": "Academic Curriculum, Prerequisites & Schedule Engine",
+      "subtitle": "Official course specification schemas, prerequisite gating logic, unified smart calendar, and timetable conflict resolution."
+    },
+    "attendanceSafety": {
+      "code": "SEC-ATT-05-10",
+      "stamp": "SAFETY PROTOCOL",
+      "title": "Smart Attendance, Absence Tracking & Academic Risk Detection",
+      "subtitle": "Cryptographic rotating QR codes for anti-proxy check-ins, rule-based academic risk matrices, and non-disable push notifications."
+    },
+    "intelligence": {
+      "code": "INTEL-11-13",
+      "stamp": "AI & ML ENGINE",
+      "title": "AI Career Classification & Grounded Study Engine",
+      "subtitle": "Multi-label text classification for career track mapping, human-in-the-loop review simulation, two-stage subject recommendations, and lecture summarization."
+    },
+    "ecosystem": {
+      "code": "ECO-14-19",
+      "stamp": "ECOSYSTEM BLUEPRINT",
+      "title": "Opportunity Hub, System Workflows & Scope Roadmap",
+      "subtitle": "Verified internship & hackathon hub, end-to-end operational workflows, tiered MVP delivery roadmap, and student value proposition."
+    },
+    "privacy": {
+      "code": "GOV-PRIV-07",
+      "stamp": "ZERO-KNOWLEDGE VAULT",
+      "title": "Privacy, Student Vault & Academic Governance",
+      "subtitle": "Institutional privacy charter, zero-access personal academic workspace, and strict zero-telemetry geofencing policies."
+    }
+  },
+  "privacyPage": {
+    "geofenceTitle": "Geofencing Ephemeral Validation",
+    "geofenceDesc": "Geographical proximity verification occurs solely in-memory at the scan instant within the lecture auditorium. The platform does not log coordinates nor execute background location tracking.",
+    "workspacePolicyTitle": "Zero-Access Student Workspace Policy",
+    "workspacePolicyDesc": "Student study notes, voice memos, and vault attachments remain strictly encrypted and confidential. Faculty, TAs, and peer students possess zero visibility.",
+    "complianceTitle": "Institutional Academic Compliance",
+    "complianceStamp": "ISO & FERPA ALIGNED",
+    "integrityTitle": "Academic Integrity",
+    "integrityDesc": "AI tools ground strictly on official course slides and explicitly decline to solve graded homework.",
+    "cryptoTitle": "Cryptographic Tokens",
+    "cryptoDesc": "Attendance session tokens expire in seconds and are digitally signed to eliminate proxy photo check-ins.",
+    "hitlTitle": "Human-in-the-Loop",
+    "hitlDesc": "All ML track classifications and external opportunities require explicit academic administrator audit.",
+    "vaultPledge": "↳ Zero telemetry. Pure academic autonomy. Your personal documents remain cryptographically isolated."
+  },
+  "riskMatrix": {
+    "title": "Academic Risk Matrix & Deprivation Forecaster",
+    "subtitle": "Live simulation of the Section 6 priority score equation & 75% attendance threshold",
+    "equation": "Priority Equation: (100 - Attendance)×0.45 + (100 - Midterm)×0.35 + (100 - Quiz)×0.20",
+    "rateAttendance": "Attendance Rate",
+    "rateMidterm": "Midterm Exam Score",
+    "rateQuiz": "Quiz & Lab Participation",
+    "scoreLabel": "Calculated Priority Score",
+    "deprivationThreshold": "Deprivation Limit: 75% • Alert Tier at ≤85%",
+    "safeBadge": "Safe • Low Risk",
+    "safeAction": "Excellent academic standing. Zero deprivation risk detected.",
+    "warningBadge": "Warning • Approaching Deprivation Limit",
+    "warningAction": "Proactive caution: Exactly 1 more absence will breach safe thresholds. Automated nudge dispatched.",
+    "criticalBadge": "Critical • Course Deprivation Risk",
+    "criticalAction": "Immediate intervention required! Attendance below 75% threshold. Proactive escalation sent to academic advisor.",
+    "advisorProtocol": "Automated Academic Advisor Intervention Dispatch",
+    "reset": "Reset Default Scenario"
+  },
+  "academicHeatmap": {
+    "title": "Little by little",
+    "subtitle": "482 academic interactions (lecture check-ins, lab quizzes, AI summary reviews)",
+    "ledger": "Academic Ledger",
+    "interactions": "interactions",
+    "onWeek": "on Week",
+    "months": ["Oct", "Nov", "Dec", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep"],
+    "days": ["Sun", "Tue", "Thu"],
+    "less": "Less",
+    "more": "More"
+  },
+  "interactiveDrawer": {
+    "title": "Things I've been building",
+    "subtitle": "Core operational modules solving university fragmentation",
+    "drawerLink": "the whole drawer",
+    "activeSpec": "ACTIVE SPEC",
+    "openSpec": "Open Module Specification",
+    "versionStamp": "StudySync Archival System v1.0",
+    "modules": {
+      "attendance": {
+        "title": "Dynamic QR & Anti-Proxy Engine",
+        "category": "Security & Attendance",
+        "subtitle": "rotating tokens, location perimeter, proxy mitigation",
+        "description": "A military-grade dynamic QR session engine rotating every 15 seconds. Prevents attendance proxy fraud via screen recording, screenshot forwarding, or off-campus proxy check-ins.",
+        "diagramLabel": "Architecture Artifact — Dynamic QR Verification Pipeline",
+        "metrics": [
+          { "label": "Rotation Cycle", "value": "15s" },
+          { "label": "Fraud Attempt Rate", "value": "<0.01%" },
+          { "label": "Check-in Latency", "value": "320ms" }
+        ],
+        "tags": ["Security", "WebSockets", "Geo-Fencing", "Zero-Proxy"]
+      },
+      "risk": {
+        "title": "Rules-Based Early Risk Matrix",
+        "category": "Predictive Analytics",
+        "subtitle": "three-tier warning trigger, priority weighting equation",
+        "description": "Calculates composite Priority Score across attendance deprivation limits and grade dipping. Automatically triggers proactive nudges to students and academic advisors before formal course deprivation.",
+        "diagramLabel": "Logic Artifact — Priority Score & Deprivation Decision Tree",
+        "metrics": [
+          { "label": "Warning Tiers", "value": "3 Levels" },
+          { "label": "Intervention Lead", "value": "3 Weeks" },
+          { "label": "False Positive", "value": "0.2%" }
+        ],
+        "tags": ["Risk Matrix", "Rules Engine", "Early Alert", "FERPA Safe"]
+      },
+      "recommender": {
+        "title": "ML Career Track Recommender",
+        "category": "Machine Learning",
+        "subtitle": "k-NN profile matching, course-track synergy matrix",
+        "description": "Matches student academic strengths, past elective performance, and career aspirations with market-aligned course tracks (AI, Full-Stack, Cyber, Cloud, Embedded).",
+        "diagramLabel": "Model Artifact — Student Vector vs Career Embeddings",
+        "metrics": [
+          { "label": "Match Precision", "value": "96.4%" },
+          { "label": "Career Profiles", "value": "12 Tracks" },
+          { "label": "Catalog Synergies", "value": "140+ Nodes" }
+        ],
+        "tags": ["k-NN", "Content Filtering", "Career DAG", "Market Sync"]
+      },
+      "tools": {
+        "title": "AI Academic Companion & Summarizer",
+        "category": "Generative AI",
+        "subtitle": "lecture summarizer, diagnostic quizzes, adaptive planner",
+        "description": "Generates structured lecture takeaways, flashcards, and diagnostic exam prep questions straight from accredited course lecture slides.",
+        "diagramLabel": "Pipeline Artifact — Lecture Parsing to Flashcard Generation",
+        "metrics": [
+          { "label": "Summarization Speed", "value": "4.2s" },
+          { "label": "Question Diversity", "value": "MCQ + Short" },
+          { "label": "Syllabus Grounding", "value": "100%" }
+        ],
+        "tags": ["RAG Engine", "Doc Parser", "Flashcards", "Exam Prep"]
+      }
+    }
+  },
+  "interactiveDesk": {
+    "scratchpadTitle": "Student Desk Sticky Note",
+    "scratchpadTilt": "Tilt note",
+    "stamperTitle": "Interactive Registrar Stamper (Click to Stamp)",
+    "stamperClear": "Clear stamps",
+    "stamperHelper": "Click stamp to select, then click on the archival surface to stamp",
+    "notes": [
+      { "text": "Scan CS302 dynamic QR before 10:15 AM", "done": true },
+      { "text": "Review AI track elective recommendations", "done": false },
+      { "text": "Generate diagnostic quiz for OS Midterm", "done": false }
+    ],
+    "stampPresets": [
+      { "id": "approved", "text": "APPROVED // DEAN" },
+      { "id": "honors", "text": "★ HIGH HONORS ★" },
+      { "id": "verified", "text": "100% QR VERIFIED" },
+      { "id": "risk", "text": "EARLY RISK DETECTED" }
+    ]
   },
   "footer": {
     "copyright": "All Rights Reserved © StudySync - Academic Project Specification",

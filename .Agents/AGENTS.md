@@ -1,4 +1,4 @@
-# AGENTS.md — StudySync Architecture & Design Standards
+# AGENTS.md — StudySync Architecture, Engineering & Design Standards
 
 ## 1. Architectural Vision & Identity
 **StudySync** is a unified academic ecosystem and student-support platform designed for modern higher education.
@@ -6,21 +6,21 @@
 ### Design Tone: The "Curated Academic Atelier & Editorial Collage"
 - **Anti-AI-Generic**: Strictly ban generic multi-column card spam, glossy gradients, massive rounded corners (e.g., `rounded-3xl`), floating detached labels, and overly soft, artificial drop-shadows.
 - **Editorial Scrapbook Aesthetic**: The UI must feel like a highly organized, tactile university research journal or a professor's well-kept scrapbook. It must balance **professional academic rigor** with **analog, editorial warmth**.
-- **Tactile Depth & Imperfection**: Introduce subtle CSS noise overlays (grain), masking tape elements, paper clips, and stamped ink effects. Elements should overlap slightly, use slight rotations (`rotate-1`, `-rotate-2`), and avoid perfect digital alignment where it adds character.
-- **Typographic Contrast**: Combine a heavy, authoritative Serif for headings (e.g., *Fraunces* or *Playfair Display*), a clean Sans for body copy, a Monospace for data/labels/meta (e.g., *JetBrains Mono*), and a Handwritten script (e.g., *Caveat*) for margin notes, arrows, or annotations.
+- **Tactile Depth & Imperfection**: Introduce subtle CSS noise overlays (grain), masking tape elements, brass paper clips, and stamped ink effects. Elements should overlap slightly, use subtle rotations (`rotate-1`, `-rotate-1`), and avoid perfect digital alignment where it adds character.
+- **Typographic Contrast**: Combine an authoritative Serif for headings (*Playfair Display*), a clean Sans for body copy (*Outfit* / *Cairo*), a Monospace for data/labels/meta, and a Handwritten script (*Caveat*) for margin notes and annotations.
 
 ---
 
-## 2. Multi-Page Architecture & Route Map
+## 2. Directory Architecture & Scalable Component Hierarchy
 
-To maintain high performance, avoid colossal 2,000-line single-page sprawl, and present an intuitive university prospectus hierarchy:
+To maintain high performance, avoid colossal 400-line single-page sprawl, and present an intuitive hierarchy:
 
 ```
 src/
-├── app/
+├── app/                           # Route Pages (Composition Roots only, <70 lines each)
 │   ├── layout.tsx                 # Root layout (Fonts, Providers, Metadata, Global Noise/Grain Overlay)
 │   ├── globals.css                # Academic paper design tokens, palettes, & tape/paper utilities
-│   ├── page.tsx                   # Home: Overview, Thesis Pitch, 4 Roles, 10 Objectives
+│   ├── page.tsx                   # Home: Overview, Pitch, 4 Roles, 10 Objectives (Assembles sections)
 │   ├── academics/
 │   │   └── page.tsx               # Courses, Syllabus Hierarchy, Prereq Graph, Calendar
 │   ├── attendance-safety/
@@ -32,80 +32,103 @@ src/
 │   └── privacy/
 │       └── page.tsx               # Student Vault, Zero-Access Privacy, FERPA Governance
 ├── components/
-│   ├── layout/                    # Global navigation, tabs, binder spine, footer
-│   ├── ui/                        # Low-level physical stationery components (<=150 lines)
+│   ├── layout/                    # Global navigation, Header, Footer, ThemeToggle, LanguageToggle
+│   ├── ui/                        # Canonical physical stationery components (Strictly <=150 lines)
 │   │   ├── PaperCard.tsx          # Card with offset shadow or subtle rotation, no soft shadows
-│   │   ├── MaskingTape.tsx        # CSS tape (semi-transparent, blend-mode multiply, rotate)
-│   │   ├── HighlighterText.tsx    # Text with colored, uneven background blocks
-│   │   ├── ArchivalStamp.tsx      # Circular/distressed text stamp
-│   │   ├── BinderTab.tsx          # Physical notebook tab styling
-│   │   └── PageHeader.tsx
-│   └── modules/                   # Isolated feature blocks per page (<=200 lines each)
+│   │   ├── Tape.tsx               # CSS masking tape (washi, kraft, striped, semi-transparent)
+│   │   ├── PaperClip.tsx          # Brass/steel/rose paperclip pinning elements
+│   │   ├── Highlighter.tsx        # Highlighter mark with uneven background block
+│   │   ├── ArchivalStamp.tsx      # Distressed circular/rectangular ink stamp
+│   │   ├── PageHeader.tsx         # Standardized archival dossier header per route
+│   │   └── ConstellationOrbit.tsx # Orbital systems constellation with live inspection lens
+│   └── sections/                  # Domain-grouped section modules (Strictly <=200 lines each)
+│       ├── home/                  # Home page modules (HeroSection, RolesSection, etc.)
+│       ├── academics/             # Academic route sections
+│       ├── attendance-safety/     # Attendance and safety route sections
+│       ├── intelligence/          # AI & Career route sections
+│       ├── ecosystem/             # Ecosystem & scope sections
+│       └── privacy/               # Privacy & FERPA sections
 ├── context/
-│   └── LanguageContext.tsx        # Bilingual (AR/EN) direction & string state
+│   └── LanguageContext.tsx        # Bilingual (AR/EN) direction, dict, and string state
 ├── locales/
-│   ├── ar.json                    # Arabic editorial copy
-│   └── en.json                    # English editorial copy
+│   ├── ar.json                    # Arabic editorial copy (Single Source of Truth)
+│   └── en.json                    # English editorial copy (Single Source of Truth)
 └── lib/
-    └── utils.ts                   # Helpers and formatters
+    └── utils.ts                   # Helpers, clsx, and formatters
 ```
 
 ---
 
-## 3. Strict Code & Engineering Rules
+## 3. Strict Non-Negotiable Engineering Invariants
 
-1. **File Size Limit (<250 lines)**:
-   - Any component growing above 250 lines must be split into sub-components.
-   - Keep views modular, composable, and single-purpose.
+### 1. Zero Inline Translations (100% i18n First)
+- **STRICTLY BANNED**: `isArabic ? "نص عربي" : "English text"` or inline bilingual ternaries in components.
+- **MANDATORY**: Every single piece of user-facing copy MUST be declared in both `src/locales/en.json` and `src/locales/ar.json`.
+- Access all copy via `const { dict } = useLanguage()` through structured keys (e.g., `dict.hero.title`, `dict.s3_roles.roles`).
+- If you need a new string, you MUST add it to BOTH `en.json` and `ar.json` first.
 
-2. **Color Palette & Texture Discipline**:
-   - Base Canvas: Warm parchment (`#f8f6f0`), archive stone (`#eeeae0`).
-   - Ink & Accents: Dark fountain-pen charcoal (`#1c2024`), Oxford navy (`#2d3b48`), muted sealing-wax terracotta (`#b85d38`), sage binder linen (`#435343`).
-   - Dark Mode: Scholarly obsidian study room (`#111317`), soft graphite (`#1a1d23`), muted bone text (`#dedad2`).
-   - **Grain:** Every page must have a very subtle CSS noise/grain overlay (`pointer-events: none; opacity: 0.03` to `0.05`) to give it a physical paper texture.
+### 2. Hard File Size Limit (<200 lines per file)
+- **Page files (`src/app/**/page.tsx`)**: Must be pure composition roots (strictly `<70` lines). No inline section bodies!
+- **Section modules (`src/components/sections/**`)**: Must be modular, single-purpose, and strictly `<200` lines.
+- **UI stationery components (`src/components/ui/**`)**: Must be focused, atomic, and strictly `<150` lines.
+- If a component grows past 200 lines, you MUST split it into sub-components immediately.
 
-3. **Scrapbook UI Constraints (Crucial)**:
-   - **No Perfect Shadows:** Avoid standard soft `box-shadow`. Use hard borders (`border-2 border-[--ink-primary]`) or offset block shadows (`box-shadow: 4px 4px 0px var(--ink-primary)`).
-   - **Controlled Imperfection:** Use utility classes like `rotate-1`, `-rotate-1`, or `-translate-y-1` on cards, tags, and tape to break the rigid grid.
-   - **Type Lockup:** Use `font-serif` for `<h1>`/`<h2>`. Use `font-mono` for tags/meta. Use `font-handwriting` sparingly for micro-copy and annotations.
-   - **Highlights:** Apply `box-decoration-break: clone` to text backgrounds to mimic a real highlighter pen that crosses line breaks.
+### 3. Tactile Scrapbook Aesthetic & Token Discipline
+- **No Soft Shadows**: Avoid generic `shadow-md` or `shadow-xl`. Use solid hard borders (`border-2 border-[#1A1A1A] dark:border-[#3E4A5C]`) and solid offset block shadows (`shadow-[2.5px_2.5px_0px_#1A1A1A]` or `shadow-[4px_4px_0px_#1A1A1A]`).
+- **No Generic Rounded Pills**: Avoid `rounded-full` pills for tags/categories. Use tactile **Archival Index Slips** or **Docket Tickets** with `rounded-sm` or `rounded-md`, catalog codes (`CAT.01`), and hard borders.
+- **Controlled Imperfection**: Use utility classes like `rotate-1`, `-rotate-1`, or `hover:rotate-0` with tape overlays to break digital rigidity.
 
-4. **Bilingual i18n First**:
-   - All text must exist in both `ar.json` and `en.json`.
-   - RTL (`dir="rtl"`) and LTR (`dir="ltr"`) layout symmetry using Tailwind logical padding/margins (`ms-`, `me-`, `ps-`, `pe-`). Ensure rotated elements and tape overlays mirror correctly in RTL.
+### 4. Bulletproof Contrast & Hover Invariant
+- **STRICTLY BANNED**: Ad-hoc hover background overrides without explicit hover text colors (e.g. `hover:bg-[#F2EFE7]` on dark mode text causing invisible white-on-white text).
+- **MANDATORY**: Every button or interactive card MUST declare both its base AND hover colors for both light and dark mode:
+  ```tsx
+  // Canonical Primary CTA:
+  className="scrapbook-btn bg-[#E86A46] text-white hover:bg-[#D45936] dark:bg-[#E86A46] dark:hover:bg-[#D45936] border-2 border-[#1A1A1A] dark:border-[#FF8A65] shadow-[3px_3px_0px_#1A1A1A] dark:shadow-[3px_3px_0px_#0A0D12]"
 
-5. **Performance & SEO**:
-   - Server-first components with minimal client islands for interactive simulators (QR counter, Risk calculator, HITL toggles).
-   - Proper descriptive semantic headings (`<h1>`, `<h2>`, `<article>`).
+  // Canonical Secondary Button:
+  className="scrapbook-btn bg-[#FFFDF9] dark:bg-[#18212D] text-[#1A1A1A] dark:text-[#F3EFE6] hover:bg-[#F3EFE6] dark:hover:bg-[#232D3B] hover:text-[#1A1A1A] dark:hover:text-[#FFFFFF] border-2 border-[#1A1A1A] dark:border-[#3E4A5C] shadow-[3px_3px_0px_#1A1A1A] dark:shadow-[3px_3px_0px_#0A0D12]"
+  ```
+
+### 5. Directional Arrow Invariant (RTL / LTR Symmetry)
+- **STRICTLY BANNED**: Hardcoded ASCII arrows (`→`, `←`, `↗`). In Arabic (RTL), `→` points backwards relative to the reading flow!
+- **MANDATORY**: Always use Lucide icons with logical direction classes:
+  - Forward flow arrows: `<ArrowRight className="w-4 h-4 rtl:rotate-180 transition-transform group-hover:translate-x-1 rtl:group-hover:-translate-x-1" />`
+  - External/diagonal arrows: `<ArrowUpRight className="w-4 h-4 rtl:-scale-x-100 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />`
+
+### 6. SEO, Crawlability & Metadata Invariant
+- **Route-Level Sitemap Indexing**: `src/app/sitemap.ts` MUST register every public specification route (`/`, `/academics`, `/attendance-safety`, `/intelligence`, `/ecosystem`, `/privacy`) with appropriate `changeFrequency` and `priority` weighting. Never omit deep specification routes!
+- **No Blank Social Previews**: Ensure OpenGraph and Twitter cards are properly mapped, and canonical URLs are declared per route.
+- **Semantic Heading Hierarchy**: Only a single `<h1>` per route. Section headers must use `<h2>`, and nested cards/modules must use `<h3>` or `<h4>`.
+
+### 7. Performance & Bundle Optimization Invariant
+- **Dynamic Imports for Non-Critical Packages**: Heavy or user-triggered libraries (e.g., `canvas-confetti`, search indexes, chart libraries) MUST NOT be imported at the module root of a section. Always lazy-load them on demand via `const confetti = (await import("canvas-confetti")).default;`.
+- **Zero Cumulative Layout Shift (CLS)**: Sliders, badges, and countdown meters must reserve their bounding dimensions so client state updates don't cause sudden page jumps.
+- **Grain Overlay GPU Acceleration**: Background noise and grain overlays must use `pointer-events-none` and hardware-accelerated CSS properties to prevent scroll jank on mobile devices.
+
+### 8. Accessibility (a11y) & Interactive Controls Invariant
+- **Interactive Inputs**: Every `<input type="range">`, `<select>`, or custom toggle MUST provide an explicit `aria-label` linked to its localized label from `dict`.
+- **Keyboard Navigation**: All clickable cards and tabs must have clear focus rings (`focus-visible:ring-2 focus-visible:ring-[var(--accent-terracotta)] outline-none`).
+- **Color Contrast**: Pill badges and text overlays must maintain WCAG AA minimum 4.5:1 contrast against both light (`#F9F7F1`) and dark (`#11151C`) card backgrounds.
 
 ---
 
-## 4. Component Design Blueprints (For the Agent)
+## 4. Standard Operating Procedure (SOP) for Adding Code
 
-When building UI, reference these specific patterns rather than standard Tailwind UI blocks:
+When instructed to add or modify a section or page, follow this exact sequence:
 
-### A. The "Paper Card" (Replaces standard cards)
-```tsx
-// Do NOT use rounded-xl, shadow-lg, or generic padding.
-<div className="relative bg-[#eeeae0] border border-[#1c2024]/20 p-6 rotate-[1deg] transition-transform hover:rotate-0">
-  <MaskingTape className="absolute -top-3 left-1/2 -translate-x-1/2 -rotate-2" />
-  <h3 className="font-serif text-2xl text-[#1c2024]">Module Title</h3>
-  <p className="font-sans text-sm mt-2 text-[#1c2024]/70">Body copy...</p>
-</div>
-```
-
-### B. Highlighter Text
-```tsx
-// Used for drawing attention to key features in paragraphs
-<span className="bg-[#b85d38]/30 px-1 box-decoration-break-clone">
-  ML-powered career tracks
-</span>
-```
-
-### C. Scrapbook Annotations
-```tsx
-// Use handwriting fonts for tips, arrows, or side notes
-<p className="font-handwriting text-xl text-[#2d3b48] rotate-[-2deg] mt-4">
-  ↳ * Hint: You can sync this with your phone.
-</p>
-```
+1. **Check Locales First**:
+   - Add all required text keys into `src/locales/en.json` and `src/locales/ar.json`. Ensure identical key paths in both files.
+   - Absolutely no `language === "ar"` ternaries in JSX.
+2. **Create or Modify the Isolated Section**:
+   - Create a dedicated file under `src/components/sections/[domain]/[SectionName].tsx` matching the page route folder.
+   - Keep the file `<200` lines.
+   - Use canonical stationery components (`PaperCard`, `Tape`, `PaperClip`, `ArchivalStamp`, `Highlighter`).
+   - If using non-critical animation/effect libraries, dynamically import them.
+3. **Assemble in the Page Composition Root**:
+   - In `src/app/[route]/page.tsx`, import and assemble the section component.
+   - Keep the page file `<70` lines.
+4. **Run Pre-Flight Validation**:
+   - Execute `npx tsc --noEmit` to ensure zero compilation or type errors.
+   - Verify WCAG contrast in both Light (`#F9F7F1`) and Dark (`#11151C`) modes.
+   - Verify RTL symmetry by checking that all arrows, spine docks, and tabs mirror correctly.
+   - Verify that all routes are indexed in `src/app/sitemap.ts`.

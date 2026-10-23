@@ -14,7 +14,7 @@ import {
 } from "lucide-react";
 
 export function GradesRiskSection() {
-  const { dict, language } = useLanguage();
+  const { dict } = useLanguage();
   const s = dict.s6_grades;
 
   // Simulator states
@@ -70,7 +70,7 @@ export function GradesRiskSection() {
                 </div>
 
                 <div className="text-xs font-semibold mb-2 opacity-90">
-                  {language === "ar" ? "الشرط: " : "Condition: "}
+                  {s.conditionPrefix}
                   {lvl.condition}
                 </div>
 
@@ -106,6 +106,7 @@ export function GradesRiskSection() {
                 max="100"
                 value={attendance}
                 onChange={(e) => setAttendance(Number(e.target.value))}
+                aria-label={s.simulator.attendanceLabel}
                 className="w-full accent-amber-500 cursor-pointer"
               />
               <div className="flex justify-between text-[10px] text-[var(--ink-muted)] font-mono">
@@ -140,7 +141,7 @@ export function GradesRiskSection() {
             {/* Live Calculated Output Result */}
             <div className="pt-4 border-t border-[var(--paper-card-border)]">
               <div className="text-xs font-mono font-bold text-[var(--ink-muted)] mb-2">
-                {language === "ar" ? "تشخيص النظام التلقائي اللحظي:" : "Live Automatic System Diagnosis:"}
+                {s.simulator.diagnosisTitle}
               </div>
 
               <div className={`p-4 rounded-xl border ${currentRisk.badgeClass} animate-in fade-in`}>
