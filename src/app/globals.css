@@ -203,6 +203,62 @@
   animation: orbitFloat 7s ease-in-out infinite 3s;
 }
 
+/* Real Book Fore-Edge Page Strata (Compressed Antique Leaves) */
+.book-page-strata {
+  background-color: #FAF6ED;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    #FAF6ED,
+    #FAF6ED 2px,
+    #EFE8D8 2px,
+    #EFE8D8 3px,
+    #FAF6ED 3px,
+    #FAF6ED 6px,
+    #E8DFCC 6px,
+    #E8DFCC 7px
+  );
+}
+.dark .book-page-strata {
+  background-color: #151A22;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    #151A22,
+    #151A22 2px,
+    #1C232D 2px,
+    #1C232D 3px,
+    #151A22 3px,
+    #151A22 6px,
+    #10141B 6px,
+    #10141B 7px
+  );
+}
+
+/* Real Woven Book Headband / Cloth Spine Binding */
+.book-headband {
+  background: repeating-linear-gradient(
+    45deg,
+    #9E2A2B,
+    #9E2A2B 4px,
+    #E5BE54 4px,
+    #E5BE54 8px,
+    #1E3A24 8px,
+    #1E3A24 12px
+  );
+}
+
+/* Subtle Ribbon Flutter Keyframe */
+@keyframes ribbonFlutter {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(-0.75deg) translateY(-1px);
+  }
+}
+.animate-ribbon-flutter {
+  animation: ribbonFlutter 4s ease-in-out infinite;
+}
+
 @media print {
   header, footer, nav, button, .no-print {
     display: none !important;
