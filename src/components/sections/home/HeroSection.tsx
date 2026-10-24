@@ -86,11 +86,6 @@ export function HeroSection() {
 
           {/* Archival Catalog Index Slips */}
           <div className="pt-2">
-            <div className="flex items-center gap-2 mb-2 font-mono text-[10px] font-bold uppercase tracking-wider text-[var(--ink-muted)]">
-              <span>📑 {hero.quickCatalog}</span>
-              <span className="opacity-40">// DOC.INDEX</span>
-            </div>
-
             <div className="flex flex-wrap items-center gap-2.5 sm:gap-3 text-xs">
               <Link
                 href="/academics"

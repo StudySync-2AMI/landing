@@ -1,180 +1,109 @@
 "use client";
 
 import React, { useState } from "react";
-import {
-  Sparkles,
-  QrCode,
-  GitBranch,
-  ShieldAlert,
-  CalendarDays,
-  Award,
-  CheckCircle2,
-} from "lucide-react";
+import { CheckCircle2 } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { AnnotationPointer } from "./AnnotationPointer";
-
-interface ConstellationNode {
-  id: string;
-  title: string;
-  arabicTitle: string;
-  tag: string;
-  metric: string;
-  icon: React.ElementType;
-  xPercent: number; // percentage in SVG coordinate space
-  yPercent: number;
-  rotation: string;
-  accent: "mint" | "yellow" | "peach" | "purple" | "oxford";
-  delayClass: string;
-}
-
-const NODES: ConstellationNode[] = [
-  {
-    id: "ai",
-    title: "AI Track Recommender",
-    arabicTitle: "محرك توجيه المسار المهني",
-    tag: "ML Engine",
-    metric: "k-NN + Content Match",
-    icon: Sparkles,
-    xPercent: 48,
-    yPercent: 12,
-    rotation: "rotate-2",
-    accent: "purple",
-    delayClass: "animate-orbit-float",
-  },
-  {
-    id: "qr",
-    title: "Dynamic QR Attendance",
-    arabicTitle: "حضور ذكي برمز متغير",
-    tag: "Anti-Proxy",
-    metric: "15s Cycle • GPS Token",
-    icon: QrCode,
-    xPercent: 14,
-    yPercent: 34,
-    rotation: "-rotate-3",
-    accent: "mint",
-    delayClass: "animate-orbit-float-delayed",
-  },
-  {
-    id: "dag",
-    title: "Prerequisite DAG Graph",
-    arabicTitle: "مخطط المتطلبات السابقة",
-    tag: "Course Hierarchy",
-    metric: "Zero Cyclic Deadlocks",
-    icon: GitBranch,
-    xPercent: 82,
-    yPercent: 28,
-    rotation: "rotate-3",
-    accent: "peach",
-    delayClass: "animate-orbit-float-slow",
-  },
-  {
-    id: "risk",
-    title: "Early Warning Matrix",
-    arabicTitle: "مصفوفة الإنذار المبكر",
-    tag: "Risk Matrix",
-    metric: "3-Tier Safety Rules",
-    icon: ShieldAlert,
-    xPercent: 52,
-    yPercent: 52,
-    rotation: "-rotate-2",
-    accent: "terracotta" as any,
-    delayClass: "animate-orbit-float",
-  },
-  {
-    id: "cal",
-    title: "Unified Calendar",
-    arabicTitle: "التقويم الأكاديمي الموحد",
-    tag: "Sync Engine",
-    metric: "Lectures, Labs & Exams",
-    icon: CalendarDays,
-    xPercent: 22,
-    yPercent: 78,
-    rotation: "rotate-2",
-    accent: "oxford",
-    delayClass: "animate-orbit-float-delayed",
-  },
-  {
-    id: "analytics",
-    title: "Grade & GPA Ledger",
-    arabicTitle: "سجل التقديرات والمعدل",
-    tag: "Analytics",
-    metric: "Instant Accredited Ranks",
-    icon: Award,
-    xPercent: 76,
-    yPercent: 74,
-    rotation: "-rotate-1",
-    accent: "yellow",
-    delayClass: "animate-orbit-float-slow",
-  },
-];
+import { useLanguage } from "@/context/LanguageContext";
+import {
+  NODE_DEFS,
+  accentBadgeColors,
+  ConstellationNodeDef,
+} from "./orbit/orbitConfig";
 
 export function ConstellationOrbit({ isArabic = false }: { isArabic?: boolean }) {
-  const [activeNode, setActiveNode] = useState<ConstellationNode | null>(null);
+  const { dict } = useLanguage();
+  const [activeId, setActiveId] = useState<ConstellationNodeDef["id"] | null>(null);
 
-  const accentBadgeColors = {
-    mint: "bg-[#D1E8D1] text-[#1E3A24] dark:bg-[#69A384]/30 dark:text-[#A7E8C4] border-emerald-700/20",
-    yellow: "bg-[#FDF1CC] text-[#4A3800] dark:bg-[#E5BE54]/30 dark:text-[#FFEBA8] border-amber-700/20",
-    peach: "bg-[#FAD4C0] text-[#4A1F0D] dark:bg-[#E29373]/30 dark:text-[#FFCEBC] border-orange-700/20",
-    purple: "bg-[#E6E0F0] text-[#2F1F45] dark:bg-[#8B7BA8]/30 dark:text-[#D8CCE8] border-purple-700/20",
-    oxford: "bg-[#D8E2EC] text-[#132738] dark:bg-[#7AA2C7]/30 dark:text-[#C5DCF2] border-blue-700/20",
-    terracotta: "bg-[#FAD4C0] text-[#E86A46] dark:bg-[#E86A46]/30 dark:text-[#FFB69E] border-orange-700/20",
-  };
+  const activeDef = NODE_DEFS.find((n) => n.id === activeId);
 
   return (
-    <div className="relative w-full aspect-square max-w-[460px] mx-auto select-none">
-      {/* SVG Orbital Dashed Trails */}
+    <div className="relative w-full aspect-square max-w-[340px] sm:max-w-[460px] mx-auto select-none">
+      {/* SVG Orbital Dashed Rings & Active Ray Line */}
       <svg
         viewBox="0 0 460 460"
         className="absolute inset-0 w-full h-full pointer-events-none"
         xmlns="http://www.w3.org/2000/svg"
       >
-        {/* Outer Orbit Ellipse */}
+        {/* Outer Circular Astrolabe Orbit Ring */}
         <ellipse
           cx="230"
           cy="230"
-          rx="195"
-          ry="150"
+          rx="165"
+          ry="165"
           fill="none"
           stroke="currentColor"
-          strokeWidth="1.2"
-          strokeDasharray="5 6"
+          strokeWidth="1.4"
+          strokeDasharray="6 7"
           className="text-stone-400/40 dark:text-stone-500/30 -rotate-12 origin-center"
         />
-        {/* Inner Orbit Ellipse */}
+        {/* Inner Counter-Orbit Accent Ring */}
         <ellipse
           cx="230"
           cy="230"
-          rx="135"
-          ry="95"
+          rx="110"
+          ry="110"
           fill="none"
           stroke="currentColor"
           strokeWidth="1.2"
-          strokeDasharray="4 5"
-          className="text-stone-400/50 dark:text-stone-500/35 rotate-18 origin-center"
+          strokeDasharray="4 6"
+          className="text-stone-400/35 dark:text-stone-500/25 rotate-24 origin-center"
         />
-        {/* Center Connecting Dashed Lines */}
-        <path
-          d="M100 160 Q 230 110 370 140"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="1"
-          strokeDasharray="3 4"
-          className="text-stone-400/35 dark:text-stone-500/25"
-        />
-        <path
-          d="M120 340 Q 230 240 340 330"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="1"
-          strokeDasharray="3 4"
-          className="text-stone-400/35 dark:text-stone-500/25"
-        />
+        {/* Active Laser Telemetry Ray */}
+        {activeDef && (
+          <line
+            x1="230"
+            y1="230"
+            x2={`${(activeDef.xPercent / 100) * 460}`}
+            y2={`${(activeDef.yPercent / 100) * 460}`}
+            stroke="#E86A46"
+            strokeWidth="2.2"
+            strokeDasharray="4 4"
+            className="animate-pulse"
+          />
+        )}
       </svg>
 
-      {/* Floating System Cards */}
-      {NODES.map((node) => {
+      {/* Central StudySync Celestial Core Hub (Clear, uncluttered focal center) */}
+      <div
+        style={{ left: "50%", top: "50%" }}
+        className="absolute -translate-x-1/2 -translate-y-1/2 z-20 flex flex-col items-center justify-center pointer-events-none"
+      >
+        <div
+          className={cn(
+            "relative flex flex-col items-center justify-center text-center p-2 sm:p-3 rounded-full border-2 transition-all duration-300",
+            "bg-[#FFFDF9] dark:bg-[#18212D]",
+            "w-20 h-20 sm:w-26 sm:h-26",
+            activeId
+              ? "border-[var(--accent-terracotta)] scale-105 shadow-[0_0_16px_rgba(232,106,70,0.35)]"
+              : "border-[#1A1A1A] dark:border-[#3E4A5C] shadow-[2.5px_2.5px_0px_#1A1A1A] dark:shadow-[2.5px_2.5px_0px_#0A0D12]"
+          )}
+        >
+          <div className="absolute inset-1 rounded-full border border-dashed border-amber-600/30 dark:border-amber-400/25 pointer-events-none" />
+          <span className="font-mono text-[7px] sm:text-[8px] font-black uppercase tracking-widest text-[var(--accent-terracotta)]">
+            {activeId ? "ACTIVE" : "CORE HUB"}
+          </span>
+          <span className="font-serif text-[10px] sm:text-xs font-black text-[var(--ink-primary)] leading-tight max-w-[70px] sm:max-w-[85px] mt-0.5 truncate">
+            {activeId ? dict.hero.orbitNodes[activeId].title : "StudySync"}
+          </span>
+          <span className="font-mono text-[7px] sm:text-[8px] text-[var(--ink-muted)] mt-0.5 leading-none truncate max-w-[70px] sm:max-w-[80px]">
+            {activeId ? dict.hero.orbitNodes[activeId].tag : dict.hero.orbitNodes.coreSub}
+          </span>
+        </div>
+      </div>
+
+      {/* 6 Balanced Celestial Nodes (Zero edge overflow, zero center collision) */}
+      {NODE_DEFS.map((node) => {
         const Icon = node.icon;
-        const isHovered = activeNode?.id === node.id;
+        const isHovered = activeId === node.id;
+        const nodeData = dict.hero.orbitNodes[node.id];
+
+        const tooltipVertical = node.yPercent > 50 ? "bottom-full mb-2" : "top-full mt-2";
+        const tooltipHorizontal =
+          node.xPercent > 65
+            ? "end-0"
+            : node.xPercent < 35
+            ? "start-0"
+            : "left-1/2 -translate-x-1/2";
 
         return (
           <div
@@ -182,57 +111,65 @@ export function ConstellationOrbit({ isArabic = false }: { isArabic?: boolean })
             style={{
               left: `${node.xPercent}%`,
               top: `${node.yPercent}%`,
-              transform: "translate(-50%, -50%)",
             }}
             className={cn(
-              "absolute z-10 transition-all duration-300 cursor-pointer",
-              node.delayClass
+              "absolute -translate-x-1/2 -translate-y-1/2 cursor-pointer select-none transition-all",
+              isHovered ? "z-50" : "z-10"
             )}
-            onMouseEnter={() => setActiveNode(node)}
-            onMouseLeave={() => setActiveNode(null)}
-            onClick={() => setActiveNode(isHovered ? null : node)}
+            onMouseEnter={() => setActiveId(node.id)}
+            onMouseLeave={() => setActiveId(null)}
+            onClick={() => setActiveId(isHovered ? null : node.id)}
           >
+            {/* Inner Float Wrapper (Preserves parent's -translate-x-1/2 anchor) */}
             <div
-              className={cn(
-                "group relative flex items-center gap-2.5 p-2 sm:p-2.5 rounded-lg border transition-all duration-200",
-                "bg-[var(--surface-card)] text-[var(--ink-primary)]",
-                "shadow-[2px_2px_0px_#1A1A1A] dark:shadow-[0_4px_12px_rgba(0,0,0,0.5)]",
-                "border-2 border-[#1A1A1A] dark:border-white/20",
-                node.rotation,
-                isHovered && "scale-110 rotate-0 z-30 shadow-[4px_4px_0px_#E86A46]"
-              )}
+              style={{ animationPlayState: isHovered ? "paused" : "running" }}
+              className={node.delayClass}
             >
               <div
                 className={cn(
-                  "p-1.5 rounded-md border text-xs flex items-center justify-center transition-colors",
-                  accentBadgeColors[node.accent as keyof typeof accentBadgeColors] || accentBadgeColors.mint
+                  "group relative flex items-center gap-1.5 sm:gap-2 p-1.5 sm:p-2 rounded-lg border-2 transition-all duration-200",
+                  "bg-[var(--surface-card)] text-[var(--ink-primary)]",
+                  "max-w-[95px] sm:max-w-[135px]",
+                  node.rotation,
+                  isHovered
+                    ? "scale-105 rotate-0 border-[var(--accent-terracotta)] shadow-[3px_3px_0px_#E86A46]"
+                    : "border-[#1A1A1A] dark:border-[#3E4A5C] shadow-[2px_2px_0px_#1A1A1A] dark:shadow-[2px_2px_0px_#0A0D12]"
                 )}
               >
-                <Icon className="w-4 h-4" />
-              </div>
+                <div
+                  className={cn(
+                    "p-1 sm:p-1.5 rounded-md border text-xs flex items-center justify-center shrink-0",
+                    accentBadgeColors[node.accent]
+                  )}
+                >
+                  <Icon className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
+                </div>
 
-              <div className="flex flex-col text-start">
-                <span className="font-mono text-[9px] font-bold uppercase tracking-wider text-[var(--ink-muted)]">
-                  {node.tag}
-                </span>
-                <span className="text-xs font-bold leading-tight font-sans">
-                  {isArabic ? node.arabicTitle : node.title}
-                </span>
+                <div className="flex flex-col text-start overflow-hidden">
+                  <span className="font-mono text-[7px] sm:text-[8.5px] font-black uppercase tracking-wider text-[var(--ink-muted)] leading-tight truncate">
+                    {nodeData.tag}
+                  </span>
+                  <span className="text-[9.5px] sm:text-[11.5px] font-bold leading-tight font-sans truncate">
+                    {nodeData.title}
+                  </span>
+                </div>
               </div>
             </div>
 
-            {/* Tooltip on hover / active */}
+            {/* Smart High-Contrast Telemetry Tooltip */}
             {isHovered && (
               <div
                 className={cn(
-                  "absolute top-full mt-2 left-1/2 -translate-x-1/2 z-40 w-48 p-2 rounded-lg text-center",
-                  "bg-[#1A1A1A] text-[#F9F7F1] dark:bg-[#1E2530] dark:border dark:border-white/15",
-                  "text-[11px] font-mono shadow-xl pointer-events-none"
+                  "absolute z-50 w-40 sm:w-44 p-1.5 sm:p-2 rounded-lg text-center pointer-events-none shadow-xl",
+                  "bg-[#151B24] text-[#F9F7F1] border-2 border-[var(--accent-terracotta)] shadow-[2.5px_2.5px_0px_#1A1A1A]",
+                  "text-[9.5px] sm:text-[10px] font-mono",
+                  tooltipVertical,
+                  tooltipHorizontal
                 )}
               >
-                <div className="flex items-center justify-center gap-1 text-[#E5BE54] font-bold">
-                  <CheckCircle2 className="w-3 h-3 text-[#69A384]" />
-                  <span>{node.metric}</span>
+                <div className="flex items-center justify-center gap-1 text-[#FCD34D] font-bold">
+                  <CheckCircle2 className="w-3 h-3 text-[#34D399] shrink-0" />
+                  <span className="truncate">{nodeData.metric}</span>
                 </div>
               </div>
             )}

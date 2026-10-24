@@ -36,12 +36,31 @@
     "description": "A unified academic platform integrating courses, attendance, academic calendar, early risk warnings, and AI-powered career track guidance.",
     "pitchLabel": "One-Sentence Pitch:",
     "pitchText": "A unified platform that guides the student on what they can study, what best matches their career track, what urgent tasks require action, and alerts them before any academic risk, all within one centralized hub.",
+    "pitchDocketNumber": "CHARTER // SPEC.00-PITCH",
+    "pitchExecutiveStamp": "ACCREDITED THESIS • VERIFIED",
+    "pitchAnnotation": "the unified philosophy of StudySync in one sentence",
+    "pitchPillars": {
+      "academic": { "label": "01. What To Study", "desc": "Prerequisite paths & degree progress" },
+      "career": { "label": "02. Career Track", "desc": "AI-guided elective matching" },
+      "urgent": { "label": "03. Urgent Action", "desc": "High-priority milestone alerts" },
+      "safety": { "label": "04. Risk Shield", "desc": "Early attendance & GPA safeguards" }
+    },
     "exploreBtn": "Explore System Details",
     "browseBtn": "Browse the scrapbook",
     "printBtn": "Download Spec PDF",
     "scopeBtn": "Implementation Scope",
     "quickCatalog": "Quick Catalog Slips",
     "orbitCaption": "a few systems in our orbit 🪐",
+    "orbitNodes": {
+      "coreHub": "STUDYSYNC CORE",
+      "coreSub": "6 Integrated Subsystems",
+      "ai": { "title": "AI Track Recommender", "tag": "ML Engine", "metric": "k-NN + Content Match" },
+      "qr": { "title": "Dynamic QR Attendance", "tag": "Anti-Proxy", "metric": "15s Cycle • GPS Token" },
+      "dag": { "title": "Prerequisite DAG Graph", "tag": "Course Hierarchy", "metric": "Zero Cyclic Deadlocks" },
+      "risk": { "title": "Early Warning Matrix", "tag": "Risk Matrix", "metric": "3-Tier Safety Rules" },
+      "cal": { "title": "Unified Calendar", "tag": "Sync Engine", "metric": "Lectures, Labs & Exams" },
+      "analytics": { "title": "Grade & GPA Ledger", "tag": "Analytics", "metric": "Instant Accredited Ranks" }
+    },
     "stats": {
       "roles": { "value": "4 Roles", "label": "Key Ecosystem Roles" },
       "modules": { "value": "10+ Modules", "label": "Integrated Modules" },
