@@ -13,7 +13,7 @@ export function LanguageToggle({ className }: { className?: string }) {
       className={cn(
         "group relative flex items-center gap-1.5 px-2 sm:px-2.5 py-1 rounded-md",
         "border-2 border-dashed border-[#1A1A1A] dark:border-[#4B5565]",
-        "bg-[#FFFDF9] dark:bg-[#18212D]",
+        "bg-white dark:bg-[#18212D]",
         "text-[#1A1A1A] dark:text-[#F3EFE6]",
         "shadow-[2.5px_2.5px_0px_#1A1A1A] dark:shadow-[2.5px_2.5px_0px_#0A0D12]",
         "hover:-translate-y-0.5 active:translate-y-0.5 transition-all cursor-pointer select-none",

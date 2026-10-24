@@ -1,17 +1,25 @@
 import type { Metadata, Viewport } from "next";
-import { Cairo, Outfit, Caveat, Playfair_Display } from "next/font/google";
+import {
+  Playfair_Display,
+  Outfit,
+  Caveat,
+  Amiri,
+  Aref_Ruqaa,
+  IBM_Plex_Sans_Arabic,
+} from "next/font/google";
 import "./globals.css";
 import { Providers } from "@/components/layout/Providers";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
-  variable: "--font-serif",
+  variable: "--font-playfair",
   display: "swap",
 });
 
-const cairo = Cairo({
+const amiri = Amiri({
+  weight: ["400", "700"],
   subsets: ["arabic", "latin"],
-  variable: "--font-cairo",
+  variable: "--font-amiri",
   display: "swap",
 });
 
@@ -21,9 +29,23 @@ const outfit = Outfit({
   display: "swap",
 });
 
+const ibmPlexArabic = IBM_Plex_Sans_Arabic({
+  weight: ["300", "400", "500", "600", "700"],
+  subsets: ["arabic"],
+  variable: "--font-ibm-plex-arabic",
+  display: "swap",
+});
+
 const caveat = Caveat({
   subsets: ["latin"],
-  variable: "--font-handwritten",
+  variable: "--font-caveat",
+  display: "swap",
+});
+
+const arefRuqaa = Aref_Ruqaa({
+  weight: ["400", "700"],
+  subsets: ["arabic"],
+  variable: "--font-aref-ruqaa",
   display: "swap",
 });
 
@@ -72,8 +94,8 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#fcf9f2" },
-    { media: "(prefers-color-scheme: dark)", color: "#0d1117" },
+    { media: "(prefers-color-scheme: light)", color: "#F8F6F0" },
+    { media: "(prefers-color-scheme: dark)", color: "#11151C" },
   ],
   width: "device-width",
   initialScale: 1,
@@ -85,8 +107,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="ar" dir="rtl" suppressHydrationWarning className={`${cairo.variable} ${outfit.variable} ${caveat.variable} ${playfair.variable}`}>
-      <body className="min-h-screen bg-[var(--bg-paper)] text-[var(--ink-primary)] font-sans antialiased selection:bg-amber-300/40 selection:text-amber-950">
+    <html
+      lang="ar"
+      dir="rtl"
+      suppressHydrationWarning
+      className={`${playfair.variable} ${amiri.variable} ${outfit.variable} ${ibmPlexArabic.variable} ${caveat.variable} ${arefRuqaa.variable}`}
+    >
+      <body className="min-h-screen bg-[var(--bg-paper)] text-[var(--ink-primary)] font-sans antialiased selection:bg-amber-300/40 selection:text-amber-950 paper-grain-overlay">
         <Providers>{children}</Providers>
       </body>
     </html>

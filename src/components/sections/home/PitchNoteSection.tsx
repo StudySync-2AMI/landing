@@ -52,10 +52,10 @@ export function PitchNoteSection() {
   return (
     <section aria-label={dict.hero.pitchLabel} className="relative select-none">
       {/* Background Kraft Card for Tactile Physical Collage Depth */}
-      <div className="absolute inset-0 translate-x-1.5 translate-y-1.5 sm:translate-x-2 sm:translate-y-2 rounded-2xl bg-[#E8DEC8] dark:bg-[#10141C] border-2 border-[#1A1A1A] dark:border-[#3E4A5C] rotate-1" />
+      <div className="absolute inset-0 translate-x-1.5 translate-y-1.5 sm:translate-x-2 sm:translate-y-2 rounded-2xl bg-[#EAE5D9] dark:bg-[#10141C] border-2 border-[#1A1A1A] dark:border-[#3E4A5C] rotate-1" />
 
       {/* Main Archival Parchment Sheet */}
-      <div className="relative rounded-2xl border-2 border-[#1A1A1A] dark:border-[#3E4A5C] bg-[#FFFDF9] dark:bg-[#171F2B] p-6 sm:p-10 shadow-[4px_4px_0px_#1A1A1A] dark:shadow-[4px_4px_0px_#0A0D12] -rotate-[0.3deg] overflow-hidden paper-ruled">
+      <div className="relative rounded-2xl border-2 border-[#1A1A1A] dark:border-[#3E4A5C] bg-white dark:bg-[#171F2B] p-6 sm:p-10 shadow-[4px_4px_0px_#1A1A1A] dark:shadow-[4px_4px_0px_#0A0D12] -rotate-[0.3deg] overflow-hidden paper-ruled">
         {/* Physical Tape, Real Wire Paperclip & Antique Brass Pushpin Mountings */}
         <Tape color="striped" rotation="slight-right" position="top-center" />
         <PaperClip color="brass" size="md" className="start-6 -top-3.5" />
@@ -87,7 +87,7 @@ export function PitchNoteSection() {
         </div>
 
         {/* The One-Sentence Thesis Manifesto */}
-        <blockquote className="font-serif text-xl sm:text-2xl md:text-3xl font-black text-[var(--ink-primary)] leading-snug sm:leading-relaxed tracking-tight relative z-10 mb-6">
+        <blockquote className="font-serif text-xl sm:text-2xl md:text-3xl font-black text-[#1A1A1A] dark:text-[#F9F7F1] leading-snug sm:leading-relaxed tracking-tight relative z-10 mb-6">
           &ldquo;{dict.hero.pitchText}&rdquo;
         </blockquote>
 
@@ -107,7 +107,7 @@ export function PitchNoteSection() {
                   <span className={`font-mono text-[10px] font-black uppercase tracking-wider ${pillar.text}`}>
                     {pillar.data.label}
                   </span>
-                  <span className="font-sans text-xs text-[var(--ink-muted)] leading-tight mt-0.5 truncate">
+                  <span className="font-sans text-xs text-[#3E3A33] dark:text-[#C2C9D6] font-medium leading-tight mt-0.5 truncate">
                     {pillar.data.desc}
                   </span>
                 </div>

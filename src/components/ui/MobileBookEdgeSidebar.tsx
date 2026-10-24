@@ -120,13 +120,13 @@ export function MobileBookEdgeSidebar() {
 
               {/* Drawer Footer: Desk Utilities Tray & Micro Note */}
               <div className="p-2.5 bg-[#F4EFE6]/90 dark:bg-[#11161F] border-t-2 border-[#1A1A1A]/20 dark:border-white/15 flex flex-col gap-2 shrink-0">
-                <div className="flex items-center justify-between gap-1.5 p-1 rounded-lg border-2 border-[#1A1A1A] dark:border-[#3E4A5C] bg-[#FFFDF9] dark:bg-[#18212D] shadow-[2px_2px_0px_#1A1A1A] dark:shadow-[2px_2px_0px_#0A0D12]">
+                <div className="flex items-center justify-between gap-1.5 p-1 rounded-lg border-2 border-[#1A1A1A] dark:border-[#3E4A5C] bg-white dark:bg-[#18212D] shadow-[2px_2px_0px_#1A1A1A] dark:shadow-[2px_2px_0px_#0A0D12]">
                   <button
                     onClick={() => {
                       setIsOpen(false);
                       setIsSearchOpen(true);
                     }}
-                    className="flex-1 flex items-center justify-center gap-1.5 px-2 py-1 rounded-md border-2 border-[#1A1A1A] dark:border-[#4B5565] bg-[#FFFDF9] dark:bg-[#18212D] text-[#1A1A1A] dark:text-[#F3EFE6] shadow-[1.5px_1.5px_0px_#1A1A1A] hover:-translate-y-0.5 active:translate-y-0.5 transition-all cursor-pointer"
+                    className="flex-1 flex items-center justify-center gap-1.5 px-2 py-1 rounded-md border-2 border-[#1A1A1A] dark:border-[#4B5565] bg-white dark:bg-[#18212D] text-[#1A1A1A] dark:text-[#F3EFE6] shadow-[1.5px_1.5px_0px_#1A1A1A] hover:-translate-y-0.5 active:translate-y-0.5 transition-all cursor-pointer"
                     title={dict.nav.searchPlaceholder}
                   >
                     <Search className="w-3.5 h-3.5 text-[var(--accent-terracotta)]" />

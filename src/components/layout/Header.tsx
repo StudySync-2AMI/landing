@@ -74,7 +74,7 @@ export function Header() {
           </div>
 
           {/* Right: Authentic Scrapbook Desk Utilities Pen Tray / Docket Strip */}
-          <div className="relative flex items-center gap-1.5 sm:gap-2 p-1 sm:p-1.5 rounded-lg border-2 border-[#1A1A1A] dark:border-[#3E4A5C] bg-[#F7F4EB] dark:bg-[#141B24] shadow-[2.5px_2.5px_0px_#1A1A1A] sm:shadow-[3px_3px_0px_#1A1A1A] dark:shadow-[2.5px_2.5px_0px_#0A0D12] sm:dark:shadow-[3px_3px_0px_#0A0D12] shrink-0">
+          <div className="relative flex items-center gap-1.5 sm:gap-2 p-1 sm:p-1.5 rounded-lg border-2 border-[#1A1A1A] dark:border-[#3E4A5C] bg-[#EAE5D9] dark:bg-[#141B24] shadow-[2.5px_2.5px_0px_#1A1A1A] sm:shadow-[3px_3px_0px_#1A1A1A] dark:shadow-[2.5px_2.5px_0px_#0A0D12] sm:dark:shadow-[3px_3px_0px_#0A0D12] shrink-0">
             {/* Mini Washi Tape corner on the utility dock */}
             <div
               aria-hidden="true"
@@ -85,7 +85,7 @@ export function Header() {
             {/* Search Desk Tool (Archival Catalog Loupe Slip) */}
             <button
               onClick={() => setIsSearchOpen(true)}
-              className="group flex items-center gap-1.5 sm:gap-2 px-2 sm:px-2.5 py-1 rounded-md border-2 border-[#1A1A1A] dark:border-[#4B5565] bg-[#FFFDF9] dark:bg-[#18212D] text-[#1A1A1A] dark:text-[#F3EFE6] shadow-[2px_2px_0px_#1A1A1A] dark:shadow-[2px_2px_0px_#0A0D12] hover:-translate-y-0.5 active:translate-y-0.5 transition-all cursor-pointer"
+              className="group flex items-center gap-1.5 sm:gap-2 px-2 sm:px-2.5 py-1 rounded-md border-2 border-[#1A1A1A] dark:border-[#4B5565] bg-white dark:bg-[#18212D] text-[#1A1A1A] dark:text-[#F3EFE6] shadow-[2px_2px_0px_#1A1A1A] dark:shadow-[2px_2px_0px_#0A0D12] hover:-translate-y-0.5 active:translate-y-0.5 transition-all cursor-pointer"
               title={dict.nav.searchPlaceholder}
               aria-label={dict.nav.searchButton}
             >

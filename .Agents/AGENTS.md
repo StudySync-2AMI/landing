@@ -7,7 +7,11 @@
 - **Anti-AI-Generic**: Strictly ban generic multi-column card spam, glossy gradients, massive rounded corners (e.g., `rounded-3xl`), floating detached labels, and overly soft, artificial drop-shadows.
 - **Editorial Scrapbook Aesthetic**: The UI must feel like a highly organized, tactile university research journal or a professor's well-kept scrapbook. It must balance **professional academic rigor** with **analog, editorial warmth**.
 - **Tactile Depth & Imperfection**: Introduce subtle CSS noise overlays (grain), masking tape elements, brass paper clips, and stamped ink effects. Elements should overlap slightly, use subtle rotations (`rotate-1`, `-rotate-1`), and avoid perfect digital alignment where it adds character.
-- **Typographic Contrast**: Combine an authoritative Serif for headings (*Playfair Display*), a clean Sans for body copy (*Outfit* / *Cairo*), a Monospace for data/labels/meta, and a Handwritten script (*Caveat*) for margin notes and annotations.
+- **Typographic Contrast & Arabic Pairing**:
+  - **Headings (Editorial Book Serif)**: Latin *Playfair Display* paired with classical Arabic *Amiri* (`--font-serif`).
+  - **Body Copy (Refined Modern Sans)**: Latin *Outfit* paired with *IBM Plex Sans Arabic* (`--font-sans`).
+  - **Margin Notes & Marginalia (Handwritten Script)**: Latin *Caveat* paired with authentic Arabic Ruq'ah *Aref Ruqaa* (`--font-handwriting`).
+  - **Data / Catalog Meta**: Monospace for codes, timestamps, and ledger metrics (`--font-mono`).
 
 ---
 
@@ -74,7 +78,13 @@ src/
 - If a component grows past 200 lines, you MUST split it into sub-components immediately.
 
 ### 3. Tactile Scrapbook Aesthetic & Token Discipline
-- **No Soft Shadows**: Avoid generic `shadow-md` or `shadow-xl`. Use solid hard borders (`border-2 border-[#1A1A1A] dark:border-[#3E4A5C]`) and solid offset block shadows (`shadow-[2.5px_2.5px_0px_#1A1A1A]` or `shadow-[4px_4px_0px_#1A1A1A]`).
+- **Light Mode Paper Tokens**: The light mode palette must always feel like warm, authentic physical notebook stationery:
+  - Base canvas: Warm cream paper (`--bg-paper: #F8F6F0`).
+  - Card layer: Crisp physical paper (`--surface-card: #FFFFFF` / `bg-white`).
+  - Secondary desk tray / kraft backing: Warm deeper cream (`--surface-subtle: #EAE5D9`).
+  - High-contrast ink text: Deep black ink (`--ink-primary: #1A1A1A`), dark charcoal (`--ink-secondary: #2C2A27`), and rich readable burgundy red (`--accent-terracotta: #B93815`).
+  - Bullet Journal Dot Grid: Use `.paper-grain-overlay` (`radial-gradient(#BDB4A3 1.35px, transparent 1.35px)` on `24px 24px`) to ensure visible tactile notebook dots across pages.
+- **No Soft Shadows**: Avoid generic `shadow-md` or `shadow-xl`. Use solid hard borders (`border-2 border-[#1A1A1A] dark:border-[#3E4A5C]`) and solid offset block shadows (`shadow-[2.5px_2.5px_0px_#1A1A1A]`, `shadow-[4px_4px_0px_#1A1A1A]`, or `.shadow-stationery`).
 - **No Generic Rounded Pills**: Avoid `rounded-full` pills for tags/categories. Use tactile **Archival Index Slips** or **Docket Tickets** with `rounded-sm` or `rounded-md`, catalog codes (`CAT.01`), and hard borders.
 - **Controlled Imperfection**: Use utility classes like `rotate-1`, `-rotate-1`, or `hover:rotate-0` with tape overlays to break digital rigidity.
 
@@ -127,6 +137,14 @@ src/
   - **Brass Study Desk Lamp**: Styled as an analog mechanical toggle dial with brass rivet dot and `DAY / NIGHT` mode stamp.
   - **Registrar Postmark Seal**: Styled as a university registrar ink postmark with cancellation lines (`POST [AR/EN] ///`) instead of generic browser emojis.
   - **Mobile Responsive Dock Invariant**: On small mobile screens (`<640px`), the dock scales down (`p-1 gap-1.5`, `hidden sm:inline` for secondary labels like `DAY/NIGHT`, `POST`, `///`, `⌘K`) to fit comfortably alongside the header logo without wrapping, while retaining 100% of the desktop stationery aesthetic on larger viewports.
+
+### 10. Tailwind CSS v4 Class-Based Dark Mode Invariant (`@custom-variant dark`)
+- **CRITICAL**: In Tailwind CSS v4, the `dark:` utility variant defaults to `@media (prefers-color-scheme: dark)` rather than `.dark` class. Because StudySync relies on an intentional user-controlled desk lighting toggle via `next-themes` (adding/removing `.dark` on `<html>`), `src/app/globals.css` **MUST** declare:
+  ```css
+  @custom-variant dark (&:where(.dark, .dark *));
+  ```
+- **STRICT PROHIBITION**: NEVER remove this `@custom-variant` declaration. Without it, whenever a user's operating system (Windows/macOS) is in Dark Mode, `dark:*` classes will falsely trigger in Light Mode (`DAY`), turning light mode cards pitch-black and causing catastrophic contrast failures (e.g. black text on dark navy cards).
+- **Light Mode Testing Invariant**: Always verify that in Light Mode (`DAY`), all parchment cards remain ivory/cream (`bg-[#FFFDF9]` or `bg-[var(--surface-card)]`), text remains dark charcoal ink (`text-[#1A1A1A]`), and highlighters preserve deep ink contrast.
 
 ---
 

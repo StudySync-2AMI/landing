@@ -1,36 +1,38 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
-  --font-serif: var(--font-serif), "Playfair Display", Georgia, serif;
-  --font-sans: var(--font-outfit), var(--font-cairo), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-handwriting: var(--font-handwritten), "Caveat", cursive;
+  --font-serif: var(--font-playfair), var(--font-amiri), "Playfair Display", "Amiri", Georgia, serif;
+  --font-sans: var(--font-outfit), var(--font-ibm-plex-arabic), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-handwriting: var(--font-caveat), var(--font-aref-ruqaa), "Caveat", "Aref Ruqaa", cursive;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 }
 
 @layer base {
   :root {
-    --bg-paper: #F9F7F1;
+    --bg-paper: #F8F6F0;
     --surface-card: #FFFFFF;
-    --surface-subtle: #F3EFE6;
+    --surface-subtle: #EAE5D9;
     --border-paper: #1A1A1A;
     --border-stone: #1A1A1A;
     --border-stone-strong: #1A1A1A;
-    --border-subtle: rgba(26, 26, 26, 0.16);
+    --border-subtle: rgba(26, 26, 26, 0.18);
     --ink-primary: #1A1A1A;
-    --ink-secondary: #4A4E54;
-    --ink-muted: #737A84;
+    --ink-secondary: #2C2A27;
+    --ink-muted: #5A564F;
     --accent-mint: #D1E8D1;
     --accent-yellow: #FDF1CC;
     --accent-peach: #FAD4C0;
-    --accent-terracotta: #E86A46;
+    --accent-terracotta: #B93815;
     --accent-purple: #8B7BA8;
     --accent-oxford: #2B3A4A;
     --accent-sage: #3D5A40;
     --accent-amber: #D9822B;
-    --shadow-offset: 3px 3px 0px #1A1A1A;
+    --shadow-offset: 4px 4px 0px #1A1A1A;
     --shadow-offset-lg: 5px 5px 0px #1A1A1A;
-    --ruled-line: rgba(26, 26, 26, 0.04);
-    --margin-line: rgba(232, 106, 70, 0.28);
+    --ruled-line: rgba(26, 26, 26, 0.06);
+    --margin-line: rgba(185, 56, 21, 0.35);
   }
 
   .dark {
@@ -48,15 +50,15 @@
     --accent-mint: #69A384;
     --accent-yellow: #E5BE54;
     --accent-peach: #E29373;
-    --accent-terracotta: #E86A46;
+    --accent-terracotta: #E76F51;
     --accent-purple: #A695C4;
     --accent-oxford: #7AA2C7;
     --accent-sage: #7BB882;
     --accent-amber: #E2A03F;
-    --shadow-offset: 3px 3px 0px #090B0F;
+    --shadow-offset: 4px 4px 0px #090B0F;
     --shadow-offset-lg: 5px 5px 0px #090B0F;
     --ruled-line: rgba(249, 247, 241, 0.035);
-    --margin-line: rgba(232, 106, 70, 0.25);
+    --margin-line: rgba(231, 111, 81, 0.3);
   }
 
   html,
@@ -69,21 +71,71 @@
   }
 }
 
-.font-serif {
-  font-family: var(--font-serif), "Playfair Display", Georgia, serif;
+/* Authentic Arabic typographic hierarchy for RTL */
+[dir="rtl"],
+html[dir="rtl"],
+body[dir="rtl"] {
+  font-family: var(--font-ibm-plex-arabic), "IBM Plex Sans Arabic", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
-.font-handwriting {
-  font-family: var(--font-handwritten), "Caveat", cursive;
+[dir="rtl"] .font-serif,
+html[dir="rtl"] .font-serif,
+body[dir="rtl"] .font-serif {
+  font-family: var(--font-amiri), "Amiri", Georgia, serif !important;
+}
+
+[dir="rtl"] .font-sans,
+html[dir="rtl"] .font-sans,
+body[dir="rtl"] .font-sans {
+  font-family: var(--font-ibm-plex-arabic), "IBM Plex Sans Arabic", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+}
+
+[dir="rtl"] .font-handwriting,
+html[dir="rtl"] .font-handwriting,
+body[dir="rtl"] .font-handwriting {
+  font-family: var(--font-aref-ruqaa), "Aref Ruqaa", cursive !important;
+}
+
+/* Authentic Latin typographic hierarchy for LTR */
+[dir="ltr"],
+html[dir="ltr"],
+body[dir="ltr"] {
+  font-family: var(--font-outfit), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+[dir="ltr"] .font-serif,
+html[dir="ltr"] .font-serif,
+body[dir="ltr"] .font-serif {
+  font-family: var(--font-playfair), "Playfair Display", Georgia, serif !important;
+}
+
+[dir="ltr"] .font-sans,
+html[dir="ltr"] .font-sans,
+body[dir="ltr"] .font-sans {
+  font-family: var(--font-outfit), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+}
+
+[dir="ltr"] .font-handwriting,
+html[dir="ltr"] .font-handwriting,
+body[dir="ltr"] .font-handwriting {
+  font-family: var(--font-caveat), "Caveat", cursive !important;
 }
 
 /* Subtle physical paper noise overlay */
 .paper-grain-overlay {
-  background-image: radial-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 0);
+  background-image: radial-gradient(#BDB4A3 1.35px, transparent 1.35px);
   background-size: 24px 24px;
 }
 .dark .paper-grain-overlay {
-  background-image: radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 0);
+  background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1.25px, transparent 1.25px);
+}
+
+/* Global hard tactile offset shadow for physical paper layers */
+.shadow-stationery {
+  box-shadow: 4px 4px 0px 0px #1A1A1A;
+}
+.dark .shadow-stationery {
+  box-shadow: 4px 4px 0px 0px #090B0F;
 }
 
 /* Subtle stationery ruled paper */
