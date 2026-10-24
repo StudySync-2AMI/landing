@@ -2,15 +2,14 @@
 
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
-import { Sun, Moon } from "lucide-react";
+import { Sun, Moon, Sparkles } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 import { cn } from "@/lib/utils";
 
 export function ThemeToggle({ className }: { className?: string }) {
   const { setTheme, resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
-  const { t, language } = useLanguage();
-  const isArabic = language === "ar";
+  const { dict } = useLanguage();
 
   useEffect(() => {
     setMounted(true);
@@ -18,7 +17,7 @@ export function ThemeToggle({ className }: { className?: string }) {
 
   if (!mounted) {
     return (
-      <div className="w-9 h-9 rounded-lg border-2 border-[var(--border-paper)] bg-[var(--surface-card)] opacity-60" />
+      <div className="w-10 h-8 rounded-md border-2 border-[var(--border-paper)] bg-[var(--surface-card)] opacity-40" />
     );
   }
 
@@ -28,20 +27,27 @@ export function ThemeToggle({ className }: { className?: string }) {
     <button
       onClick={() => setTheme(isDark ? "light" : "dark")}
       className={cn(
-        "relative flex items-center justify-center gap-1.5 p-2 rounded-lg border-2 border-[var(--border-paper)]",
-        "bg-[var(--surface-card)] text-[var(--ink-primary)]",
-        "shadow-[2px_2px_0px_#1A1A1A] dark:shadow-md",
+        "group relative flex items-center gap-1.5 px-2 sm:px-2.5 py-1 rounded-md",
+        "border-2 border-[#1A1A1A] dark:border-[#4B5565]",
+        "bg-[#FFFDF9] dark:bg-[#18212D]",
+        "text-[#1A1A1A] dark:text-[#F3EFE6]",
+        "shadow-[2.5px_2.5px_0px_#1A1A1A] dark:shadow-[2.5px_2.5px_0px_#0A0D12]",
         "hover:-translate-y-0.5 active:translate-y-0.5 transition-all cursor-pointer select-none",
         className
       )}
-      title={isDark ? (isArabic ? "إضاءة نهارية" : "Day Study Mode") : (isArabic ? "مصباح مكتبي ليلي" : "Night Desk Mode")}
+      title={isDark ? dict.nav.themeLight : dict.nav.themeDark}
       aria-label="Toggle Desk Lighting"
     >
       {isDark ? (
-        <Sun className="w-4 h-4 text-amber-400 rotate-0 hover:rotate-45 transition-transform" />
+        <Sun className="w-3.5 h-3.5 text-amber-400 group-hover:rotate-45 transition-transform" />
       ) : (
-        <Moon className="w-4 h-4 text-indigo-700 dark:text-indigo-400 -rotate-12 hover:rotate-0 transition-transform" />
+        <Moon className="w-3.5 h-3.5 text-indigo-700 dark:text-indigo-400 group-hover:-rotate-12 transition-transform" />
       )}
+
+      {/* Tactile Mode Label (Compact on mobile) */}
+      <span className="hidden sm:inline font-mono text-[10px] font-black uppercase tracking-wider text-[var(--ink-secondary)]">
+        {isDark ? "NIGHT" : "DAY"}
+      </span>
     </button>
   );
 }

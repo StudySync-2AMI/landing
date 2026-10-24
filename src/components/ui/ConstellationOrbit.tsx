@@ -11,6 +11,7 @@ import {
   CheckCircle2,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { AnnotationPointer } from "./AnnotationPointer";
 
 interface ConstellationNode {
   id: string;
@@ -238,13 +239,6 @@ export function ConstellationOrbit({ isArabic = false }: { isArabic?: boolean })
           </div>
         );
       })}
-
-      {/* Orbit Caption / Handwritten Note */}
-      <div className="absolute -bottom-4 right-4 sm:right-8 z-20 pointer-events-none">
-        <p className="font-handwriting text-xl sm:text-2xl text-[var(--accent-terracotta)] -rotate-3 leading-none">
-          ↳ {isArabic ? "أنظمة تعمل في فلكنا الأكاديمي ✨" : "a few systems in our orbit 🪐"}
-        </p>
-      </div>
     </div>
   );
 }

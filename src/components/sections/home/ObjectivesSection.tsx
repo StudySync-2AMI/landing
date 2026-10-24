@@ -3,6 +3,7 @@
 import React from "react";
 import { useLanguage } from "@/context/LanguageContext";
 import { Tape } from "@/ui/Tape";
+import { AnnotationPointer } from "@/ui/AnnotationPointer";
 
 export function ObjectivesSection() {
   const { dict } = useLanguage();
@@ -26,8 +27,9 @@ export function ObjectivesSection() {
           </p>
         </div>
 
-        <p className="font-handwriting text-2xl text-[var(--accent-terracotta)] -rotate-2">
-          ↳ {homeObjectives.annotation}
+        <p className="font-handwriting text-2xl text-[var(--accent-terracotta)] -rotate-2 flex items-center gap-1.5">
+          <AnnotationPointer size="sm" />
+          <span>{homeObjectives.annotation}</span>
         </p>
       </div>
 

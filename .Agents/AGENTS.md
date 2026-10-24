@@ -89,11 +89,20 @@ src/
   className="scrapbook-btn bg-[#FFFDF9] dark:bg-[#18212D] text-[#1A1A1A] dark:text-[#F3EFE6] hover:bg-[#F3EFE6] dark:hover:bg-[#232D3B] hover:text-[#1A1A1A] dark:hover:text-[#FFFFFF] border-2 border-[#1A1A1A] dark:border-[#3E4A5C] shadow-[3px_3px_0px_#1A1A1A] dark:shadow-[3px_3px_0px_#0A0D12]"
   ```
 
-### 5. Directional Arrow Invariant (RTL / LTR Symmetry)
-- **STRICTLY BANNED**: Hardcoded ASCII arrows (`→`, `←`, `↗`). In Arabic (RTL), `→` points backwards relative to the reading flow!
-- **MANDATORY**: Always use Lucide icons with logical direction classes:
-  - Forward flow arrows: `<ArrowRight className="w-4 h-4 rtl:rotate-180 transition-transform group-hover:translate-x-1 rtl:group-hover:-translate-x-1" />`
-  - External/diagonal arrows: `<ArrowUpRight className="w-4 h-4 rtl:-scale-x-100 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />`
+### 5. Directional Arrow & Annotation Pointer Invariant (RTL / LTR Symmetry)
+- **STRICTLY BANNED**: Hardcoded ASCII arrows (`→`, `←`, `↗`) and hardcoded unicode sub-arrows (`↳`, `↲`).
+  - *Why `↳` is broken in Arabic*: `↳` (U+21B3) curves down and to the RIGHT. In Arabic (RTL), pointing right means pointing *backwards* into the margin, creating visual discordance and violating natural reading direction.
+- **MANDATORY**:
+  - For forward flow arrows: Always use `<ArrowRight className="w-4 h-4 rtl:rotate-180 transition-transform group-hover:translate-x-1 rtl:group-hover:-translate-x-1" />`
+  - For external links: Always use `<ArrowUpRight className="w-4 h-4 rtl:-scale-x-100 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />`
+  - For handwritten margin notes and sub-annotations: Use the dedicated atomic pointer files in `@/ui/pointers/` (or via `@/ui/AnnotationPointer`):
+    - `<CornerPointer />`: Canonical downward-sweeping corner arrow (replaces `↳` / `↲`).
+    - `<SketchPointer />`: Hand-drawn sketchy horizontal pointer with organic waviness (replaces `→` / `←`).
+    - `<LoopPointer />`: Authentic margin loop-de-loop note pointer.
+    - `<HandPointer />`: Historical scholar's manicula pointing finger (`☞` in LTR, `☜` in RTL).
+    - `<CurvePointer />`: Hand-sketched upward swoop (`⤴`).
+    - `<BracketPointer />`: Archival margin bracket callout.
+  - Every pointer automatically mirrors with `rtl:-scale-x-100` so arrows point into the text flow for both English and Arabic.
 
 ### 6. SEO, Crawlability & Metadata Invariant
 - **Route-Level Sitemap Indexing**: `src/app/sitemap.ts` MUST register every public specification route (`/`, `/academics`, `/attendance-safety`, `/intelligence`, `/ecosystem`, `/privacy`) with appropriate `changeFrequency` and `priority` weighting. Never omit deep specification routes!
@@ -109,6 +118,15 @@ src/
 - **Interactive Inputs**: Every `<input type="range">`, `<select>`, or custom toggle MUST provide an explicit `aria-label` linked to its localized label from `dict`.
 - **Keyboard Navigation**: All clickable cards and tabs must have clear focus rings (`focus-visible:ring-2 focus-visible:ring-[var(--accent-terracotta)] outline-none`).
 - **Color Contrast**: Pill badges and text overlays must maintain WCAG AA minimum 4.5:1 contrast against both light (`#F9F7F1`) and dark (`#11151C`) card backgrounds.
+
+### 9. Tactile Desk Stationery Navigation Utilities (Anti-SaaS Buttons)
+- **STRICTLY BANNED**: Generic floating circular/square icon buttons, standalone SaaS action buttons, and emojis (`🌐`, generic sun/moon icons without physical tactile framing).
+- **MANDATORY**: Navigation utilities must feel like physical objects resting on an oak study desk:
+  - **Desk Pen Tray / Blotter Docket**: Utilities (Search, Lamp, Language) must be anchored together inside a framed paper docket (`border-2 border-[#1A1A1A]`, `shadow-[3px_3px_0px_#1A1A1A]`, kraft tape accents).
+  - **Archival Search Loupe**: Styled as a library catalog card with typewriter `[ ⌘K ]` stamp.
+  - **Brass Study Desk Lamp**: Styled as an analog mechanical toggle dial with brass rivet dot and `DAY / NIGHT` mode stamp.
+  - **Registrar Postmark Seal**: Styled as a university registrar ink postmark with cancellation lines (`POST [AR/EN] ///`) instead of generic browser emojis.
+  - **Mobile Responsive Dock Invariant**: On small mobile screens (`<640px`), the dock scales down (`p-1 gap-1.5`, `hidden sm:inline` for secondary labels like `DAY/NIGHT`, `POST`, `///`, `⌘K`) to fit comfortably alongside the header logo without wrapping, while retaining 100% of the desktop stationery aesthetic on larger viewports.
 
 ---
 

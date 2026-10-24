@@ -20,7 +20,8 @@
     "print": "Print Specification",
     "themeLight": "Day Study Notebook",
     "themeDark": "Night Desk Notebook",
-    "switchLang": "العربية"
+    "switchLang": "العربية",
+    "academicAtelier": "academic atelier"
   },
   "hero": {
     "greeting": "hello, we are",
@@ -662,7 +663,7 @@
     "cryptoDesc": "Attendance session tokens expire in seconds and are digitally signed to eliminate proxy photo check-ins.",
     "hitlTitle": "Human-in-the-Loop",
     "hitlDesc": "All ML track classifications and external opportunities require explicit academic administrator audit.",
-    "vaultPledge": "↳ Zero telemetry. Pure academic autonomy. Your personal documents remain cryptographically isolated."
+    "vaultPledge": "Zero telemetry. Pure academic autonomy. Your personal documents remain cryptographically isolated."
   },
   "riskMatrix": {
     "title": "Academic Risk Matrix & Deprivation Forecaster",
@@ -772,6 +773,14 @@
       { "id": "verified", "text": "100% QR VERIFIED" },
       { "id": "risk", "text": "EARLY RISK DETECTED" }
     ]
+  },
+  "sidebar": {
+    "folioIndex": "FOLIO INDEX",
+    "openFolio": "Open Book Index",
+    "close": "Close",
+    "active": "ACT",
+    "tip": "tap any bookmark to flip chapters",
+    "brandArabic": "ستادي سينك"
   },
   "footer": {
     "copyright": "All Rights Reserved © StudySync - Academic Project Specification",

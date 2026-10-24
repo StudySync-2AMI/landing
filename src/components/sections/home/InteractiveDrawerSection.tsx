@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils";
 import { Tape } from "@/ui/Tape";
 import { PaperClip } from "@/ui/PaperClip";
 import { Highlighter } from "@/ui/Highlighter";
+import { AnnotationPointer } from "@/ui/AnnotationPointer";
 import { useLanguage } from "@/context/LanguageContext";
 
 const MODULE_ICONS = {
@@ -111,8 +112,9 @@ export function InteractiveDrawerSection() {
             <Tape color="striped" rotation="slight-left" position="top-right" />
             <PaperClip color="brass" className="start-6" />
 
-            <p className="font-handwriting text-xl text-[var(--accent-terracotta)] -rotate-1 mb-1">
-              ↳ {activeModule.subtitle}
+            <p className="font-handwriting text-xl text-[var(--accent-terracotta)] -rotate-1 mb-1 flex items-center gap-1.5">
+              <AnnotationPointer size="sm" />
+              <span>{activeModule.subtitle}</span>
             </p>
 
             <h3 className="font-serif text-2xl sm:text-3xl font-black text-[var(--ink-primary)]">

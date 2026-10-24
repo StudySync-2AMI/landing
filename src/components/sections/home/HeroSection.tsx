@@ -6,6 +6,7 @@ import { useLanguage } from "@/context/LanguageContext";
 import { SketchUnderline } from "@/ui/SketchUnderline";
 import { Highlight } from "@/ui/Highlighter";
 import { ConstellationOrbit } from "@/ui/ConstellationOrbit";
+import { AnnotationPointer } from "@/ui/AnnotationPointer";
 import {
   BookMarked,
   ArrowRight,
@@ -56,8 +57,9 @@ export function HeroSection() {
 
           {/* Handwritten Micro-Annotation */}
           <div className="pt-1 flex items-center gap-2">
-            <p className="font-handwriting text-xl sm:text-2xl text-[var(--accent-terracotta)] -rotate-2">
-              ↳ {hero.welcomeAnnotation}
+            <p className="font-handwriting text-xl sm:text-2xl text-[var(--accent-terracotta)] -rotate-2 flex items-center gap-1.5">
+              <AnnotationPointer size="sm" />
+              <span>{hero.welcomeAnnotation}</span>
             </p>
           </div>
 
