@@ -21,7 +21,11 @@
     "themeLight": "Day Study Notebook",
     "themeDark": "Night Desk Notebook",
     "switchLang": "العربية",
-    "academicAtelier": "academic atelier"
+    "academicAtelier": "academic atelier",
+    "signIn": "Sign In",
+    "signUp": "Register",
+    "authButton": "Sign In / Register",
+    "readerPass": "Reader Pass"
   },
   "hero": {
     "greeting": "hello, we are",
@@ -667,6 +671,18 @@
       "stamp": "ZERO-KNOWLEDGE VAULT",
       "title": "Privacy, Student Vault & Academic Governance",
       "subtitle": "Institutional privacy charter, zero-access personal academic workspace, and strict zero-telemetry geofencing policies."
+    },
+    "signIn": {
+      "code": "AUTH-SIGN-01",
+      "stamp": "READER ACCESS",
+      "title": "Scholar Dossier Sign In",
+      "subtitle": "Inscribe your university credentials to enter your active academic ledger, courses, and schedules."
+    },
+    "signUp": {
+      "code": "AUTH-MAT-02",
+      "stamp": "NEW MATRICULATION",
+      "title": "Academic Scholar Matriculation",
+      "subtitle": "Register your student profile to synchronize course requirements, safety rules, and AI guidance tracks."
     }
   },
   "privacyPage": {
@@ -799,7 +815,8 @@
     "close": "Close",
     "active": "ACT",
     "tip": "tap any bookmark to flip chapters",
-    "brandArabic": "ستادي سينك"
+    "brandArabic": "ستادي سينك",
+    "readerFolio": "SCHOLAR FOLIO"
   },
   "footer": {
     "copyright": "All Rights Reserved © StudySync - Academic Project Specification",
@@ -807,5 +824,46 @@
     "prospectus": "Prospectus Pages",
     "governance": "Governance",
     "vaultBadge": "Zero-Knowledge Vault"
+  },
+  "auth": {
+    "dossierNumber": "MATRICULATION // DOSSIER NO. 2026-SS",
+    "stampVerified": "AUTHORIZED SCHOLAR // VERIFIED",
+    "signInTab": "01. Reader Sign In",
+    "signUpTab": "02. New Matriculation",
+    "signInTitle": "Access Academic Dossier",
+    "signInSubtitle": "Inscribe your institutional credentials to enter your active academic ledger.",
+    "signUpTitle": "Matriculate New Scholar",
+    "signUpSubtitle": "Register your student profile to synchronize courses, schedules, and career roadmaps.",
+    "emailLabel": "ACADEMIC ID // INSTITUTIONAL EMAIL",
+    "emailPlaceholder": "e.g. s4410298@univ.edu.sa or scholar@studysync.edu",
+    "passwordLabel": "CIPHER // ENCRYPTED PASSCODE",
+    "passwordPlaceholder": "••••••••••••",
+    "fullNameLabel": "FULL LEGAL ACADEMIC NAME",
+    "fullNamePlaceholder": "e.g. Tariq Al-Mansour or Sara Smith",
+    "roleLabel": "ACADEMIC AFFILIATION & ROLE",
+    "roles": {
+      "student": "Undergraduate Scholar (Student)",
+      "teachingAssistant": "Academic Tutor / TA",
+      "professor": "Faculty Instructor / Doctor",
+      "advisor": "Academic Guidance Counselor"
+    },
+    "facultyLabel": "COLLEGE / SPECIALIZED DEPARTMENT",
+    "facultyPlaceholder": "e.g. College of Computing & AI",
+    "rememberMe": "Preserve Reader Session on this Desk",
+    "forgotPassword": "Lost Access Cipher? [ Request Dean Recovery ]",
+    "signInSubmit": "↵ INSCRIBE & OPEN DOSSIER",
+    "signUpSubmit": "↵ ISSUE READER PASS & MATRICULATE",
+    "orInstitutional": "INSTITUTIONAL FEDERATED SSO",
+    "ssoButton": "Enter via University Portal (Single Sign-On SAML)",
+    "guestDemo": "Quick Guest Reader Access (Demo Ledger)",
+    "securityNotice": "Protected under Zero-Access Student Privacy Governance (FERPA / Level 4 Cryptographic Vault)",
+    "haveAccount": "Already matriculated in StudySync?",
+    "noAccount": "Seeking new academic admission?",
+    "switchToSignIn": "Switch to Reader Sign In →",
+    "switchToSignUp": "Request Matriculation File →",
+    "toastSignInSuccess": "Matriculation Verified. Opening Student Dossier...",
+    "toastSignUpSuccess": "Matriculation Form Inscribed. Welcome to the StudySync Atelier!",
+    "demoName": "Tariq Al-Mansour",
+    "demoFaculty": "College of Computing & AI"
   }
 }

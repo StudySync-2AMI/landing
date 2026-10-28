@@ -202,3 +202,40 @@ Before shipping any section, verify visually:
 - [ ] Dark mode renders as an evening study desk with deep navy paper and bright ink.
 - [ ] Light mode renders as a warm, eye-friendly academic paper desk with ivory cards, walnut-gall ink, and soothing academic secondary accents (no sterile white or harsh jet-black).
 - [ ] WCAG AA 4.5:1 contrast verified in **both** modes.
+
+---
+
+## 11. Archival Matriculation Dossier & Reader Pass (Authentication Aesthetic)
+
+Authentication in StudySync strictly rejects generic white floating popups and sterile SaaS input boxes. Instead, authentication is treated as an **Official Academic Matriculation Docket & Scholar's Reader Pass**.
+
+### 1. Visual Anatomy of the Auth Dossier
+- **Overlapping Manila File Folder Tabs**: Mode switcher styled as physical cut folder tabs atop the card (`01. Reader Sign In` vs `02. New Matriculation`). Active tab seamlessly merges into the card surface with an offset block shadow (`shadow-[2px_-2px_0px_var(--shadow-anchor)]`); inactive tab is styled with dashed borders on subtle cardstock.
+- **Physical Paper Fasteners**: Pinned with semi-transparent washi tape (`<Tape variant="washi" />`) and a brass paperclip (`<PaperClip color="brass" />`) on the top margin.
+- **Archival Rubber Stamp**: Features an official verification seal (`<ArchivalStamp text="AUTHORIZED SCHOLAR // VERIFIED" variant="success" />`).
+- **Monospace Ledger Headings**: Ledger catalog numbers (`MATRICULATION // DOSSIER NO. 2026-SS`) and prompt notation (`FIELD // DESCRIPTION`).
+
+### 2. Ruled Ledger Inputs
+- **Field Framing**: `border-2 border-[var(--border-paper)] dark:border-[#3E4A5C]` on `bg-[var(--surface-subtle)] dark:bg-[#11161F]` with `text-[var(--ink-primary)]`.
+- **Focus Transition**: Transitions cleanly to terracotta highlight border `focus:border-[var(--accent-terracotta)]` without generic blue halos.
+- **Micro-Annotations**: Cipher visibility toggle and recovery links use marginalia typewriter cues.
+
+### 3. Tactile Action Seals & Buttons
+- **Primary Matriculation CTA**: Sealing wax terracotta button (`bg-[#B84224] dark:bg-[#E86A46] text-[#FFF6E9] shadow-[3px_3px_0px_var(--shadow-anchor)]`) with physical depression on active click.
+- **Institutional SAML SSO Slip**: Styled as a university single sign-on ticket.
+- **Instant Guest Demo**: Styled as an archival provisional reader pass.
+
+### 4. Desk Navigation Entrypoints (Anti-Generic Tactile Stationery)
+Generic web buttons (`<button className="bg-blue-500 rounded-md">`) are strictly prohibited in the navigation bar. Authentication entries must look like physical paper tickets resting on the desk binder:
+
+- **Desktop Navbar Unified Sticker Container (`<ScholarDeskTickets />`)**:
+  - Both authentication actions are housed in a **Single Unified Perforated Paper Sticker Container** (`border-2 border-[var(--border-paper)] bg-[var(--surface-card)] shadow-[2.5px_2.5px_0px_var(--shadow-anchor)] -rotate-1 hover:rotate-0`).
+  - Pinned on the top with a miniature **polygon-clipped washi tape strip** (`bg-[#FAF0CB]/95 border-y border-amber-600/35`).
+  - Divided down the middle by an authentic **vertical dashed perforated receipt line** with top and bottom circular punch notches (`rounded-full bg-[var(--bg-paper)]`).
+  - **Left Half (`Sign In`)**: Routes to `/signin` with ivory paper styling and terracotta login glyph.
+  - **Right Half (`Register`)**: Routes to `/signup` with terracotta tinted paper (`bg-[#FAF0CB]/70 dark:bg-[#281D1A]/80 text-[#B84224] dark:text-[#FF8A65]`) and user-plus glyph.
+  - Zero gap, ultra-compact (~145px total width), guaranteeing **zero wrapping or horizontal overflow** on any screen size.
+- **Mobile Book Edge Sidebar (`MobileBookEdgeSidebar.tsx`)**: In the book edge drawer, an authentic **Scholar Folio Docket (`CAT.AUTH`)** houses two side-by-side balanced tiles:
+  - `Sign In` (`/signin`): Framed archival library pass on `var(--surface-subtle)` with login glyph.
+  - `Register` (`/signup`): Terracotta matriculation seal on `bg-[#B84224] dark:bg-[#E86A46]` with user-plus glyph.
+- **Dedicated Routes**: `/signin` and `/signup` are distinct, first-class routes with bespoke archival page headers (`AUTH-SIGN-01` & `AUTH-MAT-02`) and bi-directional folder tab navigation.
