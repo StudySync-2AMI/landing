@@ -28,10 +28,10 @@ export function ThemeToggle({ className }: { className?: string }) {
       onClick={() => setTheme(isDark ? "light" : "dark")}
       className={cn(
         "group relative flex items-center gap-1.5 px-2 sm:px-2.5 py-1 rounded-md",
-        "border-2 border-[#1A1A1A] dark:border-[#4B5565]",
-        "bg-white dark:bg-[#18212D]",
-        "text-[#1A1A1A] dark:text-[#F3EFE6]",
-        "shadow-[2.5px_2.5px_0px_#1A1A1A] dark:shadow-[2.5px_2.5px_0px_#0A0D12]",
+        "border-2 border-[var(--border-paper)] dark:border-[#4B5565]",
+        "bg-[var(--surface-card)] dark:bg-[#18212D]",
+        "text-[var(--ink-primary)] dark:text-[#F3EFE6]",
+        "shadow-[2.5px_2.5px_0px_var(--shadow-anchor)] dark:shadow-[2.5px_2.5px_0px_#0A0D12]",
         "hover:-translate-y-0.5 active:translate-y-0.5 transition-all cursor-pointer select-none",
         className
       )}

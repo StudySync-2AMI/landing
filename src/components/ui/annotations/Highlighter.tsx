@@ -15,11 +15,11 @@ export function Highlighter({
   className,
 }: HighlighterProps) {
   const markerColors = {
-    yellow: "bg-[#FEF3C7] dark:bg-[#E5BE54]/30 text-[#1A1A1A] dark:text-[#FDFBF7]",
-    mint: "bg-[#D1FAE5] dark:bg-[#69A384]/30 text-[#1A1A1A] dark:text-[#FDFBF7]",
-    peach: "bg-[#FFEDD5] dark:bg-[#E29373]/30 text-[#1A1A1A] dark:text-[#FDFBF7]",
-    terracotta: "bg-[#FEE2E2] dark:bg-[#E86A46]/30 text-[#1A1A1A] dark:text-[#FDFBF7]",
-    purple: "bg-[#EDE9FE] dark:bg-[#8B7BA8]/30 text-[#1A1A1A] dark:text-[#FDFBF7]",
+    yellow: "bg-[#FEF3C7] dark:bg-[#E5BE54]/30 text-[var(--ink-primary)] dark:text-[#FDFBF7]",
+    mint: "bg-[#D1FAE5] dark:bg-[#69A384]/30 text-[var(--ink-primary)] dark:text-[#FDFBF7]",
+    peach: "bg-[#FFEDD5] dark:bg-[#E29373]/30 text-[var(--ink-primary)] dark:text-[#FDFBF7]",
+    terracotta: "bg-[#FEE2E2] dark:bg-[#E86A46]/30 text-[var(--ink-primary)] dark:text-[#FDFBF7]",
+    purple: "bg-[#EDE9FE] dark:bg-[#8B7BA8]/30 text-[var(--ink-primary)] dark:text-[#FDFBF7]",
   };
 
   const rotations = {

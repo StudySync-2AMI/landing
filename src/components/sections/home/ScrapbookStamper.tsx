@@ -47,7 +47,7 @@ export function ScrapbookStamper() {
   };
 
   return (
-    <div className="relative my-6 p-4 rounded-xl border-2 border-[var(--border-paper)] bg-[var(--surface-subtle)] shadow-[3px_3px_0px_#1A1A1A] select-none">
+    <div className="relative my-6 p-4 rounded-xl border-2 border-[var(--border-paper)] bg-[var(--surface-subtle)] shadow-[3px_3px_0px_var(--shadow-anchor)] select-none">
       <div className="flex flex-wrap items-center justify-between gap-3 mb-3">
         <div className="flex items-center gap-2">
           <Stamp className="w-4 h-4 text-[var(--accent-terracotta)]" />
@@ -70,7 +70,7 @@ export function ScrapbookStamper() {
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-4">
         {presets.map((p: { id: string; text: string }) => {
           const isSelected = p.id === selectedId;
-          const stampColors = colorMap[p.id] || "text-[#1A1A1A] border-[#1A1A1A]";
+          const stampColors = colorMap[p.id] || "text-[var(--ink-primary)] border-[var(--border-paper)]";
 
           return (
             <button
@@ -112,7 +112,7 @@ export function ScrapbookStamper() {
               transform: `translate(-50%, -50%) rotate(${stamp.rotate}deg)`,
             }}
             className={`px-3 py-1.5 rounded border-2 border-dashed font-mono font-black text-xs uppercase tracking-widest pointer-events-none select-none ${
-              colorMap[stamp.variant] || "text-[#1A1A1A] border-[#1A1A1A]"
+              colorMap[stamp.variant] || "text-[var(--ink-primary)] border-[var(--border-paper)]"
             }`}
           >
             {stamp.text}

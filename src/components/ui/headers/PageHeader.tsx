@@ -1,8 +1,8 @@
 import React from "react";
 import { cn } from "@/lib/utils";
-import { ArchivalStamp } from "./ArchivalStamp";
-import { Tape } from "./Tape";
-import { SketchUnderline } from "./SketchUnderline";
+import { ArchivalStamp } from "../annotations/ArchivalStamp";
+import { Tape } from "../fasteners/Tape";
+import { SketchUnderline } from "../annotations/SketchUnderline";
 
 interface PageHeaderProps {
   code: string;

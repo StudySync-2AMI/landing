@@ -3,10 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import { useLanguage } from "@/context/LanguageContext";
-import { SketchUnderline } from "@/ui/SketchUnderline";
-import { Highlight } from "@/ui/Highlighter";
-import { ConstellationOrbit } from "@/ui/ConstellationOrbit";
-import { AnnotationPointer } from "@/ui/AnnotationPointer";
+import { SketchUnderline, Highlight, ConstellationOrbit, AnnotationPointer } from "@/ui";
 import {
   BookMarked,
   ArrowRight,
@@ -32,14 +29,14 @@ export function HeroSection() {
           </p>
 
           {/* Large Authoritative Serif Headline */}
-          <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl font-black text-[#1A1A1A] dark:text-[var(--ink-primary)] leading-[1.04] tracking-tight">
+          <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl font-black text-[var(--ink-primary)] leading-[1.04] tracking-tight">
             <SketchUnderline color="terracotta" variant="brush">
               {hero.title}
             </SketchUnderline>
           </h1>
 
           {/* Subheadline with Tactile Highlighters */}
-          <div className="text-2xl sm:text-3xl md:text-4xl font-serif font-black text-[#1A1A1A] dark:text-[var(--ink-primary)] leading-snug pt-1">
+          <div className="text-2xl sm:text-3xl md:text-4xl font-serif font-black text-[var(--ink-primary)] leading-snug pt-1">
             {hero.subheadline1}{" "}
             <Highlight color="yellow" rotate="left">
               {hero.subheadlineSmart}
@@ -51,7 +48,7 @@ export function HeroSection() {
           </div>
 
           {/* Body Description */}
-          <p className="text-base sm:text-lg md:text-xl text-[#2C2A27] dark:text-[var(--ink-secondary)] leading-relaxed font-medium max-w-2xl">
+          <p className="text-base sm:text-lg md:text-xl text-[var(--ink-secondary)] leading-relaxed font-medium max-w-2xl">
             {hero.description}
           </p>
 
@@ -67,7 +64,7 @@ export function HeroSection() {
           <div className="flex flex-wrap items-center gap-3.5 sm:gap-4 pt-2">
             <a
               href="#modules"
-              className="group scrapbook-btn bg-[#E86A46] text-white hover:bg-[#D45936] dark:bg-[#E86A46] dark:hover:bg-[#D45936] border-2 border-[#1A1A1A] dark:border-[#FF8A65] text-sm sm:text-base px-5 py-3 shadow-[4px_4px_0px_#1A1A1A] dark:shadow-[4px_4px_0px_#0A0D12] active:translate-x-0.5 active:translate-y-0.5 active:shadow-[2px_2px_0px_#1A1A1A]"
+              className="group scrapbook-btn bg-[#E86A46] text-white hover:bg-[#D45936] dark:bg-[#E86A46] dark:hover:bg-[#D45936] border-2 border-[var(--border-paper)] dark:border-[#FF8A65] text-sm sm:text-base px-5 py-3 shadow-[4px_4px_0px_var(--shadow-anchor)] dark:shadow-[4px_4px_0px_#0A0D12] active:translate-x-0.5 active:translate-y-0.5 active:shadow-[2px_2px_0px_var(--shadow-anchor)]"
             >
               <span className="font-serif font-bold text-white">
                 {hero.browseBtn}
@@ -77,9 +74,9 @@ export function HeroSection() {
 
             <button
               onClick={() => window.print()}
-              className="group scrapbook-btn bg-white dark:bg-[#18212D] text-[#2B4C7E] dark:text-[#90CDF4] hover:bg-[#F3EFE6] dark:hover:bg-[#232D3B] hover:text-[#1A1A1A] dark:hover:text-[#FFFFFF] border-2 border-[#1A1A1A] dark:border-[#3E4A5C] text-sm sm:text-base px-5 py-3 shadow-[4px_4px_0px_#1A1A1A] dark:shadow-[4px_4px_0px_#0A0D12] active:translate-x-0.5 active:translate-y-0.5 active:shadow-[2px_2px_0px_#1A1A1A]"
+              className="group scrapbook-btn bg-[var(--surface-card)] dark:bg-[#18212D] text-[#1E3A5F] dark:text-[#90CDF4] hover:bg-[var(--surface-subtle)] dark:hover:bg-[#232D3B] hover:text-[var(--ink-primary)] dark:hover:text-[#FFFFFF] border-2 border-[var(--border-paper)] dark:border-[#3E4A5C] text-sm sm:text-base px-5 py-3 shadow-[4px_4px_0px_var(--shadow-anchor)] dark:shadow-[4px_4px_0px_#0A0D12] active:translate-x-0.5 active:translate-y-0.5 active:shadow-[2px_2px_0px_var(--shadow-anchor)]"
             >
-              <FileText className="w-4 h-4 text-[#2B4C7E] dark:text-[#90CDF4] shrink-0" />
+              <FileText className="w-4 h-4 text-[#1E3A5F] dark:text-[#90CDF4] shrink-0" />
               <span className="font-serif font-bold">{hero.printBtn}</span>
             </button>
           </div>
@@ -89,10 +86,9 @@ export function HeroSection() {
             <div className="flex flex-wrap items-center gap-2.5 sm:gap-3 text-xs">
               <Link
                 href="/academics"
-                className="group relative flex items-center gap-2 px-3 py-1.5 rounded-sm border-2 border-[#1A1A1A] dark:border-[#3E4A5C] border-s-4 border-s-[#2B4C7E] bg-white dark:bg-[#18212D] text-[#1A1A1A] dark:text-[#F3EFE6] shadow-[3px_3px_0px_#1A1A1A] dark:shadow-[2.5px_2.5px_0px_#0A0D12] hover:-translate-y-0.5 hover:rotate-0 -rotate-1 active:translate-y-0.5 transition-all select-none cursor-pointer"
+                className="group relative flex items-center gap-2 px-3 py-1.5 rounded-sm border-2 border-[var(--border-paper)] dark:border-[#3E4A5C] border-s-4 border-s-[#1E3A5F] bg-[var(--surface-card)] dark:bg-[#18212D] text-[var(--ink-primary)] dark:text-[#F3EFE6] shadow-[3px_3px_0px_var(--shadow-anchor)] dark:shadow-[2.5px_2.5px_0px_#0A0D12] hover:-translate-y-0.5 hover:rotate-0 -rotate-1 active:translate-y-0.5 transition-all select-none cursor-pointer"
               >
-                <BookMarked className="w-3.5 h-3.5 text-[#2B4C7E] dark:text-[#7AA2C7] shrink-0" />
-                <span className="font-mono text-[9px] font-bold text-[#5A564F] dark:text-[var(--ink-muted)]">CAT.01</span>
+                <BookMarked className="w-3.5 h-3.5 text-[#1E3A5F] dark:text-[#7AA2C7] shrink-0" />
                 <span className="font-serif font-bold">
                   {dict.nav.courses}
                 </span>
@@ -101,10 +97,9 @@ export function HeroSection() {
 
               <Link
                 href="/attendance-safety"
-                className="group relative flex items-center gap-2 px-3 py-1.5 rounded-sm border-2 border-[#1A1A1A] dark:border-[#3E4A5C] border-s-4 border-s-[#2E6F40] bg-white dark:bg-[#18212D] text-[#1A1A1A] dark:text-[#F3EFE6] shadow-[3px_3px_0px_#1A1A1A] dark:shadow-[2.5px_2.5px_0px_#0A0D12] hover:-translate-y-0.5 hover:rotate-0 rotate-1 active:translate-y-0.5 transition-all select-none cursor-pointer"
+                className="group relative flex items-center gap-2 px-3 py-1.5 rounded-sm border-2 border-[var(--border-paper)] dark:border-[#3E4A5C] border-s-4 border-s-[#265935] bg-[var(--surface-card)] dark:bg-[#18212D] text-[var(--ink-primary)] dark:text-[#F3EFE6] shadow-[3px_3px_0px_var(--shadow-anchor)] dark:shadow-[2.5px_2.5px_0px_#0A0D12] hover:-translate-y-0.5 hover:rotate-0 rotate-1 active:translate-y-0.5 transition-all select-none cursor-pointer"
               >
-                <QrCode className="w-3.5 h-3.5 text-[#2E6F40] dark:text-[#7BB882] shrink-0" />
-                <span className="font-mono text-[9px] font-bold text-[#5A564F] dark:text-[var(--ink-muted)]">CAT.02</span>
+                <QrCode className="w-3.5 h-3.5 text-[#265935] dark:text-[#7BB882] shrink-0" />
                 <span className="font-serif font-bold">
                   {dict.nav.attendance}
                 </span>
@@ -113,10 +108,9 @@ export function HeroSection() {
 
               <Link
                 href="/intelligence"
-                className="group relative flex items-center gap-2 px-3 py-1.5 rounded-sm border-2 border-[#1A1A1A] dark:border-[#3E4A5C] border-s-4 border-s-[#E86A46] bg-white dark:bg-[#18212D] text-[#1A1A1A] dark:text-[#F3EFE6] shadow-[3px_3px_0px_#1A1A1A] dark:shadow-[2.5px_2.5px_0px_#0A0D12] hover:-translate-y-0.5 hover:rotate-0 -rotate-1 active:translate-y-0.5 transition-all select-none cursor-pointer"
+                className="group relative flex items-center gap-2 px-3 py-1.5 rounded-sm border-2 border-[var(--border-paper)] dark:border-[#3E4A5C] border-s-4 border-s-[#E86A46] bg-[var(--surface-card)] dark:bg-[#18212D] text-[var(--ink-primary)] dark:text-[#F3EFE6] shadow-[3px_3px_0px_var(--shadow-anchor)] dark:shadow-[2.5px_2.5px_0px_#0A0D12] hover:-translate-y-0.5 hover:rotate-0 -rotate-1 active:translate-y-0.5 transition-all select-none cursor-pointer"
               >
                 <Sparkles className="w-3.5 h-3.5 text-[#E86A46] dark:text-[#FF8A65] shrink-0" />
-                <span className="font-mono text-[9px] font-bold text-[#5A564F] dark:text-[var(--ink-muted)]">CAT.03</span>
                 <span className="font-serif font-bold">
                   {dict.nav.ai}
                 </span>

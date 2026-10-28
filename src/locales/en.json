@@ -803,6 +803,9 @@
   },
   "footer": {
     "copyright": "All Rights Reserved © StudySync - Academic Project Specification",
-    "subtext": "This interactive document was designed to present system specifications with a seamless, bilingual digital notebook experience."
+    "subtext": "This interactive document was designed to present system specifications with a seamless, bilingual digital notebook experience.",
+    "prospectus": "Prospectus Pages",
+    "governance": "Governance",
+    "vaultBadge": "Zero-Knowledge Vault"
   }
 }

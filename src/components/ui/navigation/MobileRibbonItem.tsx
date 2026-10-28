@@ -42,10 +42,10 @@ export function MobileRibbonItem({
             : "polygon(15px 0%, 100% 0%, 100% 100%, 15px 100%, 0% 50%)",
         }}
         className={cn(
-          "absolute inset-0 z-0 border-2 border-[#1A1A1A]",
+          "absolute inset-0 z-0 border-2 border-[var(--border-paper)]",
           item.ribbonColor,
           item.darkRibbonColor,
-          isArabic ? "shadow-[3px_3px_0px_#1A1A1A]" : "shadow-[-3px_3px_0px_#1A1A1A]"
+          isArabic ? "shadow-[3px_3px_0px_var(--shadow-anchor)]" : "shadow-[-3px_3px_0px_var(--shadow-anchor)]"
         )}
       />
 

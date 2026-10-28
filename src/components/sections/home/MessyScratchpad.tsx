@@ -2,8 +2,7 @@
 
 import React, { useState } from "react";
 import { CheckSquare, Square, Pencil, RotateCw } from "lucide-react";
-import { Tape } from "@/ui/Tape";
-import { PaperClip } from "@/ui/PaperClip";
+import { Tape, PaperClip } from "@/ui";
 import { useLanguage } from "@/context/LanguageContext";
 
 interface NoteItem {
@@ -37,13 +36,13 @@ export function MessyScratchpad() {
   return (
     <div
       style={{ transform: `rotate(${rotation}deg)` }}
-      className="relative p-5 sm:p-6 rounded-xl border-2 border-[#1A1A1A] bg-[#FDF1CC] dark:bg-[#2D2817] text-[#1A1A1A] dark:text-[#F9F7F1] shadow-[4px_4px_0px_#1A1A1A] dark:shadow-xl transition-transform duration-200 select-none group"
+      className="relative p-5 sm:p-6 rounded-xl border-2 border-[var(--border-paper)] bg-[#FAF0CB] dark:bg-[#2D2817] text-[var(--ink-primary)] dark:text-[#F9F7F1] shadow-[4px_4px_0px_var(--shadow-anchor)] dark:shadow-xl transition-transform duration-200 select-none group"
     >
       <Tape color="striped" rotation="slight-left" position="top-center" />
       <PaperClip color="silver" className="start-4" />
 
       {/* Header */}
-      <div className="flex items-center justify-between gap-2 border-b border-[#1A1A1A]/20 pb-2 mb-3">
+      <div className="flex items-center justify-between gap-2 border-b border-[var(--border-paper)]/20 pb-2 mb-3">
         <div className="flex items-center gap-1.5 font-mono text-xs font-bold uppercase tracking-wider text-[#7A5800] dark:text-[#E5BE54]">
           <Pencil className="w-3.5 h-3.5" />
           <span>{desk.scratchpadTitle}</span>

@@ -11,34 +11,42 @@
 
 @layer base {
   :root {
-    --bg-paper: #F8F6F0;
-    --surface-card: #FFFFFF;
-    --surface-subtle: #EAE5D9;
-    --border-paper: #1A1A1A;
-    --border-stone: #1A1A1A;
-    --border-stone-strong: #1A1A1A;
-    --border-subtle: rgba(26, 26, 26, 0.18);
-    --ink-primary: #1A1A1A;
-    --ink-secondary: #2C2A27;
-    --ink-muted: #5A564F;
-    --accent-mint: #D1E8D1;
-    --accent-yellow: #FDF1CC;
-    --accent-peach: #FAD4C0;
-    --accent-terracotta: #B93815;
-    --accent-purple: #8B7BA8;
-    --accent-oxford: #2B3A4A;
-    --accent-sage: #3D5A40;
-    --accent-amber: #D9822B;
-    --shadow-offset: 4px 4px 0px #1A1A1A;
-    --shadow-offset-lg: 5px 5px 0px #1A1A1A;
-    --ruled-line: rgba(26, 26, 26, 0.06);
-    --margin-line: rgba(185, 56, 21, 0.35);
+    --bg-paper: #F4EFE6;
+    --surface-card: #FAF6EE;
+    --surface-subtle: #EBE3D3;
+    --surface-docket: #E2D8C3;
+    --border-paper: #3D352E;
+    --border-stone: #3D352E;
+    --border-stone-strong: #28231D;
+    --border-subtle: rgba(61, 53, 46, 0.18);
+    --ink-primary: #28231D;
+    --ink-secondary: #584F45;
+    --ink-muted: #7E7467;
+    --shadow-anchor: #3D352E;
+    --accent-mint: #CBE6CB;
+    --accent-yellow: #FAF0CB;
+    --accent-peach: #F8D6C0;
+    --accent-terracotta: #B84224;
+    --accent-purple: #7E6B9B;
+    --accent-oxford: #1E3A5F;
+    --accent-sage: #265935;
+    --accent-amber: #A66A14;
+    --shadow-offset: 4px 4px 0px var(--shadow-anchor);
+    --shadow-offset-lg: 5px 5px 0px var(--shadow-anchor);
+    --ruled-line: rgba(61, 53, 46, 0.06);
+    --margin-line: rgba(184, 66, 36, 0.35);
+
+    /* Canonical notebook card aliases */
+    --paper-bg: var(--bg-paper);
+    --paper-card: var(--surface-card);
+    --paper-card-border: var(--border-paper);
   }
 
   .dark {
     --bg-paper: #11151C;
     --surface-card: #181E27;
     --surface-subtle: #1F2733;
+    --surface-docket: #151B24;
     /* Crisp, solid 2px borders with high contrast so dark mode never looks faint or pixelated */
     --border-paper: #3A4556;
     --border-stone: #3A4556;
@@ -47,6 +55,7 @@
     --ink-primary: #F9F7F1;
     --ink-secondary: #C2C9D6;
     --ink-muted: #8E99AA;
+    --shadow-anchor: #090B0F;
     --accent-mint: #69A384;
     --accent-yellow: #E5BE54;
     --accent-peach: #E29373;
@@ -55,10 +64,15 @@
     --accent-oxford: #7AA2C7;
     --accent-sage: #7BB882;
     --accent-amber: #E2A03F;
-    --shadow-offset: 4px 4px 0px #090B0F;
-    --shadow-offset-lg: 5px 5px 0px #090B0F;
+    --shadow-offset: 4px 4px 0px var(--shadow-anchor);
+    --shadow-offset-lg: 5px 5px 0px var(--shadow-anchor);
     --ruled-line: rgba(249, 247, 241, 0.035);
     --margin-line: rgba(231, 111, 81, 0.3);
+
+    /* Canonical notebook card aliases */
+    --paper-bg: var(--bg-paper);
+    --paper-card: var(--surface-card);
+    --paper-card-border: var(--border-paper);
   }
 
   html,
@@ -123,7 +137,7 @@ body[dir="ltr"] .font-handwriting {
 
 /* Subtle physical paper noise overlay */
 .paper-grain-overlay {
-  background-image: radial-gradient(#BDB4A3 1.35px, transparent 1.35px);
+  background-image: radial-gradient(#C5BBAA 1.35px, transparent 1.35px);
   background-size: 24px 24px;
 }
 .dark .paper-grain-overlay {
@@ -132,7 +146,7 @@ body[dir="ltr"] .font-handwriting {
 
 /* Global hard tactile offset shadow for physical paper layers */
 .shadow-stationery {
-  box-shadow: 4px 4px 0px 0px #1A1A1A;
+  box-shadow: 4px 4px 0px 0px #3D352E;
 }
 .dark .shadow-stationery {
   box-shadow: 4px 4px 0px 0px #090B0F;

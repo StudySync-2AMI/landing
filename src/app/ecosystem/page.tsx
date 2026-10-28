@@ -3,7 +3,7 @@
 import React from "react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { PageHeader } from "@/ui/PageHeader";
+import { PageHeader } from "@/ui";
 import { OpportunityHubSection } from "@/components/sections/ecosystem/OpportunityHubSection";
 import { WorkflowsSection } from "@/components/sections/ecosystem/WorkflowsSection";
 import { ScopeMatrixSection } from "@/components/sections/ecosystem/ScopeMatrixSection";

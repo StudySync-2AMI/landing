@@ -14,42 +14,42 @@ export function NotebookTabsNav() {
     {
       href: "/",
       label: language === "ar" ? "الفهرس العام" : "Overview",
-      activeBg: "bg-[#FDF1CC] text-[#1A1A1A] border-[#1A1A1A]",
+      activeBg: "bg-[#FAF0CB] text-[var(--ink-primary)] border-[var(--border-paper)]",
       inactiveBg: "bg-[var(--surface-subtle)] text-[var(--ink-secondary)]",
       tag: "01",
     },
     {
       href: "/academics",
       label: language === "ar" ? "المقررات والجداول" : "Academics",
-      activeBg: "bg-[#D8E2EC] text-[#132738] border-[#1A1A1A]",
+      activeBg: "bg-[#D8E2EC] text-[#132738] border-[var(--border-paper)]",
       inactiveBg: "bg-[var(--surface-subtle)] text-[var(--ink-secondary)]",
       tag: "02",
     },
     {
       href: "/attendance-safety",
       label: language === "ar" ? "الحضور والخطر" : "Safety & Risk",
-      activeBg: "bg-[#FAD4C0] text-[#4A1F0D] border-[#1A1A1A]",
+      activeBg: "bg-[#F8D6C0] text-[#4A1F0D] border-[var(--border-paper)]",
       inactiveBg: "bg-[var(--surface-subtle)] text-[var(--ink-secondary)]",
       tag: "03",
     },
     {
       href: "/intelligence",
       label: language === "ar" ? "الذكاء والمذاكرة" : "AI & Career",
-      activeBg: "bg-[#E6E0F0] text-[#2F1F45] border-[#1A1A1A]",
+      activeBg: "bg-[#E6E0F0] text-[#2F1F45] border-[var(--border-paper)]",
       inactiveBg: "bg-[var(--surface-subtle)] text-[var(--ink-secondary)]",
       tag: "04",
     },
     {
       href: "/ecosystem",
       label: language === "ar" ? "الفرص والنطاق" : "Ecosystem",
-      activeBg: "bg-[#D1E8D1] text-[#1E3A24] border-[#1A1A1A]",
+      activeBg: "bg-[#D1E8D1] text-[#1E3A24] border-[var(--border-paper)]",
       inactiveBg: "bg-[var(--surface-subtle)] text-[var(--ink-secondary)]",
       tag: "05",
     },
     {
       href: "/privacy",
       label: language === "ar" ? "المساحة الخاصة" : "Vault & Privacy",
-      activeBg: "bg-[#EDEAE0] text-[#1A1A1A] border-[#1A1A1A]",
+      activeBg: "bg-[var(--surface-docket)] text-[var(--ink-primary)] border-[var(--border-paper)]",
       inactiveBg: "bg-[var(--surface-subtle)] text-[var(--ink-secondary)]",
       tag: "06",
     },
@@ -68,7 +68,7 @@ export function NotebookTabsNav() {
               isActive
                 ? cn(
                     tab.activeBg,
-                    "shadow-[2px_-2px_0px_#1A1A1A] -mb-px z-10 scale-[1.02] origin-bottom font-black"
+                    "shadow-[2px_-2px_0px_var(--shadow-anchor)] -mb-px z-10 scale-[1.02] origin-bottom font-black"
                   )
                 : cn(
                     tab.inactiveBg,

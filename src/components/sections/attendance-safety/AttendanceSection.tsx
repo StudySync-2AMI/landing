@@ -2,9 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { useLanguage } from "@/context/LanguageContext";
-import { SectionHeader } from "@/ui/SectionHeader";
-import { NotebookCard } from "@/ui/NotebookCard";
-import { StampBadge } from "@/ui/StampBadge";
+import { SectionHeader, NotebookCard, StampBadge } from "@/ui";
 import {
   QrCode,
   ShieldCheck,

@@ -3,10 +3,7 @@
 import React, { useState } from "react";
 import { ArrowUpRight, ShieldCheck, QrCode, Compass, Sparkles } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { Tape } from "@/ui/Tape";
-import { PaperClip } from "@/ui/PaperClip";
-import { Highlighter } from "@/ui/Highlighter";
-import { AnnotationPointer } from "@/ui/AnnotationPointer";
+import { Tape, PaperClip, Highlighter, AnnotationPointer } from "@/ui";
 import { useLanguage } from "@/context/LanguageContext";
 
 const MODULE_ICONS = {
@@ -70,7 +67,7 @@ export function InteractiveDrawerSection() {
                 className={cn(
                   "w-full text-start p-4 rounded-xl border-2 transition-all duration-200 cursor-pointer flex items-center justify-between gap-3",
                   isSelected
-                    ? "bg-[var(--surface-card)] border-[#1A1A1A] shadow-[3px_3px_0px_#1A1A1A] dark:shadow-[0_4px_16px_rgba(0,0,0,0.5)] dark:border-white/20 translate-x-1 rtl:-translate-x-1"
+                    ? "bg-[var(--surface-card)] border-[var(--border-paper)] shadow-[3px_3px_0px_var(--shadow-anchor)] dark:shadow-[0_4px_16px_rgba(0,0,0,0.5)] dark:border-white/20 translate-x-1 rtl:-translate-x-1"
                     : "bg-[var(--surface-subtle)]/70 border-transparent hover:border-stone-400/40 hover:bg-[var(--surface-card)]"
                 )}
               >
@@ -79,7 +76,7 @@ export function InteractiveDrawerSection() {
                     className={cn(
                       "p-2 rounded-lg border",
                       isSelected
-                        ? "bg-[#FDF1CC] text-[#1A1A1A] border-amber-600/30 dark:bg-amber-950/40 dark:text-amber-200"
+                        ? "bg-[#FAF0CB] text-[var(--ink-primary)] border-amber-600/30 dark:bg-amber-950/40 dark:text-amber-200"
                         : "bg-stone-200/50 dark:bg-stone-800/50 text-[var(--ink-secondary)] border-transparent"
                     )}
                   >
@@ -108,7 +105,7 @@ export function InteractiveDrawerSection() {
 
         {/* Selected Module Card */}
         <div className="lg:col-span-7 relative">
-          <div className="relative rounded-xl border-2 border-[var(--border-paper)] bg-[var(--surface-card)] p-6 sm:p-8 shadow-[4px_4px_0px_#1A1A1A] dark:shadow-2xl">
+          <div className="relative rounded-xl border-2 border-[var(--border-paper)] bg-[var(--surface-card)] p-6 sm:p-8 shadow-[4px_4px_0px_var(--shadow-anchor)] dark:shadow-2xl">
             <Tape color="striped" rotation="slight-left" position="top-right" />
             <PaperClip color="brass" className="start-6" />
 
@@ -162,7 +159,7 @@ export function InteractiveDrawerSection() {
             <div className="mt-6 flex flex-wrap items-center justify-between gap-3">
               <a
                 href={MODULE_ROUTES[activeKey]}
-                className="scrapbook-btn bg-[#FDF1CC] text-[#1A1A1A] hover:bg-[#fae7b1] border-2 border-[#1A1A1A] shadow-[2.5px_2.5px_0px_#1A1A1A]"
+                className="scrapbook-btn bg-[#FAF0CB] text-[var(--ink-primary)] hover:bg-[#F5E5B0] border-2 border-[var(--border-paper)] shadow-[2.5px_2.5px_0px_var(--shadow-anchor)]"
               >
                 <span>{d.openSpec}</span>
                 <ArrowUpRight className="w-4 h-4 rtl:-scale-x-100" />

@@ -52,10 +52,10 @@ export function PitchNoteSection() {
   return (
     <section aria-label={dict.hero.pitchLabel} className="relative select-none">
       {/* Background Kraft Card for Tactile Physical Collage Depth */}
-      <div className="absolute inset-0 translate-x-1.5 translate-y-1.5 sm:translate-x-2 sm:translate-y-2 rounded-2xl bg-[#EAE5D9] dark:bg-[#10141C] border-2 border-[#1A1A1A] dark:border-[#3E4A5C] rotate-1" />
+      <div className="absolute inset-0 translate-x-1.5 translate-y-1.5 sm:translate-x-2 sm:translate-y-2 rounded-2xl bg-[var(--surface-subtle)] dark:bg-[#10141C] border-2 border-[var(--border-paper)] dark:border-[#3E4A5C] rotate-1" />
 
       {/* Main Archival Parchment Sheet */}
-      <div className="relative rounded-2xl border-2 border-[#1A1A1A] dark:border-[#3E4A5C] bg-white dark:bg-[#171F2B] p-6 sm:p-10 shadow-[4px_4px_0px_#1A1A1A] dark:shadow-[4px_4px_0px_#0A0D12] -rotate-[0.3deg] overflow-hidden paper-ruled">
+      <div className="relative rounded-2xl border-2 border-[var(--border-paper)] dark:border-[#3E4A5C] bg-[var(--surface-card)] dark:bg-[#171F2B] p-6 sm:p-10 shadow-[4px_4px_0px_var(--shadow-anchor)] dark:shadow-[4px_4px_0px_#0A0D12] -rotate-[0.3deg] overflow-hidden paper-ruled">
         {/* Physical Tape, Real Wire Paperclip & Antique Brass Pushpin Mountings */}
         <Tape color="striped" rotation="slight-right" position="top-center" />
         <PaperClip color="brass" size="md" className="start-6 -top-3.5" />
@@ -63,7 +63,7 @@ export function PitchNoteSection() {
         {/* Top Header: Archival Docket Number & Registrar Postmark Seal */}
         <div className="flex items-center justify-between gap-3 mb-4 flex-wrap">
           <div className="flex items-center gap-2">
-            <div className="flex items-center gap-1.5 px-2.5 py-0.5 rounded border-2 border-[#1A1A1A] dark:border-[#4B5565] bg-[#FDF1CC] dark:bg-[#2A2415] text-[#1A1A1A] dark:text-[#F3EFE6] shadow-[1.5px_1.5px_0px_#1A1A1A]">
+            <div className="flex items-center gap-1.5 px-2.5 py-0.5 rounded border-2 border-[var(--border-paper)] dark:border-[#4B5565] bg-[#FAF0CB] dark:bg-[#2A2415] text-[var(--ink-primary)] dark:text-[#F3EFE6] shadow-[1.5px_1.5px_0px_var(--shadow-anchor)]">
               <PushPin size="sm" inline color="brass" className="-ms-0.5 me-1" />
               <span className="font-mono text-[10px] sm:text-[11px] font-black uppercase">
                 {dict.hero.pitchDocketNumber}
@@ -87,20 +87,20 @@ export function PitchNoteSection() {
         </div>
 
         {/* The One-Sentence Thesis Manifesto */}
-        <blockquote className="font-serif text-xl sm:text-2xl md:text-3xl font-black text-[#1A1A1A] dark:text-[#F9F7F1] leading-snug sm:leading-relaxed tracking-tight relative z-10 mb-6">
+        <blockquote className="font-serif text-xl sm:text-2xl md:text-3xl font-black text-[var(--ink-primary)] dark:text-[#F9F7F1] leading-snug sm:leading-relaxed tracking-tight relative z-10 mb-6">
           &ldquo;{dict.hero.pitchText}&rdquo;
         </blockquote>
 
         {/* 4 Architectural Pillar Slips */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 pt-5 border-t-2 border-dashed border-[#1A1A1A]/15 dark:border-white/10 relative z-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 pt-5 border-t-2 border-dashed border-[var(--border-paper)]/15 dark:border-white/10 relative z-10">
           {pillars.map((pillar) => {
             const Icon = pillar.icon;
             return (
               <div
                 key={pillar.key}
-                className={`flex items-start gap-2.5 p-3 rounded-lg border-2 border-[#1A1A1A] dark:border-[#3E4A5C] ${pillar.bg} shadow-[2px_2px_0px_#1A1A1A] dark:shadow-[2px_2px_0px_#0A0D12] hover:-translate-y-0.5 transition-transform`}
+                className={`flex items-start gap-2.5 p-3 rounded-lg border-2 border-[var(--border-paper)] dark:border-[#3E4A5C] ${pillar.bg} shadow-[2px_2px_0px_var(--shadow-anchor)] dark:shadow-[2px_2px_0px_#0A0D12] hover:-translate-y-0.5 transition-transform`}
               >
-                <div className={`p-1.5 rounded-md bg-white/70 dark:bg-black/30 border border-[#1A1A1A]/20 ${pillar.accent} shrink-0`}>
+                <div className={`p-1.5 rounded-md bg-white/70 dark:bg-black/30 border border-[var(--border-paper)]/20 ${pillar.accent} shrink-0`}>
                   <Icon className="w-4 h-4" />
                 </div>
                 <div className="flex flex-col min-w-0">

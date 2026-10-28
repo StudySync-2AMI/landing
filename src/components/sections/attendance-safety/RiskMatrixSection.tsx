@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { Calculator, ShieldCheck, AlertTriangle, AlertOctagon, RotateCcw } from "lucide-react";
-import { Tape } from "@/ui/Tape";
+import { Tape } from "@/ui";
 import { useLanguage } from "@/context/LanguageContext";
 
 export function RiskMatrixSection() {
@@ -45,7 +45,7 @@ export function RiskMatrixSection() {
   };
 
   return (
-    <section id="matrix" className="relative p-6 sm:p-8 rounded-xl border-2 border-[var(--border-paper)] bg-[var(--surface-card)] shadow-[4px_4px_0px_#1A1A1A] select-none my-8">
+    <section id="matrix" className="relative p-6 sm:p-8 rounded-xl border-2 border-[var(--border-paper)] bg-[var(--surface-card)] shadow-[4px_4px_0px_var(--shadow-anchor)] select-none my-8">
       <Tape color="mint" rotation="slight-left" position="top-left" />
 
       {/* Header */}

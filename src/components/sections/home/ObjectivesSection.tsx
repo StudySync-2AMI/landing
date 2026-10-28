@@ -2,8 +2,7 @@
 
 import React from "react";
 import { useLanguage } from "@/context/LanguageContext";
-import { Tape } from "@/ui/Tape";
-import { AnnotationPointer } from "@/ui/AnnotationPointer";
+import { Tape, AnnotationPointer } from "@/ui";
 
 export function ObjectivesSection() {
   const { dict } = useLanguage();
@@ -37,7 +36,7 @@ export function ObjectivesSection() {
         {objectives.items.map((item, index) => (
           <div
             key={item.id}
-            className="relative p-6 rounded-xl border-2 border-[var(--border-paper)] bg-[var(--surface-card)] shadow-[4px_4px_0px_#1A1A1A] hover:-translate-y-1 hover:shadow-[6px_6px_0px_#1A1A1A] transition-all"
+            className="relative p-6 rounded-xl border-2 border-[var(--border-paper)] bg-[var(--surface-card)] shadow-[4px_4px_0px_var(--shadow-anchor)] hover:-translate-y-1 hover:shadow-[6px_6px_0px_var(--shadow-anchor)] transition-all"
           >
             {index % 4 === 1 && <Tape color="mint" rotation="slight-left" position="top-right" />}
             {index % 4 === 3 && <Tape color="peach" rotation="slight-right" position="top-left" />}

@@ -3,7 +3,7 @@
 import React from "react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { PageHeader } from "@/ui/PageHeader";
+import { PageHeader } from "@/ui";
 import { WorkspaceSection } from "@/components/sections/privacy/WorkspaceSection";
 import { PrivacyPillarsSection } from "@/components/sections/privacy/PrivacyPillarsSection";
 import { useLanguage } from "@/context/LanguageContext";

@@ -44,7 +44,7 @@ export function RolesSection() {
             onClick={() => setSelectedRole(idx)}
             className={`scrapbook-btn text-xs sm:text-sm font-bold transition-all cursor-pointer px-4 py-2 ${
               selectedRole === idx
-                ? "bg-[#FAD4C0] text-[#1A1A1A] border-[#1A1A1A] shadow-[3px_3px_0px_#1A1A1A]"
+                ? "bg-[#F8D6C0] text-[var(--ink-primary)] border-[var(--border-paper)] shadow-[3px_3px_0px_var(--shadow-anchor)]"
                 : "bg-[var(--surface-card)] text-[var(--ink-secondary)] border-[var(--border-paper)] hover:text-[var(--ink-primary)]"
             }`}
           >
@@ -54,7 +54,7 @@ export function RolesSection() {
       </div>
 
       {/* Active Role Dossier Card */}
-      <div className="relative p-6 sm:p-10 rounded-xl border-2 border-[var(--border-paper)] bg-[var(--surface-card)] shadow-[5px_5px_0px_#1A1A1A] space-y-6">
+      <div className="relative p-6 sm:p-10 rounded-xl border-2 border-[var(--border-paper)] bg-[var(--surface-card)] shadow-[5px_5px_0px_var(--shadow-anchor)] space-y-6">
         <Tape color="yellow" rotation="slight-left" position="top-right" />
         <PaperClip color="rose" className="start-10" />
 

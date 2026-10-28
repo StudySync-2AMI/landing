@@ -2,7 +2,7 @@
 
 import React from "react";
 import { useLanguage } from "@/context/LanguageContext";
-import { ArchivalStamp } from "@/ui/ArchivalStamp";
+import { ArchivalStamp } from "@/ui";
 import { MessyScratchpad } from "./MessyScratchpad";
 import { ScrapbookStamper } from "./ScrapbookStamper";
 

@@ -3,7 +3,7 @@
 import React from "react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { PageHeader } from "@/ui/PageHeader";
+import { PageHeader } from "@/ui";
 import { AiTrackSection } from "@/components/sections/intelligence/AiTrackSection";
 import { RecommendationSection } from "@/components/sections/intelligence/RecommendationSection";
 import { AiToolsSection } from "@/components/sections/intelligence/AiToolsSection";

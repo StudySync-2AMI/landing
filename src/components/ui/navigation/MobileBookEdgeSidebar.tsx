@@ -6,7 +6,7 @@ import { useLanguage } from "@/context/LanguageContext";
 import { cn } from "@/lib/utils";
 import { BOOKMARKS } from "./BookmarkRibbonNav";
 import { MobileRibbonItem } from "./MobileRibbonItem";
-import { CornerPointer } from "./pointers/CornerPointer";
+import { CornerPointer } from "../annotations/pointers/CornerPointer";
 import { ThemeToggle } from "@/components/layout/ThemeToggle";
 import { LanguageToggle } from "@/components/layout/LanguageToggle";
 import { SearchModal } from "@/components/layout/SearchModal";
@@ -35,7 +35,7 @@ export function MobileBookEdgeSidebar() {
               ? "polygon(0 0, 100% 0, calc(100% - 10px) 50%, 100% 100%, 0 100%)"
               : "polygon(0 0, 100% 0, 100% 100%, 0 100%, 10px 50%)",
             filter:
-              "drop-shadow(2px 0 0 #1A1A1A) drop-shadow(-2px 0 0 #1A1A1A) drop-shadow(0 2px 0 #1A1A1A) drop-shadow(0 -2px 0 #1A1A1A) drop-shadow(-3px 4px 0 #1A1A1A)",
+              "drop-shadow(2px 0 0 #3D352E) drop-shadow(-2px 0 0 #3D352E) drop-shadow(0 2px 0 #3D352E) drop-shadow(0 -2px 0 #3D352E) drop-shadow(-3px 4px 0 #3D352E)",
           }}
           className={cn(
             "group relative flex items-center gap-2 py-2 ps-4 pe-3",
@@ -79,15 +79,15 @@ export function MobileBookEdgeSidebar() {
             <div
               className={cn(
                 "relative z-10 flex-1 flex flex-col justify-between overflow-visible",
-                "bg-[#FCFAF5] dark:bg-[#151A22] border-y-2 border-[#1A1A1A] dark:border-[#3A4556]",
+                "bg-[#FAF6EE] dark:bg-[#151A22] border-y-2 border-[var(--border-paper)] dark:border-[#3A4556]",
                 isArabic
-                  ? "border-e-2 border-s-0 shadow-[4px_0px_0px_#1A1A1A]"
-                  : "border-s-2 border-e-0 shadow-[-4px_0px_0px_#1A1A1A]",
+                  ? "border-e-2 border-s-0 shadow-[4px_0px_0px_var(--shadow-anchor)]"
+                  : "border-s-2 border-e-0 shadow-[-4px_0px_0px_var(--shadow-anchor)]",
                 "paper-ruled"
               )}
             >
               {/* Top Header */}
-              <div className="px-3.5 pt-3.5 pb-2.5 flex items-center justify-between border-b-2 border-dashed border-[#1A1A1A]/15 dark:border-white/10 bg-[#F4EFE6]/60 dark:bg-white/5">
+              <div className="px-3.5 pt-3.5 pb-2.5 flex items-center justify-between border-b-2 border-dashed border-[var(--border-paper)]/15 dark:border-white/10 bg-[#EBE3D3]/60 dark:bg-white/5">
                 <div className="flex items-center gap-1.5">
                   <span className="text-sm">📖</span>
                   <span className="font-serif text-xs font-black tracking-tight text-[var(--ink-primary)]">
@@ -97,7 +97,7 @@ export function MobileBookEdgeSidebar() {
 
                 <button
                   onClick={() => setIsOpen(false)}
-                  className="flex items-center justify-center w-7 h-7 rounded border-2 border-[#1A1A1A] bg-[var(--surface-card)] text-[var(--ink-primary)] shadow-[2px_2px_0px_#1A1A1A] hover:bg-[var(--surface-subtle)] active:translate-x-0.5 active:translate-y-0.5 cursor-pointer"
+                  className="flex items-center justify-center w-7 h-7 rounded border-2 border-[var(--border-paper)] bg-[var(--surface-card)] text-[var(--ink-primary)] shadow-[2px_2px_0px_var(--shadow-anchor)] hover:bg-[var(--surface-subtle)] active:translate-x-0.5 active:translate-y-0.5 cursor-pointer"
                   title={dict.sidebar.close}
                 >
                   <X className="w-3.5 h-3.5 stroke-[2.5]" />
@@ -119,14 +119,14 @@ export function MobileBookEdgeSidebar() {
               </div>
 
               {/* Drawer Footer: Desk Utilities Tray & Micro Note */}
-              <div className="p-2.5 bg-[#F4EFE6]/90 dark:bg-[#11161F] border-t-2 border-[#1A1A1A]/20 dark:border-white/15 flex flex-col gap-2 shrink-0">
-                <div className="flex items-center justify-between gap-1.5 p-1 rounded-lg border-2 border-[#1A1A1A] dark:border-[#3E4A5C] bg-white dark:bg-[#18212D] shadow-[2px_2px_0px_#1A1A1A] dark:shadow-[2px_2px_0px_#0A0D12]">
+              <div className="p-2.5 bg-[#EBE3D3]/90 dark:bg-[#11161F] border-t-2 border-[var(--border-paper)]/20 dark:border-white/15 flex flex-col gap-2 shrink-0">
+                <div className="flex items-center justify-between gap-1.5 p-1 rounded-lg border-2 border-[var(--border-paper)] dark:border-[#3E4A5C] bg-[var(--surface-card)] dark:bg-[#18212D] shadow-[2px_2px_0px_var(--shadow-anchor)] dark:shadow-[2px_2px_0px_#0A0D12]">
                   <button
                     onClick={() => {
                       setIsOpen(false);
                       setIsSearchOpen(true);
                     }}
-                    className="flex-1 flex items-center justify-center gap-1.5 px-2 py-1 rounded-md border-2 border-[#1A1A1A] dark:border-[#4B5565] bg-white dark:bg-[#18212D] text-[#1A1A1A] dark:text-[#F3EFE6] shadow-[1.5px_1.5px_0px_#1A1A1A] hover:-translate-y-0.5 active:translate-y-0.5 transition-all cursor-pointer"
+                    className="flex-1 flex items-center justify-center gap-1.5 px-2 py-1 rounded-md border-2 border-[var(--border-paper)] dark:border-[#4B5565] bg-[var(--surface-subtle)] dark:bg-[#18212D] text-[var(--ink-primary)] dark:text-[#F3EFE6] shadow-[1.5px_1.5px_0px_var(--shadow-anchor)] hover:-translate-y-0.5 active:translate-y-0.5 transition-all cursor-pointer"
                     title={dict.nav.searchPlaceholder}
                   >
                     <Search className="w-3.5 h-3.5 text-[var(--accent-terracotta)]" />
@@ -149,10 +149,10 @@ export function MobileBookEdgeSidebar() {
             <div
               className={cn(
                 "relative z-20 w-10 sm:w-11 shrink-0 flex flex-col items-center justify-between py-5 px-1",
-                "bg-[#1E2734] text-[#FDF1CC] border-y-2 border-[#1A1A1A] dark:border-[#3A4556]",
+                "bg-[#1E2734] text-[#FDF1CC] border-y-2 border-[var(--border-paper)] dark:border-[#3A4556]",
                 isArabic
-                  ? "border-s-2 border-e-0 shadow-[-3px_0px_0px_#1A1A1A]"
-                  : "border-e-2 border-s-0 shadow-[3px_0px_0px_#1A1A1A]"
+                  ? "border-s-2 border-e-0 shadow-[-3px_0px_0px_var(--shadow-anchor)]"
+                  : "border-e-2 border-s-0 shadow-[3px_0px_0px_var(--shadow-anchor)]"
               )}
             >
               <div

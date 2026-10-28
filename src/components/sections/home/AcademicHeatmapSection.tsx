@@ -30,7 +30,7 @@ export function AcademicHeatmapSection() {
   };
 
   return (
-    <section className="relative p-6 sm:p-8 rounded-xl border-2 border-[var(--border-paper)] bg-[var(--surface-card)] shadow-[3px_3px_0px_#1A1A1A] select-none">
+    <section className="relative p-6 sm:p-8 rounded-xl border-2 border-[var(--border-paper)] bg-[var(--surface-card)] shadow-[3px_3px_0px_var(--shadow-anchor)] select-none">
       <div className="flex flex-wrap items-baseline justify-between gap-4 mb-4">
         <div>
           <h2 className="font-serif text-2xl sm:text-3xl font-black text-[var(--ink-primary)]">

@@ -8,7 +8,7 @@ import {
   NODE_DEFS,
   accentBadgeColors,
   ConstellationNodeDef,
-} from "./orbit/orbitConfig";
+} from "./orbitConfig";
 
 export function ConstellationOrbit({ isArabic = false }: { isArabic?: boolean }) {
   const { dict } = useLanguage();
@@ -71,21 +71,21 @@ export function ConstellationOrbit({ isArabic = false }: { isArabic?: boolean })
         <div
           className={cn(
             "relative flex flex-col items-center justify-center text-center p-2.5 sm:p-3 rounded-full border-2 transition-all duration-300",
-            "bg-[#FFFDF9] dark:bg-[#18212D] text-[#1A1A1A] dark:text-[#F9F7F1]",
+            "bg-[#FAF6EE] dark:bg-[#18212D] text-[var(--ink-primary)] dark:text-[#F9F7F1]",
             "w-22 h-22 sm:w-28 sm:h-28",
             activeId
-              ? "border-[#B93815] dark:border-[#E86A46] scale-105 shadow-[4px_4px_0px_#1A1A1A] dark:shadow-[4px_4px_0px_#0A0D12]"
-              : "border-[#1A1A1A] dark:border-[#3E4A5C] shadow-[3.5px_3.5px_0px_#1A1A1A] dark:shadow-[3.5px_3.5px_0px_#0A0D12]"
+              ? "border-[#B93815] dark:border-[#E86A46] scale-105 shadow-[4px_4px_0px_var(--shadow-anchor)] dark:shadow-[4px_4px_0px_#0A0D12]"
+              : "border-[var(--border-paper)] dark:border-[#3E4A5C] shadow-[3.5px_3.5px_0px_var(--shadow-anchor)] dark:shadow-[3.5px_3.5px_0px_#0A0D12]"
           )}
         >
           <div className="absolute inset-1.5 rounded-full border border-dashed border-[#B93815]/30 dark:border-amber-400/40 pointer-events-none" />
           <span className="font-mono text-[7px] sm:text-[8px] font-black uppercase tracking-widest text-[#B93815] dark:text-[#FCD34D]">
             {activeId ? "ACTIVE" : "CORE HUB"}
           </span>
-          <span className="font-serif text-[11px] sm:text-xs font-black text-[#1A1A1A] dark:text-[#F9F7F1] leading-snug max-w-[80px] sm:max-w-[95px] mt-0.5 line-clamp-2 px-1">
+          <span className="font-serif text-[11px] sm:text-xs font-black text-[var(--ink-primary)] dark:text-[#F9F7F1] leading-snug max-w-[80px] sm:max-w-[95px] mt-0.5 line-clamp-2 px-1">
             {activeId ? dict.hero.orbitNodes[activeId].title : "StudySync"}
           </span>
-          <span className="font-mono text-[7px] sm:text-[8px] text-[#5A564F] dark:text-[#CBD5E1] mt-0.5 leading-none line-clamp-1 max-w-[75px] sm:max-w-[85px]">
+          <span className="font-mono text-[7px] sm:text-[8px] text-[var(--ink-muted)] dark:text-[#CBD5E1] mt-0.5 leading-none line-clamp-1 max-w-[75px] sm:max-w-[85px]">
             {activeId ? dict.hero.orbitNodes[activeId].tag : dict.hero.orbitNodes.coreSub}
           </span>
         </div>
@@ -128,12 +128,12 @@ export function ConstellationOrbit({ isArabic = false }: { isArabic?: boolean })
               <div
                 className={cn(
                   "group relative flex items-center gap-1.5 sm:gap-2 p-1.5 sm:p-2 rounded-lg border-2 transition-all duration-200",
-                  "bg-white dark:bg-[#18212D] text-[#1A1A1A] dark:text-[#F9F7F1]",
+                  "bg-[var(--surface-card)] dark:bg-[#18212D] text-[var(--ink-primary)] dark:text-[#F9F7F1]",
                   "w-[115px] sm:w-[145px]",
                   node.rotation,
                   isHovered
-                    ? "scale-105 rotate-0 border-[var(--accent-terracotta)] shadow-[3px_3px_0px_#1A1A1A] dark:shadow-[3px_3px_0px_#0A0D12]"
-                    : "border-[#1A1A1A] dark:border-[#3E4A5C] shadow-[2px_2px_0px_#1A1A1A] dark:shadow-[2px_2px_0px_#0A0D12]"
+                    ? "scale-105 rotate-0 border-[var(--accent-terracotta)] shadow-[3px_3px_0px_var(--shadow-anchor)] dark:shadow-[3px_3px_0px_#0A0D12]"
+                    : "border-[var(--border-paper)] dark:border-[#3E4A5C] shadow-[2px_2px_0px_var(--shadow-anchor)] dark:shadow-[2px_2px_0px_#0A0D12]"
                 )}
               >
                 <div
@@ -146,7 +146,7 @@ export function ConstellationOrbit({ isArabic = false }: { isArabic?: boolean })
                 </div>
 
                 <div className="flex flex-col text-start overflow-hidden min-w-0 flex-1">
-                  <span className="font-mono text-[7px] sm:text-[8.5px] font-black uppercase tracking-wider text-[#5A564F] dark:text-[var(--ink-muted)] leading-tight truncate">
+                  <span className="font-mono text-[7px] sm:text-[8.5px] font-black uppercase tracking-wider text-[var(--ink-muted)] leading-tight truncate">
                     {nodeData.tag}
                   </span>
                   <span className="text-[9.5px] sm:text-[11px] font-bold leading-tight font-sans line-clamp-2 mt-0.5">
@@ -161,14 +161,14 @@ export function ConstellationOrbit({ isArabic = false }: { isArabic?: boolean })
               <div
                 className={cn(
                   "absolute z-50 w-44 sm:w-52 p-2 sm:p-2.5 rounded-lg text-center pointer-events-none",
-                  "bg-white dark:bg-[#151B24] text-[#1A1A1A] dark:text-[#F9F7F1]",
-                  "border-2 border-[#1A1A1A] dark:border-[var(--accent-terracotta)] shadow-[3px_3px_0px_#1A1A1A] dark:shadow-[3px_3px_0px_#0A0D12]",
+                  "bg-[var(--surface-card)] dark:bg-[#151B24] text-[var(--ink-primary)] dark:text-[#F9F7F1]",
+                  "border-2 border-[var(--border-paper)] dark:border-[var(--accent-terracotta)] shadow-[3px_3px_0px_var(--shadow-anchor)] dark:shadow-[3px_3px_0px_#0A0D12]",
                   "text-[10px] sm:text-[11px] font-mono",
                   tooltipVertical,
                   tooltipHorizontal
                 )}
               >
-                <div className="flex items-center justify-center gap-1.5 text-[#1A1A1A] dark:text-[#FCD34D] font-bold leading-snug">
+                <div className="flex items-center justify-center gap-1.5 text-[var(--ink-primary)] dark:text-[#FCD34D] font-bold leading-snug">
                   <CheckCircle2 className="w-3.5 h-3.5 text-[#2E6F40] dark:text-[#34D399] shrink-0" />
                   <span className="whitespace-normal">{nodeData.metric}</span>
                 </div>

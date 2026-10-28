@@ -6,7 +6,7 @@ import { BookOpen, ShieldCheck, Sparkles } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 
 export function Footer() {
-  const { dict, language } = useLanguage();
+  const { dict } = useLanguage();
 
   return (
     <footer className="mt-20 border-t border-[var(--border-stone)] bg-[var(--surface-card)] py-12">
@@ -29,7 +29,7 @@ export function Footer() {
           <div className="md:col-span-7 flex flex-wrap gap-8 justify-start md:justify-end text-xs font-semibold">
             <div className="space-y-2">
               <div className="font-mono text-[10px] uppercase text-[var(--ink-muted)]">
-                {language === "ar" ? "أقسام المنظومة" : "Prospectus Pages"}
+                {dict.footer.prospectus}
               </div>
               <ul className="space-y-1.5 text-[var(--ink-secondary)]">
                 <li><Link href="/" className="hover:text-[var(--ink-primary)]">Home</Link></li>
@@ -40,7 +40,7 @@ export function Footer() {
 
             <div className="space-y-1.5">
               <div className="font-mono text-[10px] uppercase text-[var(--ink-muted)]">
-                {language === "ar" ? "الذكاء والميثاق" : "Governance"}
+                {dict.footer.governance}
               </div>
               <ul className="space-y-1.5 text-[var(--ink-secondary)]">
                 <li><Link href="/intelligence" className="hover:text-[var(--ink-primary)]">AI Engine</Link></li>
@@ -56,7 +56,7 @@ export function Footer() {
           <div className="flex items-center gap-3">
             <span className="flex items-center gap-1">
               <ShieldCheck className="w-3.5 h-3.5 text-[var(--accent-sage)]" />
-              {language === "ar" ? "خصوصية أكاديمية صارمة" : "Zero-Knowledge Vault"}
+              {dict.footer.vaultBadge}
             </span>
           </div>
         </div>

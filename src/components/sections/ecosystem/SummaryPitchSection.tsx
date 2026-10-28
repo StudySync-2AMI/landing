@@ -2,10 +2,7 @@
 
 import React from "react";
 import { useLanguage } from "@/context/LanguageContext";
-import { SectionHeader } from "@/ui/SectionHeader";
-import { NotebookCard } from "@/ui/NotebookCard";
-import { StickyNote } from "@/ui/StickyNote";
-import { StampBadge } from "@/ui/StampBadge";
+import { SectionHeader, NotebookCard, StickyNote, StampBadge } from "@/ui";
 import { BookMarked, Sparkles, CheckCheck, Award } from "lucide-react";
 
 export function SummaryPitchSection() {

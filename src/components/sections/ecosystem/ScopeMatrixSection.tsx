@@ -2,9 +2,7 @@
 
 import React, { useState } from "react";
 import { useLanguage } from "@/context/LanguageContext";
-import { SectionHeader } from "@/ui/SectionHeader";
-import { NotebookCard } from "@/ui/NotebookCard";
-import { StampBadge } from "@/ui/StampBadge";
+import { SectionHeader, NotebookCard, StampBadge } from "@/ui";
 import { Check, Layers, Filter } from "lucide-react";
 
 export function ScopeMatrixSection() {

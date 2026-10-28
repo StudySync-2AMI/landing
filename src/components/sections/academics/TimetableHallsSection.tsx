@@ -2,9 +2,7 @@
 
 import React from "react";
 import { useLanguage } from "@/context/LanguageContext";
-import { SectionHeader } from "@/ui/SectionHeader";
-import { NotebookCard } from "@/ui/NotebookCard";
-import { StickyNote } from "@/ui/StickyNote";
+import { SectionHeader, NotebookCard, StickyNote } from "@/ui";
 import { CalendarRange, Building2, Users2, CheckCircle2 } from "lucide-react";
 
 export function TimetableHallsSection() {

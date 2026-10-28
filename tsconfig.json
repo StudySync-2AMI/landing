@@ -20,7 +20,16 @@
     ],
     "paths": {
       "@/*": ["./src/*"],
-      "@/ui/*": ["./src/components/ui/*"],
+      "@/ui": ["./src/components/ui"],
+      "@/ui/*": [
+        "./src/components/ui/*",
+        "./src/components/ui/headers/*",
+        "./src/components/ui/fasteners/*",
+        "./src/components/ui/paper/*",
+        "./src/components/ui/annotations/*",
+        "./src/components/ui/navigation/*",
+        "./src/components/ui/orbit/*"
+      ],
       "@/layout/*": ["./src/components/layout/*"],
       "@/sections/*": ["./src/components/sections/*"]
     }

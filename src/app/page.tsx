@@ -16,7 +16,7 @@ import { ChaptersDirectorySection } from "@/components/sections/home/ChaptersDir
 
 export function HomePage() {
   return (
-    <div className="min-h-screen flex flex-col bg-[var(--bg-paper)] text-[var(--ink-primary)] selection:bg-[#FDF1CC] selection:text-[#1A1A1A] paper-grain-overlay">
+    <div className="min-h-screen flex flex-col bg-[var(--bg-paper)] text-[var(--ink-primary)] selection:bg-[#FAF0CB] selection:text-[#28231D] paper-grain-overlay">
       <Header />
 
       {/* FULLSCREEN IMMERSIVE EDITORIAL SCRAPBOOK CANVAS */}
