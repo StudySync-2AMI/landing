@@ -3,10 +3,12 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { LogIn, UserPlus, ShieldCheck, Building, CheckCircle2 } from "lucide-react";
+import { LogIn, UserPlus, Building, CheckCircle2 } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
+import { useAuth } from "@/context/AuthContext";
 import { Tape, PaperClip, ArchivalStamp, CornerPointer } from "@/ui";
 import { AuthFormFields } from "./AuthFormFields";
+import { ActiveScholarCard } from "./ActiveScholarCard";
 
 interface AuthDossierSectionProps {
   initialMode?: "signin" | "signup";
@@ -15,17 +17,13 @@ interface AuthDossierSectionProps {
 export function AuthDossierSection({ initialMode = "signin" }: AuthDossierSectionProps) {
   const router = useRouter();
   const { dict } = useLanguage();
-  const [mode, setMode] = useState<"signin" | "signup">(initialMode);
+  const { isAuthenticated, signIn, signUp } = useAuth();
+  const [mode] = useState<"signin" | "signup">(initialMode);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [successMsg, setSuccessMsg] = useState("");
 
   const [formState, setFormState] = useState({
-    email: "",
-    password: "",
-    fullName: "",
-    role: "student",
-    faculty: "",
-    rememberMe: true,
+    email: "", password: "", fullName: "", role: "student", faculty: "", rememberMe: true,
   });
 
   const handleFieldChange = (field: string, value: any) => {
@@ -36,6 +34,21 @@ export function AuthDossierSection({ initialMode = "signin" }: AuthDossierSectio
     e.preventDefault();
     setIsSubmitting(true);
     setTimeout(() => {
+      if (mode === "signin") {
+        signIn(
+          formState.email || "scholar@studysync.edu",
+          formState.fullName || dict.auth.demoName,
+          formState.role as any,
+          formState.faculty || dict.auth.demoFaculty
+        );
+      } else {
+        signUp(
+          formState.fullName || "New Matriculated Scholar",
+          formState.email || "scholar@studysync.edu",
+          formState.role as any,
+          formState.faculty || dict.auth.demoFaculty
+        );
+      }
       setIsSubmitting(false);
       setSuccessMsg(
         mode === "signin"
@@ -44,24 +57,25 @@ export function AuthDossierSection({ initialMode = "signin" }: AuthDossierSectio
       );
       setTimeout(() => {
         router.push("/");
-      }, 1400);
-    }, 800);
+      }, 1000);
+    }, 700);
   };
 
   const handleDemoSignIn = () => {
-    setFormState({
-      email: "demo.scholar@studysync.edu",
-      password: "••••••••••••",
-      fullName: dict.auth.demoName,
-      role: "student",
-      faculty: dict.auth.demoFaculty,
-      rememberMe: true,
-    });
+    signIn();
     setSuccessMsg(dict.auth.toastSignInSuccess);
     setTimeout(() => {
       router.push("/");
-    }, 1200);
+    }, 900);
   };
+
+  if (isAuthenticated) {
+    return (
+      <section className="relative w-full max-w-2xl mx-auto py-6 sm:py-10">
+        <ActiveScholarCard />
+      </section>
+    );
+  }
 
   return (
     <section className="relative w-full max-w-2xl mx-auto py-6 sm:py-10">
@@ -135,22 +149,17 @@ export function AuthDossierSection({ initialMode = "signin" }: AuthDossierSectio
             disabled={isSubmitting}
             className="w-full py-2.5 sm:py-3 px-4 rounded-md border-2 border-[#B84224] dark:border-[#FF8A65] bg-[#B84224] dark:bg-[#E86A46] text-[#FFF6E9] font-mono text-xs sm:text-sm font-black uppercase tracking-wider shadow-[3px_3px_0px_var(--shadow-anchor)] dark:shadow-[3px_3px_0px_#0A0D12] hover:-translate-y-0.5 active:translate-y-0.5 transition-all cursor-pointer disabled:opacity-50"
           >
-            {isSubmitting
-              ? "⏳ INSCRIBING..."
-              : mode === "signin"
-              ? dict.auth.signInSubmit
-              : dict.auth.signUpSubmit}
+            {isSubmitting ? "⏳ INSCRIBING..." : mode === "signin" ? dict.auth.signInSubmit : dict.auth.signUpSubmit}
           </button>
         </form>
 
         {/* Institutional SSO & Demo Options */}
-        <div className="mt-6 pt-5 border-t-2 border-dashed border-[var(--border-paper)]/25 dark:border-white/10 space-y-3">
+        <div className="mt-6 pt-5 border-t-2 border-dashed border-[var(--border-paper)]/25 dark:border-white/10 space-y-2.5">
           <div className="flex items-center justify-center">
             <span className="px-3 font-mono text-[9px] sm:text-[10px] font-black uppercase text-[var(--ink-muted)]">
               {dict.auth.orInstitutional}
             </span>
           </div>
-
           <button
             type="button"
             onClick={handleDemoSignIn}
@@ -159,7 +168,6 @@ export function AuthDossierSection({ initialMode = "signin" }: AuthDossierSectio
             <Building className="w-3.5 h-3.5 text-[var(--accent-terracotta)]" />
             <span>{dict.auth.ssoButton}</span>
           </button>
-
           <button
             type="button"
             onClick={handleDemoSignIn}

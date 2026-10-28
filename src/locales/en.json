@@ -25,7 +25,11 @@
     "signIn": "Sign In",
     "signUp": "Register",
     "authButton": "Sign In / Register",
-    "readerPass": "Reader Pass"
+    "readerPass": "Reader Pass",
+    "scholarBadge": "Active Scholar",
+    "signOut": "Relinquish Session",
+    "myDossier": "Scholar Dossier",
+    "scholarIdPrefix": "ID: "
   },
   "hero": {
     "greeting": "hello, we are",
@@ -864,6 +868,16 @@
     "toastSignInSuccess": "Matriculation Verified. Opening Student Dossier...",
     "toastSignUpSuccess": "Matriculation Form Inscribed. Welcome to the StudySync Atelier!",
     "demoName": "Tariq Al-Mansour",
-    "demoFaculty": "College of Computing & AI"
+    "demoFaculty": "College of Computing & AI",
+    "activeSession": "ACTIVE SCHOLAR SESSION",
+    "activeTitle": "Active Scholar Dossier Detected",
+    "activeSubtitle": "You are currently inscribed and verified in the StudySync academic ledger.",
+    "scholarId": "SCHOLAR ID",
+    "scholarRole": "AFFILIATION",
+    "facultyDept": "FACULTY / DEPT",
+    "statusVerified": "★ OFFICIALLY MATRICULATED",
+    "returnHub": "↵ Return to Study Desk",
+    "signOut": "Relinquish Desk Session",
+    "switchAccount": "Sign In with Different ID →"
   }
 }

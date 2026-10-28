@@ -7,11 +7,12 @@ import { useLanguage } from "@/context/LanguageContext";
 import { cn } from "@/lib/utils";
 import { BOOKMARKS } from "./BookmarkRibbonNav";
 import { MobileRibbonItem } from "./MobileRibbonItem";
+import { MobileScholarDocket } from "./MobileScholarDocket";
 import { CornerPointer } from "../annotations/pointers/CornerPointer";
 import { ThemeToggle } from "@/components/layout/ThemeToggle";
 import { LanguageToggle } from "@/components/layout/LanguageToggle";
 import { SearchModal } from "@/components/layout/SearchModal";
-import { ChevronLeft, ChevronRight, X, Search, LogIn, UserPlus } from "lucide-react";
+import { ChevronLeft, ChevronRight, X, Search } from "lucide-react";
 
 export function MobileBookEdgeSidebar() {
   const pathname = usePathname();
@@ -121,33 +122,8 @@ export function MobileBookEdgeSidebar() {
 
               {/* Drawer Footer: Desk Utilities Tray & Micro Note */}
               <div className="p-2.5 bg-[#EBE3D3]/90 dark:bg-[#11161F] border-t-2 border-[var(--border-paper)]/20 dark:border-white/15 flex flex-col gap-2 shrink-0">
-                {/* Two Distinct Archival Scholar Passes (Sign In & Register) */}
-                <div className="flex flex-col gap-1.5 p-2 rounded-lg border-2 border-[var(--border-paper)] dark:border-[#3E4A5C] bg-[var(--surface-card)] dark:bg-[#18212D] shadow-[2px_2px_0px_var(--shadow-anchor)] dark:shadow-[2px_2px_0px_#0A0D12]">
-                  <div className="flex items-center justify-between text-[9px] font-mono font-black text-[var(--ink-muted)] uppercase tracking-wider px-0.5">
-                    <span>{dict.sidebar.readerFolio}</span>
-                    <span className="text-[var(--accent-terracotta)]">CAT.AUTH</span>
-                  </div>
-
-                  <div className="grid grid-cols-2 gap-1.5">
-                    <Link
-                      href="/signin"
-                      onClick={() => setIsOpen(false)}
-                      className="flex items-center justify-center gap-1.5 py-1.5 px-2 rounded border border-[var(--border-paper)] dark:border-[#4B5565] bg-[var(--surface-subtle)] dark:bg-[#141B24] text-[var(--ink-primary)] font-mono text-[11px] font-bold shadow-[1px_1px_0px_var(--shadow-anchor)] hover:-translate-y-0.5 active:translate-y-0.5 transition-all text-center"
-                    >
-                      <LogIn className="w-3 h-3 text-[var(--accent-terracotta)] shrink-0" />
-                      <span className="truncate">{dict.nav.signIn}</span>
-                    </Link>
-
-                    <Link
-                      href="/signup"
-                      onClick={() => setIsOpen(false)}
-                      className="flex items-center justify-center gap-1.5 py-1.5 px-2 rounded border border-[#B84224] dark:border-[#FF8A65] bg-[#B84224] dark:bg-[#E86A46] text-[#FFF6E9] font-mono text-[11px] font-black shadow-[1px_1px_0px_var(--shadow-anchor)] hover:-translate-y-0.5 active:translate-y-0.5 transition-all text-center"
-                    >
-                      <UserPlus className="w-3 h-3 shrink-0" />
-                      <span className="truncate">{dict.nav.signUp}</span>
-                    </Link>
-                  </div>
-                </div>
+                {/* Authentic Scholar Pass (Signed In or Out state) */}
+                <MobileScholarDocket onClose={() => setIsOpen(false)} />
 
                 <div className="flex items-center justify-between gap-1.5 p-1 rounded-lg border-2 border-[var(--border-paper)] dark:border-[#3E4A5C] bg-[var(--surface-card)] dark:bg-[#18212D] shadow-[2px_2px_0px_var(--shadow-anchor)] dark:shadow-[2px_2px_0px_#0A0D12]">
                   <button

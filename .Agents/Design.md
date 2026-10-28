@@ -228,14 +228,34 @@ Authentication in StudySync strictly rejects generic white floating popups and s
 ### 4. Desk Navigation Entrypoints (Anti-Generic Tactile Stationery)
 Generic web buttons (`<button className="bg-blue-500 rounded-md">`) are strictly prohibited in the navigation bar. Authentication entries must look like physical paper tickets resting on the desk binder:
 
-- **Desktop Navbar Unified Sticker Container (`<ScholarDeskTickets />`)**:
-  - Both authentication actions are housed in a **Single Unified Perforated Paper Sticker Container** (`border-2 border-[var(--border-paper)] bg-[var(--surface-card)] shadow-[2.5px_2.5px_0px_var(--shadow-anchor)] -rotate-1 hover:rotate-0`).
-  - Pinned on the top with a miniature **polygon-clipped washi tape strip** (`bg-[#FAF0CB]/95 border-y border-amber-600/35`).
-  - Divided down the middle by an authentic **vertical dashed perforated receipt line** with top and bottom circular punch notches (`rounded-full bg-[var(--bg-paper)]`).
-  - **Left Half (`Sign In`)**: Routes to `/signin` with ivory paper styling and terracotta login glyph.
-  - **Right Half (`Register`)**: Routes to `/signup` with terracotta tinted paper (`bg-[#FAF0CB]/70 dark:bg-[#281D1A]/80 text-[#B84224] dark:text-[#FF8A65]`) and user-plus glyph.
-  - Zero gap, ultra-compact (~145px total width), guaranteeing **zero wrapping or horizontal overflow** on any screen size.
+- **Desktop Navbar Vertical Two-Tier Docket with Overflowing Bookmark Ribbon (`<ScholarDeskTickets />`)**:
+  - **Unauthenticated State**: An authentic vertical accession ticket docket (`w-[96px] h-[38px] sm:h-[40px]`):
+    - **Rich Stationery Color Hierarchy**: Neither button is dull or grey; both use curated academic inks:
+      - **Top Tier (`01. Sign In`)**: Oxford Navy ink (`text-[#234575] dark:text-[#88B2F8]`) with matching login glyph. Active state triggers an ink wash (`bg-[#234575]/15 dark:bg-[#234575]/35 font-black`).
+      - **Bottom Tier (`02. Register`)**: Terracotta seal ink (`text-[#B93815] dark:text-[#FF8A65]`) with matching user-plus glyph. Active state triggers a warm terracotta wash (`bg-[#B93815]/15 dark:bg-[#B93815]/35 font-black`).
+    - **Perforated Receipt Cut Line**: Centered dashed line with circular punched notches on both outer edges.
+    - **Overflowing Silk Bookmark Ribbon (Layered Beneath Docket)**: Just like the hanging chapter bookmarks in the center navbar, an authentic silk bookmark ribbon (`w-9 h-9 sm:h-10`) with a swallowtail cut tip and shadow is layered **beneath/behind the ticket docket card** (`z-0` underneath the card's `z-10` in an isolated stacking context), emerging from underneath and **overflowing past the bottom border of the navbar** onto the page canvas:
+      - On `/signin`: Glides to `start-2.5` as an Oxford Navy ribbon (`bg-[#234575] dark:bg-[#325A96] text-[#EBF3FF]`) stamped with `01 // IN`.
+      - On `/signup`: Glides across to `start-[50px]` as a Terracotta silk ribbon (`bg-[#D97736] dark:bg-[#C06020] text-[#FFF6E9]`) stamped with `02 // REG`.
+      - On general chapters: Smoothly retracts out of sight completely beneath/behind the docket.
+  - **Authenticated State**: An archival **Vertical Scholar Reader Pass Badge**:
+    - Calibrated to the exact same `38px`/`40px` navbar height profile.
+    - Anchored by a miniature brass bulldog clip on the top edge.
+    - Features initial avatar with live matriculation pulse light, two-line scholar legal meta, and verification star stamp (`★`).
+    - Interactive popover styled as an archival manila folder docket with tab cutout, faculty details, link to dossier vault (`/privacy`), and session termination action (`Sign Out`).
 - **Mobile Book Edge Sidebar (`MobileBookEdgeSidebar.tsx`)**: In the book edge drawer, an authentic **Scholar Folio Docket (`CAT.AUTH`)** houses two side-by-side balanced tiles:
   - `Sign In` (`/signin`): Framed archival library pass on `var(--surface-subtle)` with login glyph.
   - `Register` (`/signup`): Terracotta matriculation seal on `bg-[#B84224] dark:bg-[#E86A46]` with user-plus glyph.
 - **Dedicated Routes**: `/signin` and `/signup` are distinct, first-class routes with bespoke archival page headers (`AUTH-SIGN-01` & `AUTH-MAT-02`) and bi-directional folder tab navigation.
+
+### 5. Authenticated Scholar State (Active Reader Dossier)
+When a scholar is signed in or matriculated, the interface transforms from an accession ticket dispenser into an authentic active reader folio:
+- **Navbar Matriculated Scholar Badge (`<ScholarDeskTickets />`)**:
+  - Replaces the unauthenticated slips with the physical **Vertical Hanging Reader Pass Badge** anchored by a brass bulldog clip and manila folder popover.
+- **Mobile Book Edge Drawer (`<MobileScholarDocket />`)**:
+  - Automatically switches from dual tickets to an archival **Active Scholar Profile Tile**:
+    - Live pulse indicator with scholar name and `★ VERIFIED` archival mark.
+    - Scholar ID display with quick action buttons to access their scholar vault or relinquish the session.
+- **Auth Routes (`/signin` & `/signup`) with Active Session (`<ActiveScholarCard />`)**:
+  - If an authenticated scholar visits `/signin` or `/signup`, the system reveals their **Active Scholar Dossier Detected** card with physical washi tape, brass paperclip, and a distressed green archival stamp (`★ OFFICIALLY MATRICULATED`).
+  - Provides a single-click return path to the study desk (`↵ Return to Study Desk`) or an option to relinquish/switch scholar session.

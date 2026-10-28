@@ -74,9 +74,6 @@ export function Header() {
 
           {/* Right: Authentic Scrapbook Desk Utilities + Scholar Access Docket */}
           <div className="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
-            {/* Desktop Two-Ticket Scholar Access Docket (Sign In & Sign Up) */}
-            <ScholarDeskTickets className="hidden sm:flex" />
-
             {/* Authentic Scrapbook Desk Utilities Pen Tray (Clean & Proportionate) */}
             <div className="relative flex items-center gap-1.5 sm:gap-2 p-1 sm:p-1.5 rounded-lg border-2 border-[var(--border-paper)] dark:border-[#3E4A5C] bg-[var(--surface-subtle)] dark:bg-[#141B24] shadow-[2.5px_2.5px_0px_var(--shadow-anchor)] sm:shadow-[3px_3px_0px_var(--shadow-anchor)] dark:shadow-[2.5px_2.5px_0px_#0A0D12] sm:dark:shadow-[3px_3px_0px_#0A0D12]">
               {/* Mini Washi Tape corner on the utility dock */}
@@ -105,6 +102,9 @@ export function Header() {
               {/* Archival Registrar Postmark Language Toggle */}
               <LanguageToggle />
             </div>
+
+            {/* Desktop Two-Ticket Scholar Access Docket (Sign In & Sign Up) */}
+            <ScholarDeskTickets className="hidden sm:flex" />
           </div>
         </div>
       </header>
